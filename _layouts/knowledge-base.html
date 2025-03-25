@@ -1,0 +1,40 @@
+---
+layout: default
+dark_theme: true
+---
+
+<div class="kb">
+
+	<section class="kb-hero">
+		<div class="kb-wrap">
+			<h1 class="kb-hero__title">{{ page.title }}</h1>
+			<p class="kb-hero__subtitle">{{ page.subtitle }}</p>
+		</div>
+	</section>
+
+	{% for section in page.sections %}
+	<section class="kb-section">
+		<div class="kb-wrap">
+			<h2 class="kb-section__heading">{{ section.title }}</h2>
+			<div class="kb-grid">
+				{% for post in site.posts reversed %}
+				{% if post.categories contains section.category %}
+				<a class="kb-card" href="{{ post.url | relative_url }}">
+					<div class="kb-card__image">
+						<img src="{{ post.featured_image | relative_url }}" alt="{{ post.title }}">
+					</div>
+					<div class="kb-card__body">
+						<span class="kb-card__category">{{ section.title }}</span>
+						<h3 class="kb-card__title">{{ post.title }}</h3>
+						<p class="kb-card__subtitle">{{ post.subtitle }}</p>
+						<span class="kb-card__date">{{ post.date | date: "%b %d, %Y" }}</span>
+					</div>
+				</a>
+				{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+	{% endfor %}
+
+</div>

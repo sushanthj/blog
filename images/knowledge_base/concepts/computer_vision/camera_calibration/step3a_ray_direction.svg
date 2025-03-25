@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 190">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="420" y="26" font-family="sans-serif" font-size="15" font-weight="bold" fill="#333" text-anchor="middle">Step 3a — Image Plane → Ray Direction (Unknown Depth)</text>
+
+  <!-- Box 1: Image Plane -->
+  <rect x="15" y="44" width="148" height="58" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="89" y="67" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b45309" text-anchor="middle">Image Plane (z=1)</text>
+  <text x="89" y="88" font-family="monospace" font-size="12" fill="#333" text-anchor="middle">(x_n, y_n)</text>
+
+  <!-- Arrow 1: extend -->
+  <line x1="163" y1="73" x2="207" y2="73" stroke="#666" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="185" y="66" font-family="monospace" font-size="9" fill="#555" text-anchor="middle">extend</text>
+
+  <!-- Box 2: Ray in Camera Frame -->
+  <rect x="212" y="44" width="210" height="58" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="317" y="67" font-family="sans-serif" font-size="11" font-weight="bold" fill="#15803d" text-anchor="middle">Ray (Camera Frame)</text>
+  <text x="317" y="88" font-family="monospace" font-size="11" fill="#333" text-anchor="middle">r_cam = [x_n, y_n, 1]</text>
+
+  <!-- Arrow 2: R @ -->
+  <line x1="422" y1="73" x2="463" y2="73" stroke="#666" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="442" y="66" font-family="monospace" font-size="10" fill="#555" text-anchor="middle">R @</text>
+
+  <!-- Box 3: Ray in World Frame -->
+  <rect x="468" y="44" width="357" height="58" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="646" y="64" font-family="sans-serif" font-size="11" font-weight="bold" fill="#6d28d9" text-anchor="middle">Ray (World Frame)</text>
+  <text x="646" y="81" font-family="monospace" font-size="10" fill="#333" text-anchor="middle">r_world = R @ [x_n, y_n, 1]</text>
+  <text x="646" y="96" font-family="monospace" font-size="9" fill="#888" text-anchor="middle">origin: C = -R.T @ t</text>
+
+  <!-- Divider -->
+  <line x1="20" y1="118" x2="820" y2="118" stroke="#ddd" stroke-width="1"/>
+
+  <!-- Note -->
+  <text x="420" y="140" font-family="sans-serif" font-size="12" fill="#444" text-anchor="middle">Full 3D ray:   P = C + λ · r_world,   λ &gt; 0</text>
+  <text x="420" y="160" font-family="sans-serif" font-size="11" fill="#888" text-anchor="middle" font-style="italic">Without depth, only the ray direction is known — the 3D point is underdetermined</text>
+</svg>

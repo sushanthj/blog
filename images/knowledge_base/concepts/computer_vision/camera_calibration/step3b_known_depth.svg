@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 205">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666"/>
+    </marker>
+    <marker id="arr-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="26" font-family="sans-serif" font-size="15" font-weight="bold" fill="#333" text-anchor="middle">Step 3b — Image Plane → 3D Point (Known Depth Z_c)</text>
+
+  <!-- Z_c input (drops down onto the arrow) -->
+  <text x="325" y="48" font-family="monospace" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">Z_c</text>
+  <line x1="325" y1="52" x2="325" y2="68" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-red)"/>
+
+  <!-- Box 1: Image Plane -->
+  <rect x="15" y="72" width="148" height="58" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="89" y="95" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b45309" text-anchor="middle">Image Plane (z=1)</text>
+  <text x="89" y="116" font-family="monospace" font-size="12" fill="#333" text-anchor="middle">(x_n, y_n)</text>
+
+  <!-- Arrow 1: × Z_c -->
+  <line x1="163" y1="101" x2="207" y2="101" stroke="#666" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="185" y="94" font-family="monospace" font-size="10" fill="#dc2626" font-weight="bold" text-anchor="middle">× Z_c</text>
+
+  <!-- Box 2: Point in Camera Frame -->
+  <rect x="212" y="72" width="275" height="58" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="349" y="95" font-family="sans-serif" font-size="11" font-weight="bold" fill="#15803d" text-anchor="middle">Point (Camera Frame)</text>
+  <text x="349" y="116" font-family="monospace" font-size="10" fill="#333" text-anchor="middle">P_cam = [Z_c·x_n, Z_c·y_n, Z_c]</text>
+
+  <!-- Arrow 2: R.T @ (·-t) -->
+  <line x1="487" y1="101" x2="530" y2="101" stroke="#666" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="508" y="91" font-family="monospace" font-size="9" fill="#555" text-anchor="middle">R.T @</text>
+  <text x="508" y="103" font-family="monospace" font-size="9" fill="#555" text-anchor="middle">(· − t)</text>
+
+  <!-- Box 3: Point in World Frame -->
+  <rect x="535" y="72" width="350" height="58" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="710" y="95" font-family="sans-serif" font-size="11" font-weight="bold" fill="#6d28d9" text-anchor="middle">Point (World Frame)</text>
+  <text x="710" y="113" font-family="monospace" font-size="11" fill="#333" text-anchor="middle">P_world = (X, Y, Z)</text>
+
+  <!-- Divider -->
+  <line x1="20" y1="146" x2="880" y2="146" stroke="#ddd" stroke-width="1"/>
+
+  <!-- Note -->
+  <text x="450" y="167" font-family="sans-serif" font-size="12" fill="#444" text-anchor="middle">P_world = R.T @ (P_cam − t)   where   P_cam = Z_c · [x_n, y_n, 1]</text>
+  <text x="450" y="186" font-family="sans-serif" font-size="11" fill="#888" text-anchor="middle" font-style="italic">Exact inverse of forward Steps 1 + 2</text>
+</svg>
