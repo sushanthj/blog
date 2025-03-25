@@ -1,0 +1,32 @@
+# Jekyll default build folders
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Temporary files and cache
+*.log
+*.lock
+*.tmp
+*.bak
+*.swp
+*~
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Bundler dependencies
+/.bundle
+/vendor/
+Gemfile.lock
+
+# Node modules (if using npm/yarn)
+node_modules/
+
+# Coverage and testing output (if applicable)
+coverage/
+*.lcov
+
+# GitHub Pages (built files pushed to gh-pages branch)
+gh-pages/
