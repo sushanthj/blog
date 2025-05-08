@@ -1,5 +1,5 @@
 basic_settings:
-  site_title: Duet
+  site_title: Sushanth
   favicon_image: /images/favicon.png
 
 header_settings:
@@ -8,19 +8,25 @@ header_settings:
 
 menu_settings:
   menu_items:
-    - title: 'Projects'
-      url: '/'
-    - title: 'Blog'
-      url: '/blog/'
     - title: 'About'
-      url: '/about'
+      url: '/'
+    - title: 'Work'
+      url: '/work'
+    - title: 'Projects'
+      url: '/projects/'
+    - title: 'Food'
+      url: '/food/'
+    - title: 'Travel'
+      url: '/travel/'
+    - title: 'Art'
+      url: '/art/'
     - title: 'Contact'
       url: '/contact'
 
 footer_settings:
-  logo_image: 
-  logo_width: 200
-  footer_tagline: A beautiful, minimal two-column portfolio Jekyll theme
+  logo_image: ''
+  logo_width: 0
+  footer_tagline: ''
 
 grid_settings:
   overlay_opacity: 0.8
