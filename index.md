@@ -2,14 +2,14 @@
 layout: default
 title: About
 description: About Me
-featured_image: /images/social.jpg
+featured_image: ./images/landing_page/sush.jpeg
 ---
 
 <section class="intro">
 	<div class="wrap">
 		<h1>About Me</h1>
 		<p>Hello! I'm Sushanth and I currently work on Computer Vision at Intuitive Surgical.</p>
-		<p>This website is mostly my blog about work, life, food, and travel.</p>
+		<p>This website is a mishmash of work and life setup like a blog.</p>
 	</div>
 </section>
 
