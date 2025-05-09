@@ -1,0 +1,37 @@
+{% assign headers = include.html | split: '<h' %}
+
+{% for header in headers %}
+  {% if header == '' %}
+    {% continue %}
+  {% endif %}
+
+  {% assign headerLevel = header | slice: 0 %}
+  {% assign headerId = header | split: 'id="' | last | split: '"' | first %}
+  {% assign headerText = header | split: '>' | last | split: '</h' | first %}
+
+  {% if headerLevel == '1' %}
+    <ul>
+      <li><a href="#{{ headerId }}">{{ headerText }}</a></li>
+  {% elsif headerLevel == '2' %}
+    <ul>
+      <li><a href="#{{ headerId }}">{{ headerText }}</a></li>
+  {% elsif headerLevel == '3' %}
+    <ul>
+      <li><a href="#{{ headerId }}">{{ headerText }}</a></li>
+  {% elsif headerLevel == '4' %}
+    <ul>
+      <li><a href="#{{ headerId }}">{{ headerText }}</a></li>
+  {% elsif headerLevel == '5' %}
+    <ul>
+      <li><a href="#{{ headerId }}">{{ headerText }}</a></li>
+  {% elsif headerLevel == '6' %}
+    <ul>
+      <li><a href="#{{ headerId }}">{{ headerText }}</a></li>
+  {% endif %}
+
+  {% if forloop.last %}
+    {% for i in (1..6) %}
+      </ul>
+    {% endfor %}
+  {% endif %}
+{% endfor %} 

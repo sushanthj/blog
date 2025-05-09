@@ -1,21 +1,22 @@
 ---
 layout: default
-title: Art
-description: Engineering Art
+title: Travel
+description: Travel adventures and destinations
 featured_image: /images/social.jpg
+permalink: /travel/
 ---
 
 <section class="intro">
 	<div class="wrap">
-		<h1>Art with some Tech</h1>
-		<p>I love 3D printing and using digital art tools. Here's a few cool things I've made!</p>
+		<h1>Travel</h1>
+		<p>Travel adventures and destinations</p>
 	</div>
 </section>
 
 <section class="portfolio">
 	<div class="content-wrap portfolio-wrap">
 		{% for post in site.posts reversed %}
-		{% if post.categories contains 'art' %}
+		{% if post.categories contains 'travel' %}
 		<div class="portfolio-item">
 			<a class="portfolio-item__link" href="{{ post.url | relative_url }}">
 				<div class="portfolio-item__image">

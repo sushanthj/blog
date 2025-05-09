@@ -1,21 +1,22 @@
 ---
 layout: default
-title: Food
-description: Culinary adventures and recipes
+title: Projects
+description: Technical projects and experiments
 featured_image: /images/social.jpg
+permalink: /projects/
 ---
 
 <section class="intro">
 	<div class="wrap">
-		<h1>Food Adventures</h1>
-		<p>Exploring cuisines and sharing recipes from around the world.</p>
+		<h1>Projects</h1>
+		<p>Technical projects, experiments, and things I've built.</p>
 	</div>
 </section>
 
 <section class="portfolio">
 	<div class="content-wrap portfolio-wrap">
 		{% for post in site.posts reversed %}
-		{% if post.categories contains 'food' %}
+		{% if post.categories contains 'projects' %}
 		<div class="portfolio-item">
 			<a class="portfolio-item__link" href="{{ post.url | relative_url }}">
 				<div class="portfolio-item__image">

@@ -2,6 +2,7 @@
 layout: default
 title: Work
 description: My work experience and education
+permalink: /work/
 ---
 
 <section class="intro">

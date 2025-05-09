@@ -33,5 +33,30 @@ featured_image: /images/social.jpg
 <section class="intro">
 	<div class="wrap">
 		<p>Feel free to reach out if you'd like to connect or collaborate on interesting projects!</p>
+		<div class="social-icons">
+			<a href="https://github.com/sushanth" target="_blank" rel="noopener noreferrer">
+				<img src="/images/icons/github.svg" alt="GitHub" width="24" height="24">
+			</a>
+			<a href="mailto:sushanth@example.com">
+				<img src="/images/icons/email.svg" alt="Email" width="24" height="24">
+			</a>
+		</div>
 	</div>
-</section> 
+</section>
+
+<style>
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 16px;
+}
+
+.social-icons a {
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.social-icons a:hover {
+    opacity: 1;
+}
+</style> 

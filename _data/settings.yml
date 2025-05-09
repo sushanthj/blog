@@ -14,14 +14,14 @@ menu_settings:
       url: '/work'
     - title: 'Projects'
       url: '/projects/'
+    - title: 'Knowledge Base'
+      url: '/knowledge-base/'
     - title: 'Food'
       url: '/food/'
     - title: 'Travel'
       url: '/travel/'
     - title: 'Art'
       url: '/art/'
-    - title: 'Contact'
-      url: '/contact'
 
 footer_settings:
   logo_image: ''

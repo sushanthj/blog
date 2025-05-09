@@ -7,7 +7,7 @@ baseurl:
 collections:
   pages:
     output: true
-    permalink: /:name
+    permalink: /:path/
   posts:
     output: true
     permalink: /:categories/:title/
