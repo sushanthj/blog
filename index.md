@@ -16,8 +16,8 @@ featured_image: /images/social.jpg
 <section class="image-section">
 	<div class="wrap">
 		<figure>
-			<img src="/images/landing_page/sush.jpeg" alt="Sushanth" class="full-width">
-			<figcaption class="image-caption">First semester at Pittsburgh</figcaption>
+			<img src="./images/landing_page/sush.jpeg" alt="Sushanth" class="full-width">
+			<figcaption class="image-caption">Pittsburgh!</figcaption>
 		</figure>
 	</div>
 </section>
@@ -35,10 +35,10 @@ featured_image: /images/social.jpg
 		<p>Feel free to reach out if you'd like to connect or collaborate on interesting projects!</p>
 		<div class="social-icons">
 			<a href="https://github.com/sushanth" target="_blank" rel="noopener noreferrer">
-				<img src="/images/icons/github.svg" alt="GitHub" width="24" height="24">
+				<img src="./images/icons/github.svg" alt="GitHub" width="24" height="24">
 			</a>
 			<a href="mailto:sushanth@example.com">
-				<img src="/images/icons/email.svg" alt="Email" width="24" height="24">
+				<img src="./images/icons/email.svg" alt="Email" width="24" height="24">
 			</a>
 		</div>
 	</div>
