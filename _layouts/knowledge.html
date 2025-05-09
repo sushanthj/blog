@@ -1,0 +1,266 @@
+---
+layout: default
+---
+
+<style>
+.knowledge-container {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.knowledge-sidebar {
+    width: 300px;
+    padding: 20px;
+    position: sticky;
+    top: 20px;
+    height: calc(100vh - 40px);
+    overflow-y: auto;
+    border-right: 1px solid #e1e4e8;
+}
+
+.knowledge-content {
+    flex: 1;
+    padding: 20px 40px;
+    max-width: 800px;
+}
+
+/* File tree styles */
+.file-tree {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.file-tree li {
+    margin: 8px 0;
+}
+
+.file-tree a {
+    color: #24292e;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    padding: 4px 0;
+    margin-left: 16px;
+}
+
+.file-tree a:hover {
+    color: #0366d6;
+}
+
+.file-tree .folder {
+    font-weight: 600;
+}
+
+.file-tree .file {
+    padding-left: 16px;
+}
+
+/* Content styles */
+.knowledge-content h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #eaecef;
+}
+
+.knowledge-content h2 {
+    font-size: 1.5em;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #eaecef;
+}
+
+.knowledge-content h3 {
+    font-size: 1.25em;
+    margin-top: 1.25em;
+    margin-bottom: 0.8em;
+}
+
+.knowledge-content p {
+    margin: 1em 0;
+    line-height: 1.6;
+}
+
+.knowledge-content pre {
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    padding: 16px;
+    overflow: auto;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.knowledge-content code {
+    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 85%;
+    padding: 0.2em 0.4em;
+    background-color: rgba(27, 31, 35, 0.05);
+    border-radius: 3px;
+}
+
+.knowledge-content pre code {
+    padding: 0;
+    background-color: transparent;
+}
+
+.knowledge-content blockquote {
+    margin: 1em 0;
+    padding: 0 1em;
+    color: #6a737d;
+    border-left: 0.25em solid #dfe2e5;
+}
+
+.knowledge-content ul, .knowledge-content ol {
+    padding-left: 2em;
+    margin: 1em 0;
+}
+
+.knowledge-content li {
+    margin: 0.5em 0;
+}
+
+.knowledge-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 1em 0;
+}
+
+.knowledge-content table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.knowledge-content th, .knowledge-content td {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+    white-space: nowrap;
+}
+
+.knowledge-content tr:nth-child(2n) {
+    background-color: #f6f8fa;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .knowledge-container {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+    
+    .knowledge-sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+        max-height: none;
+        border-right: none;
+        border-bottom: 1px solid #e1e4e8;
+        padding: 15px 10px;
+        margin-bottom: 20px;
+    }
+
+    .knowledge-sidebar h2 {
+        margin-top: 0;
+        font-size: 1.3em;
+    }
+    
+    .knowledge-content {
+        padding: 15px 10px;
+    }
+
+    .knowledge-content h1 {
+        font-size: 1.7em;
+        margin-top: 0;
+    }
+
+    .knowledge-content h2 {
+        font-size: 1.3em;
+    }
+
+    .knowledge-content h3 {
+        font-size: 1.1em;
+    }
+
+    .knowledge-content pre {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .file-tree a {
+        font-size: 13px;
+        padding: 6px 0;
+    }
+
+    /* Improve table readability on mobile */
+    .knowledge-content table {
+        font-size: 14px;
+    }
+
+    .knowledge-content th, .knowledge-content td {
+        padding: 8px 10px;
+    }
+
+    /* Improve code block readability on mobile */
+    .knowledge-content code {
+        font-size: 13px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .knowledge-container {
+        padding: 0 5px;
+    }
+
+    .knowledge-sidebar {
+        padding: 10px 5px;
+    }
+
+    .knowledge-content {
+        padding: 10px 5px;
+    }
+
+    .knowledge-content h1 {
+        font-size: 1.5em;
+    }
+
+    .knowledge-content h2 {
+        font-size: 1.2em;
+    }
+
+    .knowledge-content h3 {
+        font-size: 1.1em;
+    }
+
+    .file-tree a {
+        font-size: 12px;
+    }
+}
+</style>
+
+<div class="knowledge-container">
+    <div class="knowledge-sidebar">
+        <h2>Contents</h2>
+        <ul class="file-tree">
+            {% if page.has_children %}
+                {% assign children = site.pages | where: "parent", page.title | sort: "nav_order" %}
+                {% for child in children %}
+                    <li>
+                        <a href="{{ child.url | relative_url }}" class="folder">{{ child.title }}</a>
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+    
+    <div class="knowledge-content">
+        {{ content }}
+    </div>
+</div> 

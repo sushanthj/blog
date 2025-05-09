@@ -1,15 +1,16 @@
 site: Duet Jekyll Theme
 
+# url: "https://www.cattomantis.com"
 url: 
 baseurl: 
 
 collections:
   pages:
     output: true
-    permalink: /:name
+    permalink: /:path/
   posts:
     output: true
-    permalink: /blog/:slug
+    permalink: /:categories/:title/
   projects:
     output: true
     permalink: /project/:slug
