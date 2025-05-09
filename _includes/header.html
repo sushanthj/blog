@@ -1,22 +1,32 @@
 <header class="header">
-
 	<div class="wrap">
-
-		{% if site.data.settings.header_settings.logo_image %}
-		<a href="{{ site.baseurl }}/" class="header__logo">
-			<img src="{{ site.data.settings.header_settings.logo_image }}" class="header__logo__img">
-		</a>
-		{% else %}
-		<a href="{{ site.baseurl }}/" class="header__title">
-			{{ site.data.settings.basic_settings.site_title }}
-		</a>
-		{% endif %}
-
-		<div class="menu">
-			<div class="menu__toggle js-menu-toggle">
-				<div class="menu__toggle__icon"><span></span></div>
+		<div class="header__content">
+			<div class="header__top">
+				{% if site.data.settings.header_settings.logo_image %}
+				<a href="{{ site.baseurl }}/" class="header__logo">
+					<img src="{{ site.data.settings.header_settings.logo_image }}" class="header__logo__img">
+				</a>
+				{% else %}
+				<div class="header__title-wrap">
+					<a href="{{ site.baseurl }}/" class="header__title">
+						{{ site.data.settings.basic_settings.site_title }}
+					</a>
+					<div class="header__social-icons">
+						<a href="https://github.com/sushanth" target="_blank" rel="noopener noreferrer" class="social-icon">
+							<img src="/images/icons/github.svg" alt="GitHub" width="20" height="20">
+						</a>
+						<a href="mailto:sushanth@example.com" class="social-icon">
+							<img src="/images/icons/email.svg" alt="Email" width="20" height="20">
+						</a>
+					</div>
+				</div>
+				{% endif %}
 			</div>
-			<div class="menu__wrap">
+
+			<nav class="header__nav">
+				<div class="menu__toggle js-menu-toggle">
+					<div class="menu__toggle__icon"><span></span></div>
+				</div>
 				<ul class="menu__list">
 					{% for item in site.data.settings.menu_settings.menu_items %}
 					<li class="menu__list__item">
@@ -24,9 +34,154 @@
 					</li>
 					{% endfor %}
 				</ul>
-			</div>
+			</nav>
 		</div>
-
 	</div>
-
 </header>
+
+<style>
+.header__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.header__top {
+    display: flex;
+    align-items: center;
+}
+
+.header__title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header__title {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+}
+
+.header__social-icons {
+    display: flex;
+    gap: 8px;
+}
+
+.social-icon {
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.social-icon:hover {
+    opacity: 1;
+}
+
+.header__nav {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 16px;
+    position: relative;
+}
+
+.menu__toggle {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu__toggle__icon {
+    width: 24px;
+    height: 2px;
+    background-color: currentColor;
+    position: relative;
+}
+
+.menu__toggle__icon::before,
+.menu__toggle__icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.menu__toggle__icon::before {
+    top: -6px;
+}
+
+.menu__toggle__icon::after {
+    bottom: -6px;
+}
+
+.menu__list {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu__list__item__link {
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.menu__list__item__link:hover {
+    opacity: 1;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .header__title-wrap {
+        flex-wrap: wrap;
+    }
+
+    .menu__toggle {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 16px;
+    }
+
+    .menu__list {
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 0;
+    }
+
+    .menu__list.active {
+        display: flex;
+    }
+
+    .menu__toggle.active .menu__toggle__icon {
+        background-color: transparent;
+    }
+
+    .menu__toggle.active .menu__toggle__icon::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .menu__toggle.active .menu__toggle__icon::after {
+        transform: rotate(-45deg);
+        bottom: 0;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.js-menu-toggle');
+    const menuList = document.querySelector('.menu__list');
+
+    menuToggle.addEventListener('click', function() {
+        menuToggle.classList.toggle('active');
+        menuList.classList.toggle('active');
+    });
+});
+</script>

@@ -133,32 +133,114 @@ layout: default
     border-collapse: collapse;
     width: 100%;
     margin: 1em 0;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .knowledge-content th, .knowledge-content td {
     padding: 6px 13px;
     border: 1px solid #dfe2e5;
+    white-space: nowrap;
 }
 
 .knowledge-content tr:nth-child(2n) {
     background-color: #f6f8fa;
 }
 
+/* Mobile styles */
 @media (max-width: 768px) {
     .knowledge-container {
         flex-direction: column;
+        padding: 0 10px;
     }
     
     .knowledge-sidebar {
         width: 100%;
         position: relative;
         height: auto;
+        max-height: none;
         border-right: none;
         border-bottom: 1px solid #e1e4e8;
+        padding: 15px 10px;
+        margin-bottom: 20px;
+    }
+
+    .knowledge-sidebar h2 {
+        margin-top: 0;
+        font-size: 1.3em;
     }
     
     .knowledge-content {
-        padding: 20px;
+        padding: 15px 10px;
+    }
+
+    .knowledge-content h1 {
+        font-size: 1.7em;
+        margin-top: 0;
+    }
+
+    .knowledge-content h2 {
+        font-size: 1.3em;
+    }
+
+    .knowledge-content h3 {
+        font-size: 1.1em;
+    }
+
+    .knowledge-content pre {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .file-tree a {
+        font-size: 13px;
+        padding: 6px 0;
+    }
+
+    /* Improve table readability on mobile */
+    .knowledge-content table {
+        font-size: 14px;
+    }
+
+    .knowledge-content th, .knowledge-content td {
+        padding: 8px 10px;
+    }
+
+    /* Improve code block readability on mobile */
+    .knowledge-content code {
+        font-size: 13px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .knowledge-container {
+        padding: 0 5px;
+    }
+
+    .knowledge-sidebar {
+        padding: 10px 5px;
+    }
+
+    .knowledge-content {
+        padding: 10px 5px;
+    }
+
+    .knowledge-content h1 {
+        font-size: 1.5em;
+    }
+
+    .knowledge-content h2 {
+        font-size: 1.2em;
+    }
+
+    .knowledge-content h3 {
+        font-size: 1.1em;
+    }
+
+    .file-tree a {
+        font-size: 12px;
     }
 }
 </style>
