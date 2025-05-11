@@ -6,107 +6,53 @@ nav_order: 1
 permalink: /knowledge-base/computer-vision/camera-model/
 ---
 
-# Camera Models and Calibration
+# Introduction
 
-This section covers the fundamental concepts of camera models and calibration in computer vision.
+## Basics
 
-## Pinhole Camera Model
+![](../../../images/knowledge_base/computer_vision/camera_models/13.png)
 
-The pinhole camera model is the simplest and most widely used camera model in computer vision. It describes how 3D points in the world are projected onto a 2D image plane.
+![](../../../images/knowledge_base/computer_vision/camera_models/2.png)
 
-### Basic Principles
+![](../../../images/knowledge_base/computer_vision/camera_models/3.png)
 
-- Light rays pass through a single point (the pinhole)
-- The image is formed on the image plane
-- The distance between the pinhole and image plane is the focal length
+In the above image, the division by Z happens implicitly due to homogenous coordinate notation
 
-### Mathematical Model
+## Account for other issues in image frame
 
-The projection of a 3D point $(X, Y, Z)$ to a 2D point $(u, v)$ can be described by:
+**We will introduce 3 coordinate systems below:**
+1. Camera Coordinate Frame
+2. Image Coordinate Frame (where homogenous notation is used as there is no z-axis information)
+3. World Coordinate Information
 
-$$
-\begin{bmatrix} u \\ v \\ 1 \end{bmatrix} = 
-\begin{bmatrix} f_x & 0 & c_x \\ 0 & f_y & c_y \\ 0 & 0 & 1 \end{bmatrix}
-\begin{bmatrix} X/Z \\ Y/Z \\ 1 \end{bmatrix}
-$$
+Sometimes the camera coordinate frame and the image coordinate frame is misaligned as shown below:
 
-Where:
-- $f_x, f_y$ are the focal lengths
-- $c_x, c_y$ are the principal point coordinates
+![](../../../images/knowledge_base/computer_vision/camera_models/4.png)
 
-## Lens Distortion
+![](../../../images/knowledge_base/computer_vision/camera_models/5.png)
 
-Real cameras have lenses that introduce distortion to the image. The two main types of distortion are:
+## Intrinsic and Extrinsic Decomposition
 
-### Radial Distortion
+![](../../../images/knowledge_base/computer_vision/camera_models/6.png)
 
-Radial distortion causes straight lines to appear curved. It can be modeled as:
+![](../../../images/knowledge_base/computer_vision/camera_models/7.png)
 
-$$
-x_{distorted} = x(1 + k_1r^2 + k_2r^4 + k_3r^6)
-$$
+![](../../../images/knowledge_base/computer_vision/camera_models/8.png)
 
-### Tangential Distortion
+### Lesson Learnt:
 
-Tangential distortion occurs when the lens is not perfectly parallel to the image plane:
+If we follow the how a 3D point gets left multiplied by extrinsic and then by intrinsic the
+coordinate frame intuition we derive is:
 
-$$
-x_{distorted} = x + [2p_1xy + p_2(r^2 + 2x^2)]
-$$
+(3D Point -> Extrinsic -> Intrinsic)  =  (World Frame -> Camera Frame -> Image Frame)
 
-## Camera Calibration
+![](../../../images/knowledge_base/computer_vision/camera_models/9.png)
 
-Camera calibration is the process of estimating the intrinsic and extrinsic parameters of a camera.
+t = Translation (last column of extrinsic matrix)
+R = Rotation (first 3x3 part of extrinsic matrix)
 
-### Intrinsic Parameters
+## Final Version of Camera Model (I prefer this)
 
-- Focal length
-- Principal point
-- Distortion coefficients
+![](../../../images/knowledge_base/computer_vision/camera_models/12.png)
 
-### Extrinsic Parameters
-
-- Rotation matrix
-- Translation vector
-
-### Calibration Process
-
-1. Capture multiple images of a calibration pattern
-2. Detect pattern points in each image
-3. Estimate camera parameters using optimization
-4. Refine parameters to minimize reprojection error
-
-## Implementation
-
-```python
-import cv2
-import numpy as np
-
-# Read calibration images
-images = [cv2.imread(f'calibration_{i}.jpg') for i in range(10)]
-
-# Find chessboard corners
-pattern_size = (9, 6)
-obj_points = []
-img_points = []
-
-for img in images:
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    ret, corners = cv2.findChessboardCorners(gray, pattern_size)
-    
-    if ret:
-        obj_points.append(np.zeros((pattern_size[0] * pattern_size[1], 3), np.float32))
-        obj_points[-1][:, :2] = np.mgrid[0:pattern_size[0], 0:pattern_size[1]].T.reshape(-1, 2)
-        img_points.append(corners)
-
-# Calibrate camera
-ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(
-    obj_points, img_points, gray.shape[::-1], None, None
-)
-```
-
-## Additional Resources
-
-- [OpenCV Camera Calibration Tutorial](https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html)
-- [Multiple View Geometry in Computer Vision](https://www.robots.ox.ac.uk/~vgg/hzbook/)
-- [Camera Calibration Tools](https://github.com/opencv/opencv/tree/master/samples/python)
+![](../../../images/knowledge_base/computer_vision/camera_models/11.jpg)
