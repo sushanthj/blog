@@ -4,7 +4,11 @@ title: Volume Rendering and NERFs
 parent: Computer Vision
 nav_order: 2
 permalink: /knowledge-base/computer-vision/nerf/
+toc: true
 ---
+
+* TOC
+{:toc}
 
 # Introduction
 

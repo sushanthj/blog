@@ -45,6 +45,14 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+  toc_levels: 1..6
+  auto_ids: true
+  heading_anchors: true
+  hard_wrap: false
+  footnote_nr: 1
+  entity_output: as_char
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
   
 sass:
   style: compressed

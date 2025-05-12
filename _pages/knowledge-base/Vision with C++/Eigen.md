@@ -1,12 +1,17 @@
 ---
 layout: knowledge
-title: Eigen Library
-parent: Vision with C++
+title: Eigen
+parent: C++
 nav_order: 1
-permalink: /knowledge-base/vision-cpp/eigen/
+permalink: /knowledge-base/cpp/eigen/
+toc: true
 ---
 
-# Background
+
+* TOC
+{:toc}
+
+# Introduction
 
 Eigen is the numpy equivalent in C++. Here we look at some basic linear algebra computations
 using eigen.

@@ -243,24 +243,104 @@ layout: default
         font-size: 12px;
     }
 }
+
+/* TOC styles */
+.toc {
+    margin: 1em 0;
+    padding: 1em;
+    background: #f6f8fa;
+    border-radius: 3px;
+}
+
+#markdown-toc {
+    list-style-type: none;
+    padding-left: 0;
+    counter-reset: toc;
+}
+
+#markdown-toc::before {
+    content: "Contents";
+    display: block;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 1em;
+    color: #24292e;
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.3em;
+}
+
+#markdown-toc ul {
+    list-style-type: none;
+    padding-left: 1.5em;
+}
+
+#markdown-toc li {
+    margin: 0.5em 0;
+}
+
+#markdown-toc a {
+    color: #24292e;
+    text-decoration: none;
+}
+
+#markdown-toc a:hover {
+    color: #0366d6;
+}
+
+/* Add numbers to TOC items */
+#markdown-toc > li {
+    counter-reset: section;
+    list-style-type: none;
+}
+
+#markdown-toc > li > a:before {
+    counter-increment: toc;
+    content: counter(toc) ". ";
+}
+
+#markdown-toc > li > ul > li {
+    counter-reset: subsection;
+    list-style-type: none;
+}
+
+#markdown-toc > li > ul > li > a:before {
+    counter-increment: section;
+    content: counter(toc) "." counter(section) ". ";
+}
+
+#markdown-toc > li > ul > li > ul > li {
+    list-style-type: none;
+}
+
+#markdown-toc > li > ul > li > ul > li > a:before {
+    counter-increment: subsection;
+    content: counter(toc) "." counter(section) "." counter(subsection) ". ";
+}
 </style>
 
 <div class="knowledge-container">
+    {% if page.has_children %}
     <div class="knowledge-sidebar">
         <h2>Contents</h2>
         <ul class="file-tree">
-            {% if page.has_children %}
-                {% assign children = site.pages | where: "parent", page.title | sort: "nav_order" %}
-                {% for child in children %}
-                    <li>
-                        <a href="{{ child.url | relative_url }}" class="folder">{{ child.title }}</a>
-                    </li>
-                {% endfor %}
-            {% endif %}
+            {% assign children = site.pages | where: "parent", page.title | sort: "nav_order" %}
+            {% for child in children %}
+                <li>
+                    <a href="{{ child.url | relative_url }}" class="folder">{{ child.title }}</a>
+                </li>
+            {% endfor %}
         </ul>
     </div>
+    {% endif %}
     
-    <div class="knowledge-content">
+    <div class="knowledge-content {% unless page.has_children %}full-width{% endunless %}">
         {{ content }}
     </div>
-</div> 
+</div>
+
+<style>
+.knowledge-content.full-width {
+    margin-left: 0;
+    max-width: 100%;
+}
+</style> 
