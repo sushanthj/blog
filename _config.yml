@@ -1,7 +1,7 @@
 site: Duet Jekyll Theme
 
 url: "https://www.sush.one"
-baseurl: 
+baseurl: ""
 
 collections:
   pages:
