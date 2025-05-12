@@ -8,8 +8,8 @@ permalink: /food/
 
 <section class="intro">
 	<div class="wrap">
-		<h1>Fork Yeah!</h1>
-		<p>Fine-tuned recipes, developed after extensive ablations on whatever happened to be in my kitchen cabinets.</p>
+		<h1>Culinary Shenanigans</h1>
+		<p>Recipes fine-tuned via extensive ablations on the random contents of my kitchen cabinets.</p>
 	</div>
 </section>
 
