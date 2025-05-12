@@ -8,8 +8,8 @@ permalink: /food/
 
 <section class="intro">
 	<div class="wrap">
-		<h1>Food Adventures</h1>
-		<p>Exploring cuisines and sharing recipes from around the world.</p>
+		<h1>Culinary Shenanigans</h1>
+		<p>Recipes fine-tuned via extensive ablations on the random contents of my kitchen cabinets.</p>
 	</div>
 </section>
 

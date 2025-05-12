@@ -2,14 +2,14 @@
 layout: default
 title: About
 description: About Me
-featured_image: /images/social.jpg
+featured_image: ./images/landing_page/sush.jpeg
 ---
 
 <section class="intro">
 	<div class="wrap">
 		<h1>About Me</h1>
-		<p>Hello! I'm Sushanth and I currently work on Computer Vision at Intuitive Surgical.</p>
-		<p>This website is mostly my blog about work, life, food, and travel.</p>
+		<p>Hello! I'm Sushanth and I currently work on Computer Vision and ML at Intuitive Surgical.</p>
+		<p>This website is a mishmash of work and life setup like a blog.</p>
 	</div>
 </section>
 
@@ -34,10 +34,10 @@ featured_image: /images/social.jpg
 	<div class="wrap">
 		<p>Feel free to reach out if you'd like to connect or collaborate on interesting projects!</p>
 		<div class="social-icons">
-			<a href="https://github.com/sushanth" target="_blank" rel="noopener noreferrer">
+			<a href="https://github.com/sushanthj" target="_blank" rel="noopener noreferrer">
 				<img src="./images/icons/github.svg" alt="GitHub" width="24" height="24">
 			</a>
-			<a href="mailto:sushanth@example.com">
+			<a href="mailto:sushanth.jayanth@gmail.com">
 				<img src="./images/icons/email.svg" alt="Email" width="24" height="24">
 			</a>
 		</div>
