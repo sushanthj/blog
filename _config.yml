@@ -1,9 +1,5 @@
 site: Duet Jekyll Theme
 
-# Default development configuration
-url: ""
-baseurl: ""
-
 collections:
   pages:
     output: true
