@@ -1,8 +1,8 @@
 site: Duet Jekyll Theme
 
 # Default development configuration
-url: ""
-baseurl: ""
+url: "https://sushanthj.github.io"
+baseurl: "/blog"
 
 collections:
   pages:
@@ -63,6 +63,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-remote-theme
+  - image_path_filter
 
 paginate: 6
 paginate_path: "/blog/page:num/"
