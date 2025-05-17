@@ -3,8 +3,10 @@ module Jekyll
     def self.add_baseurl_to_images(content)
       return content unless content.is_a?(String)
       
-      # Only handle markdown image syntax
-      content.gsub(/(!\[.*?\]\()(\/[^)]*\))/, "\\1{{ site.baseurl }}\\2")
+      # Handle both ![alt](path) and ![](path) syntax
+      content.gsub(/(!\[(.*?)\]\((\/[^)]*)\))/) do |match|
+        "![#{$2}]({{ site.baseurl }}#{$3})"
+      end
     end
   end
 end
