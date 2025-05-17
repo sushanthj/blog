@@ -1,6 +1,7 @@
 site: Duet Jekyll Theme
 
-url: "https://www.sush.one"
+# Default development configuration
+url: ""
 baseurl: ""
 
 collections:
@@ -59,6 +60,12 @@ sass:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-remote-theme
+
+include:
+  - images
 
 paginate: 6
 paginate_path: "/blog/page:num/"

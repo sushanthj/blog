@@ -1,8 +1,7 @@
 name: Jekyll Build
+
 on:
   push:
-    branches:
-      - main
 
 jobs:
   jekyll_build:
@@ -29,4 +28,5 @@ jobs:
         bundle config set --local path 'vendor/bundle'
         bundle install
     - name: Build Jekyll site
-      run: bundle exec jekyll build -d _site --config ./_config.yml
+
+      run: bundle exec jekyll build --config _config.yml,_config.staging.yml
