@@ -3,22 +3,17 @@ module Jekyll
     def self.add_baseurl_to_images(content)
       return content unless content.is_a?(String)
       
-      # Match markdown image syntax for any path starting with /
-      content = content.gsub(/(!\[.*?\]\()(\/[^)]*\))/, "\\1{{ site.baseurl }}\\2")
-      
-      # Match HTML img tags with src="/..."
-      content = content.gsub(/(<img[^>]*src=")(\/[^"]*")/, "\\1{{ site.baseurl }}\\2")
-      
-      # Match HTML img tags with src='/...'
-      content = content.gsub(/(<img[^>]*src=')(\/[^']*')/, "\\1{{ site.baseurl }}\\2")
-      
-      # Match background-image: url('/...')
-      content = content.gsub(/(background-image:\s*url\()(\/[^)]*\))/, "\\1{{ site.baseurl }}\\2")
-      
-      # Match background-image: url("/...")
-      content = content.gsub(/(background-image:\s*url\(")(\/[^"]*"\))/, "\\1{{ site.baseurl }}\\2")
-      
-      content
+      # Only handle markdown image syntax
+      content.gsub(/(!\[.*?\]\()(\/[^)]*\))/, "\\1{{ site.baseurl }}\\2")
+    end
+  end
+end
+
+# Register as a filter that can be used in templates
+module Jekyll
+  module Filters
+    def add_baseurl_to_images(input)
+      Jekyll::ImagePathFilter.add_baseurl_to_images(input)
     end
   end
 end
