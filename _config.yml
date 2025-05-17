@@ -2,7 +2,7 @@ site: Duet Jekyll Theme
 
 # Default development configuration
 url: ""
-baseurl: "/blog"
+baseurl: ""
 
 collections:
   pages:
