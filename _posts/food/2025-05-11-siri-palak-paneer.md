@@ -6,13 +6,13 @@ featured_image: /images/food/siri_palak_paneer/palak_paneer.jpg
 categories: food
 ---
 
-<img src="/images/food/siri_palak_paneer/palak_paneer.jpg" alt="Palak Paneer" width="600">
+<img src="{{ site.baseurl }}/images/food/siri_palak_paneer/palak_paneer.jpg" alt="Palak Paneer" width="600">
 
 All proportions below are optimized for a MagicBullet blender (~20oz)
 
 ## Ingredients
 
-<img src="/images/food/siri_palak_paneer/ingredients.jpg" alt="Palak Paneer Ingredients" width="600">
+<img src="{{ site.baseurl }}/images/food/siri_palak_paneer/ingredients.jpg" alt="Palak Paneer Ingredients" width="600">
 
 - **Palak (Spinach)** : 1.5 6oz bags (Trader Joe's)
 - **Cashew Nuts** : 12

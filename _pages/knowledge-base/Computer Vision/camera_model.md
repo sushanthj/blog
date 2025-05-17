@@ -14,11 +14,11 @@ toc: true
 
 ## Basics
 
-![](../../../images/knowledge_base/computer_vision/camera_models/13.png)
+![](/images/knowledge_base/computer_vision/camera_models/13.png)
 
-![](../../../images/knowledge_base/computer_vision/camera_models/2.png)
+![](/images/knowledge_base/computer_vision/camera_models/2.png)
 
-![](../../../images/knowledge_base/computer_vision/camera_models/3.png)
+![](/images/knowledge_base/computer_vision/camera_models/3.png)
 
 In the above image, the division by Z happens implicitly due to homogenous coordinate notation
 
@@ -31,17 +31,17 @@ In the above image, the division by Z happens implicitly due to homogenous coord
 
 Sometimes the camera coordinate frame and the image coordinate frame is misaligned as shown below:
 
-![](../../../images/knowledge_base/computer_vision/camera_models/4.png)
+![](/images/knowledge_base/computer_vision/camera_models/4.png)
 
-![](../../../images/knowledge_base/computer_vision/camera_models/5.png)
+![](/images/knowledge_base/computer_vision/camera_models/5.png)
 
 ## Intrinsic and Extrinsic Decomposition
 
-![](../../../images/knowledge_base/computer_vision/camera_models/6.png)
+![](/images/knowledge_base/computer_vision/camera_models/6.png)
 
-![](../../../images/knowledge_base/computer_vision/camera_models/7.png)
+![](/images/knowledge_base/computer_vision/camera_models/7.png)
 
-![](../../../images/knowledge_base/computer_vision/camera_models/8.png)
+![](/images/knowledge_base/computer_vision/camera_models/8.png)
 
 ### Lesson Learnt:
 
@@ -50,13 +50,13 @@ coordinate frame intuition we derive is:
 
 (3D Point -> Extrinsic -> Intrinsic)  =  (World Frame -> Camera Frame -> Image Frame)
 
-![](../../../images/knowledge_base/computer_vision/camera_models/9.png)
+![](/images/knowledge_base/computer_vision/camera_models/9.png)
 
 t = Translation (last column of extrinsic matrix)
 R = Rotation (first 3x3 part of extrinsic matrix)
 
 ## Final Version of Camera Model (I prefer this)
 
-![](../../../images/knowledge_base/computer_vision/camera_models/12.png)
+![](/images/knowledge_base/computer_vision/camera_models/12.png)
 
-![](../../../images/knowledge_base/computer_vision/camera_models/11.jpg)
+![](/images/knowledge_base/computer_vision/camera_models/11.jpg)

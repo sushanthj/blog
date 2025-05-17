@@ -16,7 +16,7 @@ featured_image: /images/landing_page/sush.jpeg
 <section class="image-section">
 	<div class="wrap">
 		<figure>
-			<img src="/images/landing_page/sush.jpeg" alt="Sushanth" class="full-width">
+			<img src="{{ site.baseurl }}/images/landing_page/sush.jpeg" alt="Sushanth" class="full-width">
 			<figcaption class="image-caption">Pittsburgh!</figcaption>
 		</figure>
 	</div>
@@ -35,10 +35,10 @@ featured_image: /images/landing_page/sush.jpeg
 		<p>Feel free to reach out if you'd like to connect or collaborate on interesting projects!</p>
 		<div class="social-icons">
 			<a href="https://github.com/sushanthj" target="_blank" rel="noopener noreferrer">
-				<img src="/images/icons/github.svg" alt="GitHub" width="24" height="24">
+				<img src="{{ site.baseurl }}/images/icons/github.svg" alt="GitHub" width="24" height="24">
 			</a>
 			<a href="mailto:sushanth.jayanth@gmail.com">
-				<img src="/images/icons/email.svg" alt="Email" width="24" height="24">
+				<img src="{{ site.baseurl }}/images/icons/email.svg" alt="Email" width="24" height="24">
 			</a>
 		</div>
 	</div>

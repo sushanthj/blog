@@ -2,11 +2,11 @@
 layout: post
 title: Coriander Chutney
 subtitle: Minty, Conocunty, Yum...
-featured_image: ../../images/food/coriander_chutney/chutney.jpg
+featured_image: /images/food/coriander_chutney/chutney.jpg
 categories: food
 ---
 
-<img src="/images/food/coriander_chutney/chutney.jpg" alt="Coriander Chutney" width="600">
+<img src="{{ site.baseurl }}/images/food/coriander_chutney/chutney.jpg" alt="Coriander Chutney" width="600">
 
 All proportions below are optimized for a MagicBullet blender (~20oz)
 
