@@ -6,4 +6,4 @@ featured_image: ../../images/art/clock.png
 categories: art
 ---
 
-![](../../images/art/clock.png)
+![](/images/art/clock.png)

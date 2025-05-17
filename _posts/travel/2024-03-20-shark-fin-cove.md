@@ -6,4 +6,4 @@ featured_image: ../../images/travel/Shark_Fin_Cove/bliss.jpeg
 categories: travel
 ---
 
-![](../../images/travel/Shark_Fin_Cove/bliss.jpeg)
+![](/images/travel/Shark_Fin_Cove/bliss.jpeg)
