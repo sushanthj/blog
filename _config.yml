@@ -64,8 +64,5 @@ plugins:
   - jekyll-seo-tag
   - jekyll-remote-theme
 
-include:
-  - images
-
 paginate: 6
 paginate_path: "/blog/page:num/"
