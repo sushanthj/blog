@@ -36,21 +36,6 @@
 .portfolio-item__image {
 	width: 100%;
 	position: relative;
-
-	// Mobile overlay for specific pages
-	@media (max-width: 767px) {
-		body[data-page-url*="/food/"] &,
-		body[data-page-url*="/travel/"] &,
-		body[data-page-url*="/projects/"] &,
-		body[data-page-url*="/art/"] & {
-			&::after {
-				content: '';
-				position: absolute;
-				inset: 0;
-				background: rgba(0, 0, 0, 0.4);
-			}
-		}
-	}
 }
 
 .portfolio-item__content {
@@ -63,18 +48,6 @@
 	opacity: 0;
 	visibility: hidden;
 	@include transition(all 0.2s ease-in-out);
-
-	// Always show content on mobile for specific pages
-	@media (max-width: 767px) {
-		body[data-page-url*="/food/"] &,
-		body[data-page-url*="/travel/"] &,
-		body[data-page-url*="/projects/"] &,
-		body[data-page-url*="/art/"] & {
-			opacity: 1;
-			visibility: visible;
-			background: transparent;
-		}
-	}
 }
 
 .portfolio-item__info {
@@ -86,15 +59,6 @@
 	font-size: $grid-item-title-small;
 	font-weight: $grid-item-title-weight;
 	letter-spacing: $grid-item-title-spacing;
-
-	@media (max-width: 767px) {
-		body[data-page-url*="/food/"] &,
-		body[data-page-url*="/travel/"] &,
-		body[data-page-url*="/projects/"] &,
-		body[data-page-url*="/art/"] & {
-			color: #fff;
-		}
-	}
 
 	@include mq(tabletp) {
 		font-size: $grid-item-title-medium;
@@ -112,20 +76,33 @@
 	font-weight: $grid-item-subtitle-weight;
 	letter-spacing: $grid-item-subtitle-spacing;
 
-	@media (max-width: 767px) {
-		body[data-page-url*="/food/"] &,
-		body[data-page-url*="/travel/"] &,
-		body[data-page-url*="/projects/"] &,
-		body[data-page-url*="/art/"] & {
-			color: rgba(255, 255, 255, 0.9);
-		}
-	}
-
 	@include mq(tabletp) {
 		font-size: $grid-item-subtitle-medium;
 	}
 
 	@include mq(laptop) {
 		font-size: $grid-item-subtitle-large;
+	}
+}
+
+// - - - - - - - - - - - - - - - - - - -
+// Touch Device Overrides (Phones & Tablets)
+// - - - - - - - - - - - - - - - - - - -
+
+$pages: "food", "travel", "projects", "art";
+
+@media (hover: none) and (pointer: coarse) {
+	@each $page in $pages {
+		body[data-page-url*="/#{$page}/"] .portfolio-item__content {
+			opacity: 1 !important;
+			visibility: visible !important;
+			background: transparent !important;
+		}
+		body[data-page-url*="/#{$page}/"] .portfolio-item__title {
+			color: #fff !important;
+		}
+		body[data-page-url*="/#{$page}/"] .portfolio-item__subtitle {
+			color: rgba(255, 255, 255, 0.9) !important;
+		}
 	}
 }
