@@ -8,8 +8,8 @@ permalink: /projects/
 
 <section class="intro">
 	<div class="wrap">
-		<h1>Projects</h1>
-		<p>Technical projects, experiments, and things I've built.</p>
+		<h1>DIY or Die Trying</h1>
+		<p>Mostly Die Trying 🥲</p>
 	</div>
 </section>
 

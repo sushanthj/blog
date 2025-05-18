@@ -1,15 +1,15 @@
 ---
 layout: default
 title: Travel
-description: Travel adventures and destinations
+description:
 featured_image: /images/social.jpg
 permalink: /travel/
 ---
 
 <section class="intro">
 	<div class="wrap">
-		<h1>Travel</h1>
-		<p>Travel adventures and destinations</p>
+		<h1>Vacation by Peer Pressure</h1>
+		<p>My Friends’ Idea of a Good Time, Not Mine</p>
 	</div>
 </section>
 

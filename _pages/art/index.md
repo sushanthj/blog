@@ -8,7 +8,7 @@ permalink: /art/
 
 <section class="intro">
 	<div class="wrap">
-		<h1>Art with some Tech</h1>
+		<h1>Digital Doodles & Plastic Sculptures</h1>
 		<p>I love 3D printing and using digital art tools. Here's a few cool things I've made!</p>
 	</div>
 </section>

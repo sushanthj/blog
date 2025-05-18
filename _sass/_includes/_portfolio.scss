@@ -101,13 +101,13 @@ $pages: "food", "travel", "projects", "art";
 
 		body[data-page-url*="/#{$page}/"] .portfolio-item__title {
 			color: #fff !important;
-			font-size: $base-font-size !important;
+			font-size: $p-small !important;
 			letter-spacing: normal !important;
 		}
 
 		body[data-page-url*="/#{$page}/"] .portfolio-item__subtitle {
 			color: rgba(255, 255, 255, 0.9) !important;
-			font-size: $base-font-size !important;
+			font-size: $p-small !important;
 			letter-spacing: normal !important;
 		}
 	}
