@@ -1,6 +1,6 @@
 ---
-title: Imposter Syndrome with Benefits
-subtitle: Sponsored by Anxiety, Sustained by Coffee
+title: Competence Sold Separately
+subtitle: Sponsored by Anxiety and Coffee
 description: 
 permalink: /work/
 ---
