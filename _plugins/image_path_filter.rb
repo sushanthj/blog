@@ -1,37 +1,26 @@
 module Jekyll
-  module ImagePathFilter
-    def self.add_baseurl_to_images(content)
-      return content unless content.is_a?(String)
-      
-      # More permissive regex that will catch any markdown image syntax
-      # including those with or without alt text, and with or without leading slash
-      content.gsub(/!\[(.*?)\]\((.*?)\)/) do |match|
-        alt_text = $1
-        path = $2
-        
-        # Only add baseurl if the path starts with a slash
-        if path.start_with?('/')
-          "![#{alt_text}]({{ site.baseurl }}{{ page.url | replace: '.html', '' }}/#{path[1..-1]})"
-        else
-          match
+    module ImagePathFilter
+      def add_baseurl_to_images(content)
+        return content unless content.is_a?(String)
+  
+        content.gsub(/!\[(.*?)\]\((\/.*?)\)/) do
+          alt_text = Regexp.last_match(1)
+          path = Regexp.last_match(2)
+          # Use a Liquid template that defers resolution to Jekyll
+          "![#{alt_text}]({% raw %}{{ site.baseurl }}{{ page.url | replace: '.html', '' }}#{path}{% endraw %})"
         end
       end
     end
   end
-end
-
-# Register as a filter that can be used in templates
-module Jekyll
-  module Filters
-    def add_baseurl_to_images(input)
-      Jekyll::ImagePathFilter.add_baseurl_to_images(input)
-    end
+  
+  Liquid::Template.register_filter(Jekyll::ImagePathFilter)
+  
+  # Hook to apply the filter before rendering
+  Jekyll::Hooks.register [:pages, :posts, :documents], :pre_render do |doc|
+    next unless doc.output_ext == '.html' && doc.content.is_a?(String)
+  
+    # Apply the transformation before rendering
+    filter = Jekyll::ImagePathFilter.new
+    doc.content = filter.add_baseurl_to_images(doc.content)
   end
-end
-
-# Add a hook to process markdown files
-Jekyll::Hooks.register [:posts, :pages, :documents], :pre_render do |doc|
-  if doc.respond_to?(:content) && doc.content.is_a?(String)
-    doc.content = Jekyll::ImagePathFilter.add_baseurl_to_images(doc.content)
-  end
-end 
+  

@@ -64,7 +64,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-seo-tag
-  - ./_plugins/image_path_filter.rb
 
 paginate: 6
 paginate_path: "/blog/page:num/"

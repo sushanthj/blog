@@ -9,7 +9,6 @@ featured_image: /images/landing_page/sush.jpeg
 	<div class="wrap">
 		<h1>About Me</h1>
 		<p>Hello! I'm Sushanth and I currently work on Computer Vision and ML at Intuitive Surgical.</p>
-		<p>This website is a mishmash of work and life setup like a blog.</p>
 	</div>
 </section>
 
