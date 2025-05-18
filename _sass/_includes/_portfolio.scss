@@ -37,25 +37,17 @@
 	width: 100%;
 	position: relative;
 
-	// Mobile-specific styles for food, travel, projects, and art pages
-	body[data-page-url*="/food/"] &,
-	body[data-page-url*="/travel/"] &,
-	body[data-page-url*="/projects/"] &,
-	body[data-page-url*="/art/"] & {
-		@include mq(tabletp, max) {
+	// Mobile overlay for specific pages
+	@media (max-width: 767px) {
+		body[data-page-url*="/food/"] &,
+		body[data-page-url*="/travel/"] &,
+		body[data-page-url*="/projects/"] &,
+		body[data-page-url*="/art/"] & {
 			&::after {
 				content: '';
 				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: rgba($overlay-background-color, 0.7);
-				z-index: 1;
-			}
-
-			img {
-				filter: brightness(0.7);
+				inset: 0;
+				background: rgba(0, 0, 0, 0.4);
 			}
 		}
 	}
@@ -63,31 +55,26 @@
 
 .portfolio-item__content {
 	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+	inset: 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	background: rgba($overlay-background-color, $overlay-opacity);
-
-	// Show content by default on mobile for food, travel, projects, and art pages
-	body[data-page-url*="/food/"] &,
-	body[data-page-url*="/travel/"] &,
-	body[data-page-url*="/projects/"] &,
-	body[data-page-url*="/art/"] & {
-		@include mq(tabletp, max) {
-			opacity: 1;
-			visibility: visible;
-			background: transparent;
-			z-index: 2;
-		}
-	}
-
 	opacity: 0;
 	visibility: hidden;
 	@include transition(all 0.2s ease-in-out);
+
+	// Always show content on mobile for specific pages
+	@media (max-width: 767px) {
+		body[data-page-url*="/food/"] &,
+		body[data-page-url*="/travel/"] &,
+		body[data-page-url*="/projects/"] &,
+		body[data-page-url*="/art/"] & {
+			opacity: 1;
+			visibility: visible;
+			background: transparent;
+		}
+	}
 }
 
 .portfolio-item__info {
@@ -100,14 +87,12 @@
 	font-weight: $grid-item-title-weight;
 	letter-spacing: $grid-item-title-spacing;
 
-	// Mobile-specific styles for food, travel, projects, and art pages
-	body[data-page-url*="/food/"] &,
-	body[data-page-url*="/travel/"] &,
-	body[data-page-url*="/projects/"] &,
-	body[data-page-url*="/art/"] & {
-		@include mq(tabletp, max) {
-			color: #ffffff;
-			text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+	@media (max-width: 767px) {
+		body[data-page-url*="/food/"] &,
+		body[data-page-url*="/travel/"] &,
+		body[data-page-url*="/projects/"] &,
+		body[data-page-url*="/art/"] & {
+			color: #fff;
 		}
 	}
 
@@ -127,13 +112,12 @@
 	font-weight: $grid-item-subtitle-weight;
 	letter-spacing: $grid-item-subtitle-spacing;
 
-	// Hide subtitle on mobile for food, travel, projects, and art pages
-	body[data-page-url*="/food/"] &,
-	body[data-page-url*="/travel/"] &,
-	body[data-page-url*="/projects/"] &,
-	body[data-page-url*="/art/"] & {
-		@include mq(tabletp, max) {
-			display: none;
+	@media (max-width: 767px) {
+		body[data-page-url*="/food/"] &,
+		body[data-page-url*="/travel/"] &,
+		body[data-page-url*="/projects/"] &,
+		body[data-page-url*="/art/"] & {
+			color: rgba(255, 255, 255, 0.9);
 		}
 	}
 
@@ -143,14 +127,5 @@
 
 	@include mq(laptop) {
 		font-size: $grid-item-subtitle-large;
-	}
-}
-
-// Add max-width media query mixin
-@mixin mq($media, $type: min) {
-	@if $type == max {
-		@media only screen and (max-width: ($media - 1px)) { @content; }
-	} @else {
-		@media only screen and (min-width: $media) { @content; }
 	}
 }
