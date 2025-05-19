@@ -1,15 +1,12 @@
 site: Duet Jekyll Theme
 
-url: 
-baseurl: 
-
 collections:
   pages:
     output: true
-    permalink: /:name
+    permalink: /:path/
   posts:
     output: true
-    permalink: /blog/:slug
+    permalink: /:categories/:title/
   projects:
     output: true
     permalink: /project/:slug
@@ -20,6 +17,12 @@ defaults:
       path: ""
     values:
       layout: "default"
+  -
+    scope:
+      path: "images"
+      type: "pages"
+    values:
+      permalink: "/images/:path/"
   -
     scope:
       path: ""
@@ -44,6 +47,14 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+  toc_levels: 1..6
+  auto_ids: true
+  heading_anchors: true
+  hard_wrap: false
+  footnote_nr: 1
+  entity_output: as_char
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
   
 sass:
   style: compressed
@@ -51,7 +62,8 @@ sass:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
 
 paginate: 6
 paginate_path: "/blog/page:num/"
-  
