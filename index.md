@@ -25,7 +25,7 @@ featured_image: /images/landing_page/sush.jpeg
 	<div class="wrap">
 		<h2>Background</h2>
 
-		<p>I grew up in Bangalore, India, which obviously has the best food and people in the world 😊. My interests in robotics started during undergrad through a student team called <a href="https://www.edhitha.com/">Edhitha</a>, focused on autonomous aerial systems. Then I got to deploy robots to the real world at <a href="https://niqorobotics.com/">Niqo Robotics</a> and finally moved soon after to the US for my <a href="https://mrsd.ri.cmu.edu/">Master's in Robotic Systems Development</a> at Carnegie Mellon University.</p>
+		<p>I grew up in Bangalore, India, which obviously has the best food and people in the world 😊. I love to play badminton, cook, 3D print, and try out digital art.</p>
 	</div>
 </section>
 

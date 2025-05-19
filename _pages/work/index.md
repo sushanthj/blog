@@ -1,9 +1,11 @@
 ---
-title: Competence Sold Separately
-subtitle: Sponsored by Anxiety and Coffee
+title: Some Skills, All Anxiety...
+subtitle: My interests in robotics started during undergrad through a student team called <a href="https://www.edhitha.com/">Edhitha</a>, focused on autonomous aerial systems. Then I got to deploy robots to the real world at <a href="https://niqorobotics.com/">Niqo Robotics</a> and finally moved soon after to the US for my <a href="https://mrsd.ri.cmu.edu/">Master's in Robotic Systems Development</a> at Carnegie Mellon University.
 description: 
 permalink: /work/
 ---
+
+<!-- TODO: Fix the hyperlink being inconsistent issue -->
 
 ## Education
 
@@ -23,9 +25,13 @@ I currently work at Intuitive Surgical on ML and computer vision for navigation 
 
 ## Previous Work
 
-<img src="{{ site.baseurl }}/images/work/magna_homepage.png" alt="Magna" width="750">
+#### Niqo Robotics
 
-<img src="{{ site.baseurl }}/images/work/ts_homepage.png" alt="Niqo Robotics" width="750">
+I worked at [Niqo Robotics](https://niqorobotics.com/) as a robotics engineer on argicultural robots. This was a super hands-on role where I got to develop the systems as well as see it through deployment on remote farms across the country. I primarily worked on computer vision (detection and depth estimation) as well as TensorRT optimization.
+
+#### Magna International
+
+This was my 2023 summer internship in Detroit where I worked on sensor fusion (fusing camera and radar) for L2 ADAS features in cars. It was a nice real-life learning on EKFs in an optimized C++ codebase.
 
 ---
 
