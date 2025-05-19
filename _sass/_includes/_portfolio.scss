@@ -24,7 +24,9 @@
 	display: block;
 
 	@include mq(tabletl) {
+
 		&:hover {
+
 			.portfolio-item__content {
 				opacity: 1;
 				visibility: visible;
@@ -35,16 +37,19 @@
 
 .portfolio-item__image {
 	width: 100%;
-	position: relative;
 }
 
 .portfolio-item__content {
 	position: absolute;
-	inset: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	background: rgba($overlay-background-color, $overlay-opacity);
+
 	opacity: 0;
 	visibility: hidden;
 	@include transition(all 0.2s ease-in-out);
@@ -82,27 +87,5 @@
 
 	@include mq(laptop) {
 		font-size: $grid-item-subtitle-large;
-	}
-}
-
-// - - - - - - - - - - - - - - - - - - -
-// Touch Device Overrides (Phones & Tablets)
-// - - - - - - - - - - - - - - - - - - -
-
-$pages: "food", "travel", "projects", "art";
-
-@media (hover: none) and (pointer: coarse) {
-	@each $page in $pages {
-		body[data-page-url*="/#{$page}/"] .portfolio-item__content {
-			opacity: 1 !important;
-			visibility: visible !important;
-			background: transparent !important;
-		}
-		body[data-page-url*="/#{$page}/"] .portfolio-item__title {
-			color: #fff !important;
-		}
-		body[data-page-url*="/#{$page}/"] .portfolio-item__subtitle {
-			color: rgba(255, 255, 255, 0.9) !important;
-		}
 	}
 }

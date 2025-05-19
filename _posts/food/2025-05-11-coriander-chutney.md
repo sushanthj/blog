@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Coriander Chutney
-subtitle: Minty, Conocunty, Yum...
+subtitle: 
 featured_image: /images/food/coriander_chutney/chutney.jpg
 categories: food
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Palak Paneer
-subtitle: Easy Hack, still Yum...
+title: Siri's Palak Paneer
+subtitle: Easiest Palak Paneer Recipie
 featured_image: /images/food/siri_palak_paneer/palak_paneer.jpg
 categories: food
 ---
