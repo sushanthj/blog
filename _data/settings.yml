@@ -18,8 +18,8 @@ menu_settings:
       url: '/travel'
     - title: 'Art'
       url: '/art'
-    - title: 'Projects'
-      url: '/projects'
+    # - title: 'Projects'
+    #   url: '/projects'
     - title: 'Knowledge Base'
       url: '/knowledge-base'
 
