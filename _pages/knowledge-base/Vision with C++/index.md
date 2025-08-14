@@ -1,11 +1,11 @@
----
+<!-- ---
 layout: knowledge
 title: C++
 parent: Knowledge Base
 nav_order: 2
 has_children: true
 permalink: /knowledge-base/cpp/
----
+--- -->
 
 ## Overview
 

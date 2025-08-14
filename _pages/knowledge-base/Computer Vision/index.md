@@ -1,11 +1,11 @@
----
+<!-- ---
 layout: knowledge
 title: Computer Vision
 parent: Knowledge Base
 nav_order: 1
 has_children: true
 permalink: /knowledge-base/computer-vision/
----
+--- -->
 
 # Theory and Tools in Computer Vision
 

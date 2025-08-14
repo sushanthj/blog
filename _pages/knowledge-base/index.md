@@ -6,6 +6,6 @@ has_children: true
 permalink: /knowledge-base/
 ---
 
-# Technical Knowledge Base
+## Technical Knowledge Base
 
-This section contains detailed technical documentation and resources across various domains of computer science and engineering. The documentation is organized into sections covering different aspects of computer vision, deep learning, and related topics.
+This section is still in development. In the meantime here's my <a href="https://sushanthj.github.io/projects/" style="text-decoration: underline; text-underline-offset: 2px;">Previous Website</a>
