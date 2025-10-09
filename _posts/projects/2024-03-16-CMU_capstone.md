@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Indoor Robot Navigation
+title: Moving LEGOs Indoors
 subtitle: It Transports LEGOs!
 featured_image: /images/projects/mrsd.jpg
 categories: projects

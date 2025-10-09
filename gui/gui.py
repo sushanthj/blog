@@ -40,7 +40,7 @@ class MainWindow(QWidget):
 
         try:
             # Use Popen for non-blocking execution
-            self.jekyll_process = subprocess.Popen(["/app/serve.sh"])
+            self.jekyll_process = subprocess.Popen(["/app/gui/serve.sh"])
             QMessageBox.information(self, "Success", "Jekyll server started successfully!")
             self.start_button.setEnabled(False)
             self.stop_button.setEnabled(True)

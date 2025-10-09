@@ -8,8 +8,11 @@ categories: travel
 
 ![]({{ site.baseurl }}/images/travel/Shark_Fin_Cove/bliss.jpeg)
 
-<!-- <div class="gallery" data-columns="1">
-	<img src="{{ site.baseurl }}/images/travel/Hawaii/lighthouse_trail_1.jpeg">
-    <img src="{{ site.baseurl }}/images/travel/Hawaii/lighthouse_trail_2.jpeg">
-	<img src="{{ site.baseurl }}/images/travel/Hawaii/lighthouse_trail_4.jpeg">
-</div> -->
+This was a short drive from San Jose but I think it's my favourite beach close to home!
+
+![]({{ site.baseurl }}/images/travel/Shark_Fin_Cove/3.jpeg)
+
+<div class="gallery" data-columns="1">
+	<img src="{{ site.baseurl }}/images/travel/Shark_Fin_Cove/1.jpeg">
+    <img src="{{ site.baseurl }}/images/travel/Shark_Fin_Cove/2.jpeg">
+</div>

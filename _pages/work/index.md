@@ -44,12 +44,6 @@ In grad school I did some part-time research at [Kantor Lab](https://labs.ri.cmu
 During undergrad I lead a student robotics team called [Edhitha](https://www.edhitha.com/) which has continuously taken part at the [AUVSI SUAS](https://suas-competition.org/)
 competition held at Maryland, USA. We finished 5th amongst 60 international teams in 2016.
 
-<img src="{{ site.baseurl }}/images/work/edhitha_homepage.png" alt="Edhitha" width="750">
-
-<iframe width="200" height="80" src="https://www.youtube.com/embed/oVnpnDw6jZ0?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
 ---
 
-### [Resume](https://drive.google.com/uc?export=download&id=1AnelKYN5vzHbun0cMJ41QDXI-L0FsC3t)
-
-<iframe src="https://drive.google.com/file/d/1AnelKYN5vzHbun0cMJ41QDXI-L0FsC3t/preview" width="100%" height="800px"></iframe> 
+<iframe src="https://drive.google.com/file/d/1v97WnraPsTzhUFtcO1zoCNBbsGMiJJzV/preview" width="100%" height="800px"></iframe> 

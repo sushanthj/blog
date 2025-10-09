@@ -1,11 +1,11 @@
 ---
 layout: knowledge
-title: Knowledge Base
+title: Smart-ish Things
 nav_order: 1
 has_children: true
 permalink: /knowledge-base/
 ---
 
-## Technical Knowledge Base
+## Learning Through Projects, Papers, and Grad School
 
-This section is still in development. In the meantime here's my <a href="https://sushanthj.github.io/projects/" style="text-decoration: underline; text-underline-offset: 2px;">Previous Website</a>
+Projects, paper reviews, and CV/ML concepts which I like to summarize for my own future reference.

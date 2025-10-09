@@ -6,23 +6,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   git \
   libgl1-mesa-glx \
   nodejs \
+  python3 \
+  python3-pip \
+  python3-pyqt5 \
   && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Add Gemfile and Gemfile.lock to the container
+# Copy Gemfile and install gems. This is layered to use Docker's build cache.
 COPY Gemfile ./
-
-# Install python3, pip, and PyQt5
-RUN apt-get update && apt-get install -y python3 python3-pip python3-pyqt5
-
-# Install gems from Gemfile
-RUN gem install bundler
-RUN bundle install
-
-# Generate Gemfile.lock
-RUN bundle lock
+RUN gem install bundler && \
+    bundle install && \
+    bundle lock
 
 # Copy the Jekyll site to the container
 COPY . .

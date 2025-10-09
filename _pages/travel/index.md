@@ -8,8 +8,8 @@ permalink: /travel/
 
 <section class="intro">
 	<div class="wrap">
-		<h1>Impress Me: Roll, Don’t Stuff</h1>
-		<p>Suitcase Tetris > small talk.</p>
+		<h1>Suitcase Tetris > small talk.</h1>
+		<p>Roll, Don’t Stuff</p>
 	</div>
 </section>
 

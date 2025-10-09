@@ -7,4 +7,4 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
     environment:
       - DISPLAY=${DISPLAY}
-    command: ["/usr/bin/env", "python3", "/app/gui.py"]
+    command: ["/usr/bin/env", "python3", "/app/gui/gui.py"]
