@@ -18,9 +18,7 @@ menu_settings:
       url: '/travel'
     - title: 'Art'
       url: '/art'
-    # - title: 'Projects'
-    #   url: '/projects'
-    - title: 'Smart-ish Things'
+    - title: 'Continuing Learning'
       url: '/knowledge-base'
 
 footer_settings:

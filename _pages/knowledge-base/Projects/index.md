@@ -2,7 +2,7 @@
 layout: default
 title: Projects
 description: Project Portfolio
-parent: Smart-ish Things
+parent: Continuing Learning
 nav_order: 3
 has_children: false
 permalink: /knowledge-base/projects/

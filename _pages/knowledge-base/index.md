@@ -1,6 +1,6 @@
 ---
 layout: knowledge
-title: Smart-ish Things
+title: Continuing Learning
 nav_order: 1
 has_children: true
 permalink: /knowledge-base/

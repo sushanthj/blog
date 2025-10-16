@@ -1,10 +1,10 @@
----
+<!-- ---
 layout: default
 title: Projects
 description: Technical projects and experiments
 featured_image: /images/social.jpg
 permalink: /projects/
----
+--- -->
 
 <section class="intro">
 	<div class="wrap">

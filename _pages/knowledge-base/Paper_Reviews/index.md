@@ -1,7 +1,7 @@
 ---
 layout: knowledge
 title: Paper Reviews
-parent: Smart-ish Things
+parent: Continuing Learning
 nav_order: 2
 has_children: true
 permalink: /knowledge-base/paper-reviews/
