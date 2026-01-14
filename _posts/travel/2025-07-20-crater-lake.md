@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Crate Lake and Mt. Shasta
+title: Crater Lake and Mt. Shasta
 subtitle: 3 Day Trip from the Bay
 featured_image: /images/travel/Crater_Lake/3.jpeg
 categories: travel
