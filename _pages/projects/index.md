@@ -1,17 +1,19 @@
-<!-- ---
+---
 layout: default
 title: Projects
-description: Technical projects and experiments
+description:
 featured_image: /images/social.jpg
 permalink: /projects/
---- -->
+---
 
 <section class="intro">
 	<div class="wrap">
-		<h1>DIY or Die Trying</h1>
-		<p>Mostly Die Trying 🥲</p>
+		<h1>Rare occasions where my brain worked ._.</h1>
+		<p>I always want to do more of these! Next up: RL and Robot Arm projects soon..</p>
 	</div>
 </section>
+
+
 
 <section class="portfolio">
 	<div class="content-wrap portfolio-wrap">

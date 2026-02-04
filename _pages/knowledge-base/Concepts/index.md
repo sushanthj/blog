@@ -8,3 +8,5 @@ permalink: /knowledge-base/computer-vision/
 ---
 
 # CV/ML Concepts
+
+Things I keep looking up while working on CV/ML projects.

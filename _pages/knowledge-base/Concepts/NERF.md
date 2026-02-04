@@ -44,7 +44,7 @@ Now, this volume can do two things:
 - Absorb some intensity of incoming light
 - Emit some light of it's own
 
-![](/images/knowledge_base/computer_vision/NERFs/emission_absorption.png)
+![](/images/knowledge_base/concepts/computer_vision/NERFs/emission_absorption.png)
 
 For both cases, we see the factor ```σ``` this is the absorption coefficient of the volume.
 Furthermore, we see that **both incoming light and light produced in this volume will be
@@ -55,7 +55,7 @@ affected by this ```σ```**
 Modelling only absoroption through a non-homogenous volume, **we derive the relationship
 between incoming radiation and outgoing radiation** as follows:
 
-![](/images/knowledge_base/computer_vision/NERFs/transmittance_derivation.png)
+![](/images/knowledge_base/concepts/computer_vision/NERFs/transmittance_derivation.png)
 
 Note in above figure, ```x0``` is where the light ray enters the volume. We assume the volume
 is perfectly oriented in the ray's direction ```ω```. Then ```ωz``` would be the length of the
@@ -79,28 +79,28 @@ Trasmittance has some nice properties which simple absorption would not have. Sp
 In the below picture, we see that even though ```σ``` might vary in the volume, the transmittance
 is always a monotonic function:
 
-![](/images/knowledge_base/computer_vision/NERFs/monotonic_transmittance.png)
+![](/images/knowledge_base/concepts/computer_vision/NERFs/monotonic_transmittance.png)
 
 Now, previously we saw Transmittance for a non-homogenous medium. It can be easily adapted
 to a homogenous medium as well as shown below:
 
-![](/images/knowledge_base/computer_vision/NERFs/Homogenous_vs_non_homo.png)
+![](/images/knowledge_base/concepts/computer_vision/NERFs/Homogenous_vs_non_homo.png)
 
 Now, above we see that it's basically an exponential. The **multiplicativity property of
 transmittance is due to the this multiplicativity of exponentials**
 
-![](/images/knowledge_base/computer_vision/NERFs/multiplicativity_transmittance.png)
+![](/images/knowledge_base/concepts/computer_vision/NERFs/multiplicativity_transmittance.png)
 
 Using our transmittance terminology above, we finnaly get for **absorption only transmittance**:
 
-![](/images/knowledge_base/computer_vision/NERFs/updated_radiance_eq.png)
+![](/images/knowledge_base/concepts/computer_vision/NERFs/updated_radiance_eq.png)
 
 
 ### Emission-Absorption Transmittance
 
 As a recap of what was done above, let's see the basic absorption model
 
-![](/images/knowledge_base/computer_vision/NERFs/transmittance_in_vacuum.png)
+![](/images/knowledge_base/concepts/computer_vision/NERFs/transmittance_in_vacuum.png)
 
 In the above picture note the following:
 - The transmittance in vacuum is 1
@@ -115,7 +115,7 @@ In the above picture note the following:
 
 The context above is baked into the picture below:
 
-![](/images/knowledge_base/computer_vision/NERFs/emission_absorption_vol_rendering.png)
+![](/images/knowledge_base/concepts/computer_vision/NERFs/emission_absorption_vol_rendering.png)
 
 
 ### Ray Marching
@@ -128,16 +128,15 @@ without some simplifications. We will make the following simplifications:
 - Our final radiation at the eye/camera will be the summation of each of these small volumes
 
 
-![](/images/knowledge_base/computer_vision/NERFs/ray_marching_1.png)
+![](/images/knowledge_base/concepts/computer_vision/NERFs/ray_marching_1.png)
 
 
-![](/images/knowledge_base/computer_vision/NERFs/ray_marching_2.png)
+![](/images/knowledge_base/concepts/computer_vision/NERFs/ray_marching_2.png)
+
+![](/images/knowledge_base/concepts/computer_vision/NERFs/ray_marching_3.png)
 
 
-![](/images/knowledge_base/computer_vision/NERFs/ray_marching_3.png)
-
-
-![](/images/knowledge_base/computer_vision/NERFs/ray_marching_final.png)
+![](/images/knowledge_base/concepts/computer_vision/NERFs/ray_marching_final.png)
 
 
 Finally, we see that computing Transmittance is recursive, where the i+1'th segment's
@@ -146,9 +145,9 @@ transmittance ```(T_i+1) = T(i) * T(small volume of i+1)```
 
 ### Practice Transmittance Calculations
 
-![](/images/knowledge_base/computer_vision/NERFs/transmittance_question.png)
+![](/images/knowledge_base/concepts/computer_vision/NERFs/transmittance_question.png)
 
-![](/images/knowledge_base/computer_vision/NERFs/transmittance_solution.png)
+![](/images/knowledge_base/concepts/computer_vision/NERFs/transmittance_solution.png)
 
 ### Implementing Ray Marching
 
@@ -279,12 +278,12 @@ weights = self._compute_weights(
     predicted_density_for_all_samples_for_all_rays_in_chunk.view(-1, n_pts, 1) # shape = (self._chunk_size, n_pts, 1)
 )
 
-# TODO (1.5): Render (color) features using weights
+# Render (color) features using weights
 # weights.shape = (self._chunk_size, n_pts, 1)
 # color.shape = (self._chunk_size*n_pts, 3)
 color_of_all_rays = self._aggregate(weights, predicted_colors_for_all_samples_for_all_rays_in_chunk.view(-1, n_pts, 3)) # feature = RGB color
 
-# TODO (1.5): Render depth map
+# Render depth map
 # depth_values.shape = (self._chunk_size, n_pts)
 depth_of_all_rays = self._aggregate(weights, depth_values.view(-1, n_pts, 1))
 
@@ -315,7 +314,7 @@ def _compute_weights(
         Returns:
             _type_: _description_
         """
-        # TODO (1.5): Compute transmittance using the equation described in the README
+        # Compute transmittance using the equation described in the README
         num_rays, num_sample_points, _ = deltas.shape
         transmittances = []
         transmittances.append(torch.ones((num_rays, 1)).to(deltas.device)) # first transmittance is 1
@@ -343,7 +342,7 @@ def _compute_weights(
         Returns:
             feature : Final Attribute (color or depth) for each ray
         """
-        # TODO (1.5): Aggregate (weighted sum of) features using weights
+        # Aggregate (weighted sum of) features using weights
         feature = torch.sum((weights*rays_feature), dim=1)
         return feature
 ```
@@ -351,9 +350,9 @@ def _compute_weights(
 
 Basically, compute_weights finds the ```T(x, x_t) * (1 - e^{−σ(x) * δx})``` part of the equation below:
 
-![](/images/knowledge_base/computer_vision/NERFs/color.png)
+![](/images/knowledge_base/concepts/computer_vision/NERFs/color.png)
 
-![](/images/knowledge_base/computer_vision/NERFs/transmittance.png)
+![](/images/knowledge_base/concepts/computer_vision/NERFs/transmittance.png)
 
 
 And _aggreate finds the ```L(x,ω)``` which can be color or depth for each ray
@@ -379,7 +378,7 @@ for iteration, batch in t_range:
             # Run model forward
             out = model(ray_bundle)
 
-            # TODO (Q3.1): Calculate loss
+            # Compute loss
             loss = criterion(out['feature'], rgb_gt)
 
             # Take the training step.
