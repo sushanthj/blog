@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 280">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L8,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- Camera coordinate system origin at (100, 180) -->
+  
+  <!-- y axis (up) -->
+  <line x1="100" y1="180" x2="100" y2="60" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="92" y="50" font-family="serif" font-style="italic" font-size="16" fill="#333">y</text>
+  
+  <!-- x axis (diagonal up-right) -->
+  <line x1="100" y1="180" x2="170" y2="130" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="175" y="125" font-family="serif" font-style="italic" font-size="16" fill="#333">x</text>
+  
+  <!-- z axis (horizontal right) -->
+  <line x1="100" y1="180" x2="450" y2="180" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="455" y="185" font-family="serif" font-style="italic" font-size="16" fill="#333">z</text>
+  
+  <!-- Camera label -->
+  <text x="30" y="200" font-family="serif" font-size="12" fill="#333">camera</text>
+  <text x="30" y="214" font-family="serif" font-size="12" fill="#333">coordinate</text>
+  <text x="30" y="228" font-family="serif" font-size="12" fill="#333">system</text>
+  
+  <!-- Image plane (tilted parallelogram, positioned so ray passes through it) -->
+  <polygon points="230,70 280,40 280,190 230,220" fill="#f9a825" fill-opacity="0.7" stroke="#f57c00" stroke-width="1.5"/>
+  
+  <!-- z = f label -->
+  <text x="230" y="245" font-family="serif" font-style="italic" font-size="14" fill="#333">z = f</text>
+  
+  <!-- 
+    Ray line: from origin (100,180) to 3D point X (420,40)
+    Direction vector: (320, -140), normalized doesn't matter for collinearity
+    Parametric form: P(t) = (100, 180) + t*(320, -140)
+    
+    t=0.5:  (100 + 160, 180 - 70) = (260, 110)  <- pixel x
+    t=0.75: (100 + 240, 180 - 105) = (340, 75)  <- P@X endpoint
+    t=1.0:  (100 + 320, 180 - 140) = (420, 40)  <- 3D point X
+  -->
+  
+  <!-- Draw in order: dashed (back), red (middle), blue (front) -->
+  
+  <!-- 1. Dashed line from origin to X (furthest, behind everything) -->
+  <line x1="100" y1="180" x2="420" y2="40" stroke="#555" stroke-width="1" stroke-dasharray="5,4"/>
+  
+  <!-- 3D point X -->
+  <circle cx="420" cy="40" r="5" fill="#333"/>
+  <text x="430" y="45" font-family="serif" font-weight="bold" font-size="18" fill="#333">X</text>
+  
+  <!-- 2. Vector P@X (red, middle layer, ends just past image plane) -->
+  <line x1="100" y1="180" x2="340" y2="75" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="300" y="60" font-family="serif" font-size="13" fill="#dc2626">P @ X</text>
+  
+  <!-- 3. Vector x (blue, front layer, ends at image plane) -->
+  <line x1="100" y1="180" x2="260" y2="110" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="160" y="160" font-family="serif" font-weight="bold" font-style="italic" font-size="14" fill="#2563eb">x</text>
+  
+  <!-- Pixel point x on image plane (on top) -->
+  <circle cx="260" cy="110" r="4" fill="#333"/>
+  <text x="268" y="105" font-family="serif" font-weight="bold" font-style="italic" font-size="18" fill="#333">x</text>
+  
+  <!-- Annotation: same direction -->
+  <text x="350" y="130" font-family="serif" font-size="12" fill="#555">same direction,</text>
+  <text x="350" y="145" font-family="serif" font-size="12" fill="#555">differ by λ</text>
+  
+  <!-- Cross product = 0 -->
+  <text x="350" y="170" font-family="serif" font-size="14" fill="#333">∴ x × (P @ X) = 0</text>
+</svg>

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666"/>
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="30" font-family="sans-serif" font-size="18" font-weight="bold" fill="#333" text-anchor="middle">Inverse Projection Pipeline</text>
+  
+  <!-- Unknown Depth Row -->
+  <text x="20" y="80" font-family="sans-serif" font-size="14" font-weight="bold" fill="#dc2626">Unknown Depth:</text>
+  
+  <!-- State boxes - Unknown Depth -->
+  <!-- Pixel Space -->
+  <rect x="30" y="100" width="120" height="50" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="90" y="122" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0369a1" text-anchor="middle">Pixel Space</text>
+  <text x="90" y="140" font-family="monospace" font-size="11" fill="#333" text-anchor="middle">(x, y)</text>
+  
+  <!-- Arrow 1 -->
+  <line x1="150" y1="125" x2="195" y2="125" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="172" y="118" font-family="monospace" font-size="10" fill="#555" text-anchor="middle">K⁻¹</text>
+  <text x="172" y="145" font-family="monospace" font-size="9" fill="#555" text-anchor="middle">undistort</text>
+  
+  <!-- Normalized Image Space -->
+  <rect x="200" y="100" width="140" height="50" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="270" y="122" font-family="sans-serif" font-size="12" font-weight="bold" fill="#b45309" text-anchor="middle">Normalized Space</text>
+  <text x="270" y="140" font-family="monospace" font-size="11" fill="#333" text-anchor="middle">(x_n, y_n)</text>
+  
+  <!-- Arrow 2 -->
+  <line x1="340" y1="125" x2="385" y2="125" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="362" y="118" font-family="monospace" font-size="10" fill="#555" text-anchor="middle">Z=1</text>
+  
+  <!-- Ray in Camera Space -->
+  <rect x="390" y="100" width="160" height="50" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="470" y="122" font-family="sans-serif" font-size="12" font-weight="bold" fill="#15803d" text-anchor="middle">Ray (Camera Frame)</text>
+  <text x="470" y="140" font-family="monospace" font-size="11" fill="#333" text-anchor="middle">[x_n, y_n, 1]</text>
+  
+  <!-- Arrow 3 -->
+  <line x1="550" y1="125" x2="595" y2="125" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="572" y="118" font-family="monospace" font-size="10" fill="#555" text-anchor="middle">R @</text>
+  
+  <!-- Ray in World Space -->
+  <rect x="600" y="100" width="170" height="50" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="685" y="122" font-family="sans-serif" font-size="12" font-weight="bold" fill="#6d28d9" text-anchor="middle">Ray (World Frame)</text>
+  <text x="685" y="140" font-family="monospace" font-size="11" fill="#333" text-anchor="middle">R @ [x_n, y_n, 1]</text>
+  
+  <!-- Known Depth Row -->
+  <text x="20" y="200" font-family="sans-serif" font-size="14" font-weight="bold" fill="#16a34a">Known Depth (Z_c):</text>
+  
+  <!-- State boxes - Known Depth -->
+  <!-- Pixel Space -->
+  <rect x="30" y="220" width="120" height="50" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="90" y="242" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0369a1" text-anchor="middle">Pixel Space</text>
+  <text x="90" y="260" font-family="monospace" font-size="11" fill="#333" text-anchor="middle">(x, y)</text>
+  
+  <!-- Arrow 1 -->
+  <line x1="150" y1="245" x2="195" y2="245" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="172" y="238" font-family="monospace" font-size="10" fill="#555" text-anchor="middle">K⁻¹</text>
+  <text x="172" y="265" font-family="monospace" font-size="9" fill="#555" text-anchor="middle">undistort</text>
+  
+  <!-- Normalized Image Space -->
+  <rect x="200" y="220" width="140" height="50" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="270" y="242" font-family="sans-serif" font-size="12" font-weight="bold" fill="#b45309" text-anchor="middle">Normalized Space</text>
+  <text x="270" y="260" font-family="monospace" font-size="11" fill="#333" text-anchor="middle">(x_n, y_n)</text>
+  
+  <!-- Arrow 2 -->
+  <line x1="340" y1="245" x2="385" y2="245" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="362" y="238" font-family="monospace" font-size="10" fill="#555" text-anchor="middle">× Z_c</text>
+  
+  <!-- Point in Camera Space -->
+  <rect x="390" y="220" width="180" height="50" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="480" y="242" font-family="sans-serif" font-size="12" font-weight="bold" fill="#15803d" text-anchor="middle">Point (Camera Frame)</text>
+  <text x="480" y="260" font-family="monospace" font-size="10" fill="#333" text-anchor="middle">[Z_c×x_n, Z_c×y_n, Z_c]</text>
+  
+  <!-- Arrow 3 -->
+  <line x1="570" y1="245" x2="615" y2="245" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="592" y="238" font-family="monospace" font-size="10" fill="#555" text-anchor="middle">R@ + t</text>
+  
+  <!-- Point in World Space -->
+  <rect x="620" y="220" width="160" height="50" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="700" y="242" font-family="sans-serif" font-size="12" font-weight="bold" fill="#6d28d9" text-anchor="middle">Point (World Frame)</text>
+  <text x="700" y="260" font-family="monospace" font-size="11" fill="#333" text-anchor="middle">R @ P_cam + t</text>
+  
+  <!-- Note -->
+  <text x="450" y="305" font-family="sans-serif" font-size="11" fill="#666" text-anchor="middle" font-style="italic">Note: Without depth, we only recover a ray direction. With depth Z_c, we recover the actual 3D point.</text>
+</svg>
