@@ -36,18 +36,10 @@ If we approximate `T_EndEffector_to_Camera ≈ I` (identity), any actual offset 
 ### Inverse Projection (2D → ray in 3D)
 
 ![Inverse Projection Flowchart](/images/knowledge_base/concepts/computer_vision/camera_calibration/inverse_projection_flowchart.svg)
----
-
-## Experiment Setup
-
-```
-Working distance:  d = 50 mm
-Baseline:          b = 30 mm
-```
 
 ---
 
-### Triangulation Background
+## Triangulation Background
 
 Given a 3D point P observed by two cameras, triangulation recovers P from:
 1. Camera centers C₁, C₂ (in world frame)
@@ -92,18 +84,18 @@ L(s) = C + s × r
 
 For two cameras, we have two rays:
 ```
-L₁(s) = C₁ + s × r₁    (ray from camera 1)
-L₂(t) = C₂ + t × r₂    (ray from camera 2)
+L₁(s) = C₁ + s1 × r₁    (ray from camera 1)
+L₂(s) = C₂ + s2 × r₂    (ray from camera 2)
 ```
 
-Ideally, both rays intersect at the 3D point P. In practice (due to noise), they are skew lines that don't exactly intersect. We find s and t that minimize the distance between the rays:
+Ideally, both rays intersect at the 3D point P. In practice (due to noise), they are skew lines that don't exactly intersect. We find s1 and s2 that minimize the distance between the rays:
 ```
-minimize ||L₁(s) - L₂(t)||²
+minimize ||L₁(s1) - L₂(s2)||²
 ```
 
 The reconstructed point is the midpoint of the closest approach:
 ```
-P_reconstructed = (L₁(s*) + L₂(t*)) / 2
+P_reconstructed = (L₁(s*) + L₂(s*)) / 2
 ```
 
 ### Method 2: DLT (Direct Linear Transform)
@@ -195,17 +187,32 @@ Working distance = 50mm
 
 ---
 
-#### Step 1: What pixels do the cameras actually see?
+#### Step 1: Pixels give Ray Directions
 
 The ray direction = endpoint - startpoint
                   = P - C
 
 ```
-Camera 1:  ray direction = P - C₁ = [15, 0, 50] - [2,  0, 0]
-Camera 2:  ray direction = P - C₂ = [15, 0, 50] - [32, 0, 0]
+Camera 1:  Ray 1 Direction = P - C₁ = [15, 0, 50] - [2,  0, 0]
+Camera 2:  Ray 2 Direction = P - C₂ = [15, 0, 50] - [32, 0, 0]
+```
 
-Ray 1 Direction = [13, 0, 50]
-Ray 2 Direction = [-17, 0, 50]
+Ray in camera frame:
+```
+Ray 1 Direction (Camera Frame) = [13, 0, 50]
+Ray 2 Direction (Camera Frame) = [-17, 0, 50]
+```
+
+Ray in NDC (normalized device coordinates):
+```
+Ray 1 Direction (Camera Frame, normalized) = [ 0.252, 0, 0.968]
+Ray 2 Direction (Camera Frame, normalized) = [-0.322, 0, 0.947]
+```
+
+Ray in world frame (Assuming no error in rotation):
+```
+Ray 1 Direction (World Frame, normalized) = I @ [ 0.252, 0, 0.968]
+Ray 2 Direction (World Frame, normalized) = I @ [-0.322, 0, 0.947]
 ```
 
 These directions get projected to pixels. The pixel encodes the **direction**, not the camera center.
@@ -217,8 +224,8 @@ These directions get projected to pixels. The pixel encodes the **direction**, n
 We have the correct ray directions (from pixels), but wrong camera centers (C₁', C₂' instead of C₁, C₂).
 
 ```
-Ray 1:  L₁(s₁) = C₁' + s₁ × r₁ = [0,  0, 0] + s₁ × normalize(Ray 1 Direction)
-Ray 2:  L₂(s₂) = C₂' + s₂ × r₂ = [30, 0, 0] + s₂ × normalize(Ray 2 Direction)
+Ray 1:  L₁(s₁) = C₁' + s₁ × r₁ = [0,  0, 0] + s₁ × Ray 1 Direction (World Frame, normalized)
+Ray 2:  L₂(s₂) = C₂' + s₂ × r₂ = [30, 0, 0] + s₂ × Ray 2 Direction (World Frame, normalized)
 ```
 
 Final ray equations:
@@ -252,11 +259,16 @@ s₁ = 51.6282
 #### Step 4: Compute reconstructed point
 
 ```
-P_reconstructed = L₁(s₁) = [0, 0, 0] + 51.6282 × [0.252, 0, 0.968]
-
-P_reconstructed = [13.01, 0, 49.99]
+L₁(s₁) = [0, 0, 0] + 51.6282 × [0.252, 0, 0.968]
+L₁(s₁) = [13.01, 0, 49.99]
 ```
 
+```
+L₂(s₂) = [30, 0, 0] + 52.77   × [-0.322, 0, 0.947]
+L₂(s₂) = [13.01, 0, 49.99]
+```
+
+P_reconstructed = [L₁(s₁) + L₂(s₂)] / 2 = [13.01, 0, 49.99]
 ---
 
 #### Result
@@ -436,7 +448,12 @@ Ray directions (normalized):
 r₁ = [0.26, 0, 1]   → [0.252, 0, 0.968]
 r₂ = [-0.34, 0, 1]  → [-0.322, 0, 0.947]
 ```
-Which is the same as what we started with!
+
+If you check above in Case 1, these are the same as:
+```
+Ray 1 Direction (Camera Frame, normalized) = [ 0.252, 0, 0.968]
+Ray 2 Direction (Camera Frame, normalized) = [-0.322, 0, 0.947]
+```
 
 **Key point:** K⁻¹ converts pixels → normalized image coordinates (ray directions with z=1). Since K is assumed correct, K and K⁻¹ cancel out — the ray directions we recover are the same as what we started with. This is why the examples skip K⁻¹.
 
