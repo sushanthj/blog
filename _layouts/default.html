@@ -66,7 +66,7 @@
 </head>
 
 
-<body class="loading{% if site.data.settings.advanced_settings.ajax_loading == true %} ajax-loading{% endif %}{% if page.layout == 'knowledge-base' or page.layout == 'knowledge-base-post' %} kb-dark{% endif %}" data-site-url="{{ site.url }}" data-page-url="{{ page.url | replace: 'index.html', '' }}">
+<body class="loading{% if site.data.settings.advanced_settings.ajax_loading == true %} ajax-loading{% endif %}{% if page.layout == 'knowledge-base' or page.layout == 'knowledge-base-post' or page.layout == 'projects' or page.layout == 'projects-post' %} kb-dark{% endif %}" data-site-url="{{ site.url }}" data-page-url="{{ page.url | replace: 'index.html', '' }}">
 
 
 	{% include header.html %}
@@ -79,7 +79,7 @@
 	
 	<div class="page">
 
-		<div class="page__content" data-page-title="{% if page.url == "/" %}{{ site.data.settings.basic_settings.site_title }} – {{ page.title }}{% else %}{{ page.title }} – {{ site.data.settings.basic_settings.site_title }}{% endif %}" data-theme="{% if page.layout == 'knowledge-base' or page.layout == 'knowledge-base-post' %}dark{% else %}light{% endif %}">
+		<div class="page__content" data-page-title="{% if page.url == "/" %}{{ site.data.settings.basic_settings.site_title }} – {{ page.title }}{% else %}{{ page.title }} – {{ site.data.settings.basic_settings.site_title }}{% endif %}" data-theme="{% if page.layout == 'knowledge-base' or page.layout == 'knowledge-base-post' or page.layout == 'projects' or page.layout == 'projects-post' %}dark{% else %}light{% endif %}">
 
 			{{ content }}
 

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: projects-post
 title: Adaptive Street View
 subtitle: LiDAR NeRFs + Diffusion
 featured_image: /images/projects/adaptive_street_view/cover.gif

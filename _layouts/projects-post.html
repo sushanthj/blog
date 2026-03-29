@@ -1,0 +1,25 @@
+---
+layout: default
+dark_theme: true
+---
+
+<div class="kb">
+
+	<section class="kb-post-hero">
+		<div class="kb-wrap">
+			<a class="kb-back" href="/projects/">&larr; Back to Projects</a>
+			<h1 class="kb-post-hero__title">{{ page.title }}</h1>
+			<p class="kb-post-hero__subtitle">{{ page.subtitle }}</p>
+			<div class="kb-post-hero__meta">
+				<span>{{ page.date | date: "%b %d, %Y" }}</span>
+			</div>
+		</div>
+	</section>
+
+	<section class="kb-post-content">
+		<div class="kb-wrap">
+			{{ page.content }}
+		</div>
+	</section>
+
+</div>

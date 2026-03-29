@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: projects-post
 title: Moving LEGOs Indoors
 subtitle: It Transports LEGOs!
 featured_image: /images/projects/MRSD/mrsd.jpg

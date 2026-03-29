@@ -1,6 +1,6 @@
 ---
 layout: knowledge-base
-title: Continuing Learning
+title: Study Notes
 subtitle: Projects, paper reviews, and CV/ML concepts which I like to summarize for my own future reference.
 featured_image: /images/social.jpg
 permalink: /knowledge-base/

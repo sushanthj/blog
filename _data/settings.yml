@@ -12,13 +12,13 @@ menu_settings:
       url: '/'
     - title: 'Work'
       url: '/work'
-    - title: 'Projects'
-      url: '/projects'
     - title: 'Food'
       url: '/food'
     - title: 'Art'
       url: '/art'
-    - title: 'Continuing Learning'
+    - title: 'Projects'
+      url: '/projects'
+    - title: 'Study Notes'
       url: '/knowledge-base'
 
 footer_settings:
