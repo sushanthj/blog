@@ -4,7 +4,4 @@ services:
     network_mode: host
     volumes:
       - .:/app
-      - /tmp/.X11-unix:/tmp/.X11-unix
-    environment:
-      - DISPLAY=${DISPLAY}
-    command: ["/usr/bin/env", "python3", "/app/gui/gui.py"]
+    command: ["/app/gui/serve.sh"]

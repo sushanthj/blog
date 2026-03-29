@@ -15,7 +15,7 @@ permalink: /food/
 
 <section class="portfolio">
 	<div class="content-wrap portfolio-wrap">
-		{% for post in site.posts reversed %}
+		{% for post in site.posts %}
 		{% if post.categories contains 'food' %}
 		<div class="portfolio-item">
 			<a class="portfolio-item__link" href="{{ post.url | relative_url }}">

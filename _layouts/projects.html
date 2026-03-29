@@ -15,7 +15,7 @@ dark_theme: true
 	<section class="kb-section">
 		<div class="kb-wrap">
 			<div class="kb-grid">
-				{% for post in site.posts reversed %}
+				{% for post in site.posts %}
 				{% if post.categories contains 'projects' %}
 				<a class="kb-card" href="{{ post.url | relative_url }}">
 					<div class="kb-card__image">

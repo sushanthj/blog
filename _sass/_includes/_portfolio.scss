@@ -50,11 +50,13 @@
 	justify-content: center;
 	background: rgba($overlay-background-color, $overlay-opacity);
 
-	// Show content by default on touch devices
+	// On mobile/touch: position below the image instead of overlaying
 	@media (hover: none) {
+		position: relative;
 		opacity: 1;
 		visibility: visible;
-		background: rgba($overlay-background-color, $overlay-opacity * 0.8);
+		background: rgba($overlay-background-color, 0.9);
+		padding: 10px 5px;
 	}
 
 	// Only hide content on devices that support hover
