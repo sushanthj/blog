@@ -95,7 +95,7 @@ Each bin is again a probability (multi-class classification). More bins = more e
 ## Training Stochastic Policies with Maximum Likelihood
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 2em 0;">
-  <iframe src="https://drive.google.com/file/d/1nOpZEvr80Pj4-eNxFWE1dZ6ik3DpoRrB/preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <iframe src="https://drive.google.com/file/d/1MrgMteqzWWI-8XARpLUze6HmgaQhyHsO/preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
 ### Extension 1: Predicting Multiple Actions per State
