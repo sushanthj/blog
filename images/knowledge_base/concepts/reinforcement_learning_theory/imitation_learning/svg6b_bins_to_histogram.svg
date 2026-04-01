@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="380" viewBox="0 0 800 380">
+  <rect width="800" height="380" fill="#1e1e2e"/>
+
+  <text x="400" y="32" text-anchor="middle" fill="#cdd6f4" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">Bins Form a Histogram: Approximating Any Continuous Distribution</text>
+
+  <!-- ========== LEFT: Bin vector ========== -->
+  <text x="100" y="60" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold">Softmax output</text>
+
+  <rect x="72" y="72" width="56" height="248" rx="5" ry="5" fill="rgba(249,226,175,0.06)" stroke="#f9e2af" stroke-width="1.5"/>
+
+  <!-- 30 bins (compact, 7.5px each) with bimodal opacity pattern -->
+  <!-- Peak 1 around bins 6-9, Peak 2 around bins 21-24 -->
+  <rect x="76" y="76" width="48" height="6" fill="#f9e2af" fill-opacity="0.06"/>
+  <rect x="76" y="83" width="48" height="6" fill="#f9e2af" fill-opacity="0.10"/>
+  <rect x="76" y="90" width="48" height="6" fill="#f9e2af" fill-opacity="0.18"/>
+  <rect x="76" y="97" width="48" height="6" fill="#f9e2af" fill-opacity="0.32"/>
+  <rect x="76" y="104" width="48" height="6" fill="#f9e2af" fill-opacity="0.55"/>
+  <rect x="76" y="111" width="48" height="6" fill="#f9e2af" fill-opacity="0.78"/>
+  <rect x="76" y="118" width="48" height="6" fill="#f9e2af" fill-opacity="0.92"/>
+  <rect x="76" y="125" width="48" height="6" fill="#f9e2af" fill-opacity="0.85"/>
+  <rect x="76" y="132" width="48" height="6" fill="#f9e2af" fill-opacity="0.60"/>
+  <rect x="76" y="139" width="48" height="6" fill="#f9e2af" fill-opacity="0.32"/>
+  <rect x="76" y="146" width="48" height="6" fill="#f9e2af" fill-opacity="0.15"/>
+  <rect x="76" y="153" width="48" height="6" fill="#f9e2af" fill-opacity="0.08"/>
+  <rect x="76" y="160" width="48" height="6" fill="#f9e2af" fill-opacity="0.06"/>
+  <rect x="76" y="167" width="48" height="6" fill="#f9e2af" fill-opacity="0.06"/>
+  <rect x="76" y="174" width="48" height="6" fill="#f9e2af" fill-opacity="0.08"/>
+  <rect x="76" y="181" width="48" height="6" fill="#f9e2af" fill-opacity="0.12"/>
+  <rect x="76" y="188" width="48" height="6" fill="#f9e2af" fill-opacity="0.22"/>
+  <rect x="76" y="195" width="48" height="6" fill="#f9e2af" fill-opacity="0.38"/>
+  <rect x="76" y="202" width="48" height="6" fill="#f9e2af" fill-opacity="0.58"/>
+  <rect x="76" y="209" width="48" height="6" fill="#f9e2af" fill-opacity="0.78"/>
+  <rect x="76" y="216" width="48" height="6" fill="#f9e2af" fill-opacity="0.90"/>
+  <rect x="76" y="223" width="48" height="6" fill="#f9e2af" fill-opacity="0.95"/>
+  <rect x="76" y="230" width="48" height="6" fill="#f9e2af" fill-opacity="0.82"/>
+  <rect x="76" y="237" width="48" height="6" fill="#f9e2af" fill-opacity="0.55"/>
+  <rect x="76" y="244" width="48" height="6" fill="#f9e2af" fill-opacity="0.30"/>
+  <rect x="76" y="251" width="48" height="6" fill="#f9e2af" fill-opacity="0.15"/>
+  <rect x="76" y="258" width="48" height="6" fill="#f9e2af" fill-opacity="0.08"/>
+  <rect x="76" y="265" width="48" height="6" fill="#f9e2af" fill-opacity="0.06"/>
+  <rect x="76" y="272" width="48" height="6" fill="#f9e2af" fill-opacity="0.04"/>
+  <rect x="76" y="279" width="48" height="6" fill="#f9e2af" fill-opacity="0.03"/>
+
+  <!-- Bin labels -->
+  <text x="67" y="80" text-anchor="end" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="8">1</text>
+  <text x="67" y="178" text-anchor="end" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="8">15</text>
+  <text x="67" y="283" text-anchor="end" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="8">30</text>
+
+  <!-- Arrow: bins -> histogram -->
+  <line x1="140" y1="195" x2="195" y2="195" stroke="#585b70" stroke-width="2"/>
+  <polygon points="193,190 203,195 193,200" fill="#585b70"/>
+  <text x="168" y="185" text-anchor="middle" fill="#585b70" font-family="Arial, Helvetica, sans-serif" font-size="10">each bin</text>
+  <text x="168" y="210" text-anchor="middle" fill="#585b70" font-family="Arial, Helvetica, sans-serif" font-size="10">= one bar</text>
+
+  <!-- ========== RIGHT: Histogram ========== -->
+
+  <!-- Axes: plot area x=220..750, y=60..310 -->
+  <line x1="220" y1="310" x2="750" y2="310" stroke="#585b70" stroke-width="1.5"/>
+  <line x1="220" y1="310" x2="220" y2="60" stroke="#585b70" stroke-width="1.5"/>
+
+  <!-- Y-axis label -->
+  <text x="210" y="185" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="10" transform="rotate(-90 210 185)">P(bin)</text>
+
+  <!-- X-axis labels -->
+  <text x="220" y="328" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="10">-30&#xB0;</text>
+  <text x="485" y="328" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="10">0&#xB0;</text>
+  <text x="750" y="328" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="10">+30&#xB0;</text>
+  <text x="485" y="348" text-anchor="middle" fill="#cdd6f4" font-family="Arial, Helvetica, sans-serif" font-size="11">Steering Angle (discretized into 30 bins)</text>
+
+  <!-- Histogram bars (30 bins, bimodal, bar width ~17.67px) -->
+  <!-- Peak 1 around bar 7-8 (~-15deg), Peak 2 around bar 22-23 (~+15deg) -->
+  <rect x="221" y="304" width="16.7" height="6" fill="#89b4fa" fill-opacity="0.3"/>
+  <rect x="238.7" y="300" width="16.7" height="10" fill="#89b4fa" fill-opacity="0.35"/>
+  <rect x="256.3" y="290" width="16.7" height="20" fill="#89b4fa" fill-opacity="0.4"/>
+  <rect x="274" y="272" width="16.7" height="38" fill="#89b4fa" fill-opacity="0.5"/>
+  <rect x="291.7" y="240" width="16.7" height="70" fill="#89b4fa" fill-opacity="0.65"/>
+  <rect x="309.3" y="185" width="16.7" height="125" fill="#89b4fa" fill-opacity="0.8"/>
+  <rect x="327" y="115" width="16.7" height="195" fill="#89b4fa" fill-opacity="0.9"/>
+  <rect x="344.7" y="100" width="16.7" height="210" fill="#89b4fa" fill-opacity="0.95"/>
+  <rect x="362.3" y="145" width="16.7" height="165" fill="#89b4fa" fill-opacity="0.8"/>
+  <rect x="380" y="215" width="16.7" height="95" fill="#89b4fa" fill-opacity="0.55"/>
+  <rect x="397.7" y="268" width="16.7" height="42" fill="#89b4fa" fill-opacity="0.4"/>
+  <rect x="415.3" y="290" width="16.7" height="20" fill="#89b4fa" fill-opacity="0.35"/>
+  <rect x="433" y="300" width="16.7" height="10" fill="#89b4fa" fill-opacity="0.3"/>
+  <rect x="450.7" y="302" width="16.7" height="8" fill="#89b4fa" fill-opacity="0.3"/>
+  <rect x="468.3" y="296" width="16.7" height="14" fill="#89b4fa" fill-opacity="0.3"/>
+  <rect x="486" y="286" width="16.7" height="24" fill="#89b4fa" fill-opacity="0.4"/>
+  <rect x="503.7" y="265" width="16.7" height="45" fill="#89b4fa" fill-opacity="0.5"/>
+  <rect x="521.3" y="238" width="16.7" height="72" fill="#89b4fa" fill-opacity="0.6"/>
+  <rect x="539" y="200" width="16.7" height="110" fill="#89b4fa" fill-opacity="0.7"/>
+  <rect x="556.7" y="162" width="16.7" height="148" fill="#89b4fa" fill-opacity="0.8"/>
+  <rect x="574.3" y="115" width="16.7" height="195" fill="#89b4fa" fill-opacity="0.9"/>
+  <rect x="592" y="90" width="16.7" height="220" fill="#89b4fa" fill-opacity="0.95"/>
+  <rect x="609.7" y="105" width="16.7" height="205" fill="#89b4fa" fill-opacity="0.9"/>
+  <rect x="627.3" y="175" width="16.7" height="135" fill="#89b4fa" fill-opacity="0.7"/>
+  <rect x="645" y="240" width="16.7" height="70" fill="#89b4fa" fill-opacity="0.5"/>
+  <rect x="662.7" y="275" width="16.7" height="35" fill="#89b4fa" fill-opacity="0.4"/>
+  <rect x="680.3" y="292" width="16.7" height="18" fill="#89b4fa" fill-opacity="0.35"/>
+  <rect x="698" y="300" width="16.7" height="10" fill="#89b4fa" fill-opacity="0.3"/>
+  <rect x="715.7" y="305" width="16.7" height="5" fill="#89b4fa" fill-opacity="0.3"/>
+  <rect x="733.3" y="307" width="16.7" height="3" fill="#89b4fa" fill-opacity="0.25"/>
+
+  <!-- Smooth true distribution curve overlay -->
+  <path d="M221,304 C240,298 260,285 275,268 C290,245 305,210 315,175 C325,140 332,115 340,100 C348,115 358,155 370,190 C382,225 395,260 415,285 C430,298 450,305 470,302 C485,298 500,285 515,265 C530,240 540,210 550,180 C560,155 572,125 585,100 C595,90 600,92 610,110 C620,140 630,180 645,225 C660,260 675,285 695,298 C715,305 735,308 750,308" fill="none" stroke="#f9e2af" stroke-width="2.5" stroke-dasharray="6,3" opacity="0.7"/>
+
+  <!-- Mode labels -->
+  <text x="340" y="88" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="11">mode 1</text>
+  <text x="597" y="78" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="11">mode 2</text>
+
+  <!-- Legend -->
+  <rect x="320" y="360" width="14" height="10" fill="#89b4fa" fill-opacity="0.7"/>
+  <text x="340" y="369" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="10">Bin probabilities (model output)</text>
+  <line x1="520" y1="365" x2="540" y2="365" stroke="#f9e2af" stroke-width="2.5" stroke-dasharray="4,2" opacity="0.7"/>
+  <text x="546" y="369" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="10">True continuous distribution</text>
+</svg>

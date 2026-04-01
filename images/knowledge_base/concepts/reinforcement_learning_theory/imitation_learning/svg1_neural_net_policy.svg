@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="350" viewBox="0 0 800 350">
+  <rect width="800" height="350" fill="#1e1e2e"/>
+
+  <!-- Robot State box -->
+  <rect x="30" y="115" width="145" height="80" rx="12" ry="12" fill="none" stroke="#89b4fa" stroke-width="2"/>
+  <text x="102" y="150" text-anchor="middle" fill="#cdd6f4" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold">Robot State</text>
+  <text x="102" y="175" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="13">(x, y, z)</text>
+
+  <!-- Arrow from Robot State to NN -->
+  <line x1="180" y1="155" x2="248" y2="155" stroke="#585b70" stroke-width="2"/>
+  <polygon points="248,150 258,155 248,160" fill="#585b70"/>
+
+  <!-- Connections: Input to Hidden (drawn first, behind nodes) -->
+  <g stroke="#585b70" stroke-width="0.8" opacity="0.5">
+    <line x1="295" y1="95" x2="385" y2="55"/>
+    <line x1="295" y1="95" x2="385" y2="105"/>
+    <line x1="295" y1="95" x2="385" y2="155"/>
+    <line x1="295" y1="95" x2="385" y2="205"/>
+    <line x1="295" y1="95" x2="385" y2="255"/>
+    <line x1="295" y1="155" x2="385" y2="55"/>
+    <line x1="295" y1="155" x2="385" y2="105"/>
+    <line x1="295" y1="155" x2="385" y2="155"/>
+    <line x1="295" y1="155" x2="385" y2="205"/>
+    <line x1="295" y1="155" x2="385" y2="255"/>
+    <line x1="295" y1="215" x2="385" y2="55"/>
+    <line x1="295" y1="215" x2="385" y2="105"/>
+    <line x1="295" y1="215" x2="385" y2="155"/>
+    <line x1="295" y1="215" x2="385" y2="205"/>
+    <line x1="295" y1="215" x2="385" y2="255"/>
+  </g>
+
+  <!-- Connections: Hidden to Output -->
+  <g stroke="#585b70" stroke-width="0.8" opacity="0.5">
+    <line x1="415" y1="55" x2="505" y2="125"/>
+    <line x1="415" y1="55" x2="505" y2="185"/>
+    <line x1="415" y1="105" x2="505" y2="125"/>
+    <line x1="415" y1="105" x2="505" y2="185"/>
+    <line x1="415" y1="155" x2="505" y2="125"/>
+    <line x1="415" y1="155" x2="505" y2="185"/>
+    <line x1="415" y1="205" x2="505" y2="125"/>
+    <line x1="415" y1="205" x2="505" y2="185"/>
+    <line x1="415" y1="255" x2="505" y2="125"/>
+    <line x1="415" y1="255" x2="505" y2="185"/>
+  </g>
+
+  <!-- Input layer (3 nodes) x=280 -->
+  <circle cx="280" cy="95" r="15" fill="rgba(137,180,250,0.2)" stroke="#89b4fa" stroke-width="2"/>
+  <circle cx="280" cy="155" r="15" fill="rgba(137,180,250,0.2)" stroke="#89b4fa" stroke-width="2"/>
+  <circle cx="280" cy="215" r="15" fill="rgba(137,180,250,0.2)" stroke="#89b4fa" stroke-width="2"/>
+
+  <!-- Hidden layer (5 nodes) x=400 -->
+  <circle cx="400" cy="55" r="15" fill="rgba(88,91,112,0.3)" stroke="#585b70" stroke-width="2"/>
+  <circle cx="400" cy="105" r="15" fill="rgba(88,91,112,0.3)" stroke="#585b70" stroke-width="2"/>
+  <circle cx="400" cy="155" r="15" fill="rgba(88,91,112,0.3)" stroke="#585b70" stroke-width="2"/>
+  <circle cx="400" cy="205" r="15" fill="rgba(88,91,112,0.3)" stroke="#585b70" stroke-width="2"/>
+  <circle cx="400" cy="255" r="15" fill="rgba(88,91,112,0.3)" stroke="#585b70" stroke-width="2"/>
+
+  <!-- Output layer (2 nodes) x=520 -->
+  <circle cx="520" cy="125" r="15" fill="rgba(166,227,161,0.2)" stroke="#a6e3a1" stroke-width="2"/>
+  <circle cx="520" cy="185" r="15" fill="rgba(166,227,161,0.2)" stroke="#a6e3a1" stroke-width="2"/>
+
+  <!-- Label below NN: "Policy pi_theta" -->
+  <text x="400" y="310" text-anchor="middle" fill="#cdd6f4" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="bold">Policy &#x03C0;&#x03B8;</text>
+
+  <!-- Arrow from NN to Action -->
+  <line x1="540" y1="155" x2="618" y2="155" stroke="#585b70" stroke-width="2"/>
+  <polygon points="618,150 628,155 618,160" fill="#585b70"/>
+
+  <!-- Action box -->
+  <rect x="638" y="120" width="130" height="70" rx="12" ry="12" fill="none" stroke="#a6e3a1" stroke-width="2"/>
+  <text x="703" y="162" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold">Action</text>
+</svg>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <rect width="800" height="420" fill="#1e1e2e"/>
+
+  <!-- ========== LEFT SIDE: GMM Policy Network ========== -->
+
+  <!-- Neural Network box -->
+  <rect x="30" y="120" width="130" height="100" rx="12" ry="12" fill="rgba(137,180,250,0.12)" stroke="#89b4fa" stroke-width="2"/>
+  <text x="95" y="163" text-anchor="middle" fill="#89b4fa" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">Neural</text>
+  <text x="95" y="183" text-anchor="middle" fill="#89b4fa" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">Network</text>
+
+  <!-- Robot State input -->
+  <rect x="40" y="275" width="110" height="40" rx="8" ry="8" fill="rgba(166,227,161,0.15)" stroke="#a6e3a1" stroke-width="1.5"/>
+  <text x="95" y="300" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold">Robot State</text>
+
+  <!-- Arrow: State → NN -->
+  <line x1="95" y1="275" x2="95" y2="225" stroke="#585b70" stroke-width="1.8"/>
+  <polygon points="90,227 95,220 100,227" fill="#585b70"/>
+
+  <!-- Arrow: NN → params -->
+  <line x1="160" y1="170" x2="210" y2="170" stroke="#585b70" stroke-width="1.8"/>
+  <polygon points="208,165 218,170 208,175" fill="#585b70"/>
+
+  <!-- GMM Parameters column -->
+  <!-- Brace region: y=95 to y=250 -->
+  <text x="240" y="115" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">μ₁</text>
+  <text x="240" y="140" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">σ₁</text>
+  <text x="240" y="165" text-anchor="middle" fill="#94e2d5" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">w₁</text>
+  <text x="240" y="195" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">μ₂</text>
+  <text x="240" y="220" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">σ₂</text>
+  <text x="240" y="245" text-anchor="middle" fill="#94e2d5" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">w₂</text>
+
+  <!-- Brace (simplified) -->
+  <path d="M220,100 C215,100 213,102 213,107 L213,163 C213,168 211,170 207,170 C211,170 213,172 213,177 L213,240 C213,245 215,247 220,247" fill="none" stroke="#585b70" stroke-width="1.5"/>
+  <text x="198" y="175" text-anchor="middle" fill="#585b70" font-family="Arial, Helvetica, sans-serif" font-size="10">GMM</text>
+  <text x="198" y="187" text-anchor="middle" fill="#585b70" font-family="Arial, Helvetica, sans-serif" font-size="10">Params</text>
+
+  <!-- Legend row at bottom-left -->
+  <circle cx="40" cy="345" r="4" fill="#f9e2af"/>
+  <text x="50" y="349" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="11">μ = mean</text>
+  <circle cx="130" cy="345" r="4" fill="#f38ba8"/>
+  <text x="140" y="349" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="11">σ = std dev</text>
+  <circle cx="230" cy="345" r="4" fill="#94e2d5"/>
+  <text x="240" y="349" fill="#94e2d5" font-family="Arial, Helvetica, sans-serif" font-size="11">w = weight</text>
+
+  <!-- ========== DIVIDER ========== -->
+  <line x1="310" y1="50" x2="310" y2="370" stroke="#585b70" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- ========== RIGHT SIDE: Distribution Fitting ========== -->
+  <text x="560" y="40" text-anchor="middle" fill="#cdd6f4" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold">GMM Fits Bimodal Data</text>
+
+  <!-- Axes -->
+  <!-- X-axis: angle, from -30 to +30. Plot area: x=360..760, y=75..330 -->
+  <line x1="360" y1="310" x2="760" y2="310" stroke="#585b70" stroke-width="1.5"/>
+  <!-- Y-axis -->
+  <line x1="360" y1="310" x2="360" y2="75" stroke="#585b70" stroke-width="1.5"/>
+
+  <!-- X ticks -->
+  <line x1="360" y1="310" x2="360" y2="316" stroke="#585b70" stroke-width="1"/>
+  <text x="360" y="328" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7f849c">-30°</text>
+  <line x1="427" y1="310" x2="427" y2="316" stroke="#585b70" stroke-width="1"/>
+  <text x="427" y="328" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7f849c">-20°</text>
+  <line x1="493" y1="310" x2="493" y2="316" stroke="#585b70" stroke-width="1"/>
+  <text x="493" y="328" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7f849c">-10°</text>
+  <line x1="560" y1="310" x2="560" y2="316" stroke="#585b70" stroke-width="1"/>
+  <text x="560" y="328" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7f849c">0°</text>
+  <line x1="627" y1="310" x2="627" y2="316" stroke="#585b70" stroke-width="1"/>
+  <text x="627" y="328" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7f849c">10°</text>
+  <line x1="693" y1="310" x2="693" y2="316" stroke="#585b70" stroke-width="1"/>
+  <text x="693" y="328" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7f849c">20°</text>
+  <line x1="760" y1="310" x2="760" y2="316" stroke="#585b70" stroke-width="1"/>
+  <text x="760" y="328" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7f849c">30°</text>
+
+  <text x="560" y="355" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#cdd6f4">Steering Angle</text>
+
+  <!-- Bimodal expert distribution (blue filled) -->
+  <!-- Peaks at -15 (x=460) and +15 (x=660), sigma=5, height scale: peak at y=100 -->
+  <path d="M360,308 L380,307 L400,303 L415,295 L427,282 L440,260 L448,240 L455,215 L458,195 L460,175 L462,155 L464,140 L466,125 L468,115 L470,108 L472,103 L474,100 L476,103 L478,108 L480,115 L482,125 L484,140 L486,155 L490,180 L495,205 L500,230 L510,265 L520,285 L530,298 L540,305 L550,308 L560,308 L570,305 L580,298 L590,285 L600,265 L605,240 L610,215 L615,195 L618,180 L620,165 L622,150 L624,138 L626,125 L628,115 L630,108 L632,103 L634,100 L636,103 L638,108 L640,115 L642,125 L644,138 L646,150 L650,175 L655,205 L660,235 L670,268 L680,290 L693,303 L710,307 L730,308 L760,308" fill="none" stroke="#89b4fa" stroke-width="2.5"/>
+  <path d="M360,308 L380,307 L400,303 L415,295 L427,282 L440,260 L448,240 L455,215 L458,195 L460,175 L462,155 L464,140 L466,125 L468,115 L470,108 L472,103 L474,100 L476,103 L478,108 L480,115 L482,125 L484,140 L486,155 L490,180 L495,205 L500,230 L510,265 L520,285 L530,298 L540,305 L550,308 L560,308 L570,305 L580,298 L590,285 L600,265 L605,240 L610,215 L615,195 L618,180 L620,165 L622,150 L624,138 L626,125 L628,115 L630,108 L632,103 L634,100 L636,103 L638,108 L640,115 L642,125 L644,138 L646,150 L650,175 L655,205 L660,235 L670,268 L680,290 L693,303 L710,307 L730,308 L760,308 L760,310 L360,310 Z" fill="#89b4fa" fill-opacity="0.12"/>
+
+  <!-- GMM Component 1 (dashed red, peak at -15) -->
+  <path d="M360,308 L400,305 L420,298 L435,285 L445,265 L452,240 L458,210 L462,185 L466,155 L470,130 L472,118 L474,110 L476,118 L478,130 L482,155 L486,185 L490,210 L498,248 L510,280 L525,298 L545,306 L560,308" fill="none" stroke="#f38ba8" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="440" y="92" fill="#f38ba8" font-family="sans-serif" font-size="11">Component 1</text>
+
+  <!-- GMM Component 2 (dashed orange, peak at +15) -->
+  <path d="M560,308 L575,306 L590,298 L605,280 L615,255 L622,225 L626,200 L630,170 L632,150 L634,135 L636,128 L638,135 L640,150 L644,175 L648,200 L655,235 L665,270 L680,295 L700,305 L730,308 L760,308" fill="none" stroke="#fab387" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="665" y="92" fill="#fab387" font-family="sans-serif" font-size="11">Component 2</text>
+
+  <!-- Legend -->
+  <line x1="370" y1="68" x2="385" y2="68" stroke="#89b4fa" stroke-width="2.5"/>
+  <text x="390" y="72" font-family="sans-serif" font-size="10" fill="#7f849c">Expert data</text>
+  <line x1="460" y1="68" x2="475" y2="68" stroke="#f38ba8" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="480" y="72" font-family="sans-serif" font-size="10" fill="#7f849c">GMM fit</text>
+
+  <!-- Caption -->
+  <text x="400" y="400" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="13">Outputs parameters for a 2-component Gaussian mixture — captures both modes, but limited to K components</text>
+</svg>

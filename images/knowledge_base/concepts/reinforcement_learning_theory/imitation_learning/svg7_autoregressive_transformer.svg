@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#1e1e2e"/>
+
+  <!-- ========== TIMESTEP 1 (left) ========== -->
+  <text x="200" y="32" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">Timestep 1</text>
+
+  <!-- Transformer box -->
+  <rect x="135" y="130" width="130" height="90" rx="12" ry="12" fill="rgba(137,180,250,0.12)" stroke="#89b4fa" stroke-width="2"/>
+  <text x="200" y="180" text-anchor="middle" fill="#89b4fa" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold">Transformer</text>
+
+  <!-- Robot State input -->
+  <rect x="145" y="280" width="110" height="36" rx="8" ry="8" fill="rgba(166,227,161,0.15)" stroke="#a6e3a1" stroke-width="1.5"/>
+  <text x="200" y="303" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold">Robot State</text>
+
+  <!-- Arrow: State → Transformer -->
+  <line x1="200" y1="280" x2="200" y2="225" stroke="#585b70" stroke-width="1.8"/>
+  <polygon points="195,227 200,220 205,227" fill="#585b70"/>
+
+  <!-- Output: a₁ -->
+  <rect x="145" y="52" width="110" height="36" rx="8" ry="8" fill="rgba(249,226,175,0.15)" stroke="#f9e2af" stroke-width="1.5"/>
+  <text x="200" y="75" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold">Steering (a₁)</text>
+
+  <!-- Arrow: Transformer → a₁ -->
+  <line x1="200" y1="130" x2="200" y2="93" stroke="#585b70" stroke-width="1.8"/>
+  <polygon points="195,95 200,88 205,95" fill="#585b70"/>
+
+  <!-- Feedback arrow: a₁ loops back down-left to transformer input -->
+  <path d="M145,70 C80,70 80,175 135,175" fill="none" stroke="#f38ba8" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="68" y="120" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="10">feed back a₁</text>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#f38ba8"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#585b70"/>
+    </marker>
+  </defs>
+
+  <!-- ========== DIVIDER ========== -->
+  <line x1="330" y1="30" x2="330" y2="370" stroke="#585b70" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="365" y="200" fill="#585b70" font-family="Arial, Helvetica, sans-serif" font-size="22">→</text>
+
+  <!-- ========== TIMESTEP 2 (right) ========== -->
+  <text x="570" y="32" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">Timestep 2</text>
+
+  <!-- Transformer box -->
+  <rect x="505" y="130" width="130" height="90" rx="12" ry="12" fill="rgba(137,180,250,0.12)" stroke="#89b4fa" stroke-width="2"/>
+  <text x="570" y="180" text-anchor="middle" fill="#89b4fa" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold">Transformer</text>
+
+  <!-- Robot State input -->
+  <rect x="475" y="280" width="90" height="36" rx="8" ry="8" fill="rgba(166,227,161,0.15)" stroke="#a6e3a1" stroke-width="1.5"/>
+  <text x="520" y="303" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold">State</text>
+
+  <!-- a₁ input (fed back) -->
+  <rect x="580" y="280" width="70" height="36" rx="8" ry="8" fill="rgba(243,139,168,0.15)" stroke="#f38ba8" stroke-width="1.5"/>
+  <text x="615" y="303" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold">a₁</text>
+
+  <!-- Arrow: State → Transformer -->
+  <line x1="520" y1="280" x2="545" y2="225" stroke="#585b70" stroke-width="1.8"/>
+  <polygon points="540,227 545,220 550,227" fill="#585b70"/>
+
+  <!-- Arrow: a₁ → Transformer -->
+  <line x1="615" y1="280" x2="590" y2="225" stroke="#f38ba8" stroke-width="1.8"/>
+  <polygon points="585,227 590,220 595,227" fill="#f38ba8"/>
+
+  <!-- Output: a₂ -->
+  <rect x="510" y="52" width="120" height="36" rx="8" ry="8" fill="rgba(249,226,175,0.15)" stroke="#f9e2af" stroke-width="1.5"/>
+  <text x="570" y="75" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold">Accel (a₂)</text>
+
+  <!-- Arrow: Transformer → a₂ -->
+  <line x1="570" y1="130" x2="570" y2="93" stroke="#585b70" stroke-width="1.8"/>
+  <polygon points="565,95 570,88 575,95" fill="#585b70"/>
+
+  <!-- Annotation -->
+  <text x="695" y="68" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="10">depends on</text>
+  <text x="695" y="82" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="10">state + a₁</text>
+  <line x1="630" y1="70" x2="688" y2="70" stroke="#a6adc8" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Bottom caption -->
+  <text x="400" y="380" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="13">Each action is predicted one at a time — each conditioned on all previous actions</text>
+</svg>

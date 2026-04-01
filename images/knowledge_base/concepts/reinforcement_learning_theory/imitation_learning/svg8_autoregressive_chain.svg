@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="380" viewBox="0 0 800 380">
+  <rect width="800" height="380" fill="#1e1e2e"/>
+
+  <defs>
+    <marker id="arrG" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#585b70"/>
+    </marker>
+    <marker id="arrR" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#f38ba8"/>
+    </marker>
+    <marker id="arrY" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#f9e2af"/>
+    </marker>
+  </defs>
+
+  <!-- ========== STEP 1 ========== -->
+  <text x="155" y="30" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold">Step 1</text>
+
+  <!-- Model box 1 -->
+  <rect x="95" y="135" width="120" height="60" rx="10" ry="10" fill="rgba(137,180,250,0.12)" stroke="#89b4fa" stroke-width="2"/>
+  <text x="155" y="170" text-anchor="middle" fill="#89b4fa" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold">Model</text>
+
+  <!-- Input: s_t -->
+  <text x="155" y="240" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold">sₜ</text>
+  <line x1="155" y1="228" x2="155" y2="200" stroke="#585b70" stroke-width="1.8" marker-end="url(#arrG)"/>
+
+  <!-- Distribution above: small histogram -->
+  <g transform="translate(115,50)">
+    <!-- 5 bars representing p(a1|s) -->
+    <rect x="5" y="52" width="12" height="18" rx="1" fill="#f9e2af" fill-opacity="0.3" stroke="#f9e2af" stroke-width="1"/>
+    <rect x="20" y="35" width="12" height="35" rx="1" fill="#f9e2af" fill-opacity="0.5" stroke="#f9e2af" stroke-width="1"/>
+    <rect x="35" y="20" width="12" height="50" rx="1" fill="#f9e2af" fill-opacity="0.7" stroke="#f9e2af" stroke-width="1"/>
+    <rect x="50" y="30" width="12" height="40" rx="1" fill="#f9e2af" fill-opacity="0.5" stroke="#f9e2af" stroke-width="1"/>
+    <rect x="65" y="50" width="12" height="20" rx="1" fill="#f9e2af" fill-opacity="0.3" stroke="#f9e2af" stroke-width="1"/>
+    <!-- baseline -->
+    <line x1="3" y1="70" x2="79" y2="70" stroke="#585b70" stroke-width="1"/>
+  </g>
+  <text x="155" y="55" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="11">p(a₁ | sₜ)</text>
+
+  <!-- Arrow: Model → distribution -->
+  <line x1="155" y1="135" x2="155" y2="125" stroke="#585b70" stroke-width="1.8" marker-end="url(#arrG)"/>
+
+  <!-- Sample arrow → a₁ -->
+  <line x1="218" y1="95" x2="270" y2="115" stroke="#f38ba8" stroke-width="2" marker-end="url(#arrR)"/>
+  <text x="240" y="90" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="10">sample</text>
+  <text x="285" y="122" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold">a₁</text>
+
+  <!-- ========== CURVED FEEDBACK ARROW from a₁ to Step 2 input ========== -->
+  <path d="M295,130 C310,185 370,185 400,220" fill="none" stroke="#f38ba8" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arrR)"/>
+
+  <!-- ========== STEP 2 ========== -->
+  <text x="470" y="30" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold">Step 2</text>
+
+  <!-- Model box 2 -->
+  <rect x="410" y="135" width="120" height="60" rx="10" ry="10" fill="rgba(137,180,250,0.12)" stroke="#89b4fa" stroke-width="2"/>
+  <text x="470" y="170" text-anchor="middle" fill="#89b4fa" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold">Model</text>
+
+  <!-- Inputs: s_t and a₁ -->
+  <text x="440" y="240" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">sₜ</text>
+  <text x="500" y="240" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">a₁</text>
+  <line x1="440" y1="228" x2="450" y2="200" stroke="#585b70" stroke-width="1.8" marker-end="url(#arrG)"/>
+  <line x1="500" y1="228" x2="490" y2="200" stroke="#f38ba8" stroke-width="1.8" marker-end="url(#arrR)"/>
+
+  <!-- Distribution above: different histogram shape -->
+  <g transform="translate(430,50)">
+    <rect x="5" y="48" width="12" height="22" rx="1" fill="#f9e2af" fill-opacity="0.3" stroke="#f9e2af" stroke-width="1"/>
+    <rect x="20" y="28" width="12" height="42" rx="1" fill="#f9e2af" fill-opacity="0.5" stroke="#f9e2af" stroke-width="1"/>
+    <rect x="35" y="38" width="12" height="32" rx="1" fill="#f9e2af" fill-opacity="0.4" stroke="#f9e2af" stroke-width="1"/>
+    <rect x="50" y="20" width="12" height="50" rx="1" fill="#f9e2af" fill-opacity="0.7" stroke="#f9e2af" stroke-width="1"/>
+    <rect x="65" y="35" width="12" height="35" rx="1" fill="#f9e2af" fill-opacity="0.5" stroke="#f9e2af" stroke-width="1"/>
+    <line x1="3" y1="70" x2="79" y2="70" stroke="#585b70" stroke-width="1"/>
+  </g>
+  <text x="470" y="55" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="11">p(a₂ | sₜ, a₁)</text>
+
+  <!-- Arrow: Model → distribution -->
+  <line x1="470" y1="135" x2="470" y2="125" stroke="#585b70" stroke-width="1.8" marker-end="url(#arrG)"/>
+
+  <!-- Sample arrow → a₂ -->
+  <line x1="533" y1="95" x2="580" y2="115" stroke="#f38ba8" stroke-width="2" marker-end="url(#arrR)"/>
+  <text x="555" y="90" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="10">sample</text>
+  <text x="595" y="122" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold">a₂</text>
+
+  <!-- ========== DOTS ========== -->
+  <text x="660" y="170" fill="#585b70" font-family="Arial, Helvetica, sans-serif" font-size="28">…</text>
+
+  <!-- ========== CHAIN RULE EQUATION (bottom) ========== -->
+  <rect x="120" y="290" width="560" height="45" rx="10" ry="10" fill="rgba(137,180,250,0.08)" stroke="#89b4fa" stroke-width="1.5"/>
+  <text x="400" y="318" text-anchor="middle" fill="#cdd6f4" font-family="Arial, Helvetica, sans-serif" font-size="15">
+    <tspan fill="#cdd6f4">p(</tspan><tspan font-weight="bold">a</tspan><tspan> | s)  =  </tspan>
+    <tspan fill="#f9e2af">p(a₁ | s)</tspan>
+    <tspan fill="#cdd6f4">  ·  </tspan>
+    <tspan fill="#f9e2af">p(a₂ | s, a₁)</tspan>
+    <tspan fill="#cdd6f4">  ·  …</tspan>
+  </text>
+
+  <!-- Bottom caption -->
+  <text x="400" y="365" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="12">Autoregressive factorization — each action dimension sampled sequentially, conditioned on all previous</text>
+</svg>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <rect width="800" height="420" fill="#1e1e2e"/>
+
+  <defs>
+    <marker id="aGray" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#585b70"/>
+    </marker>
+    <marker id="aGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#a6e3a1"/>
+    </marker>
+    <marker id="aYellow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#f9e2af"/>
+    </marker>
+  </defs>
+
+  <!-- ========== TOP: TRAINING (Teacher Forcing) ========== -->
+  <text x="400" y="28" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">Training: use expert ground truth (teacher forcing)</text>
+
+  <!-- Transformer box -->
+  <rect x="240" y="75" width="140" height="65" rx="10" ry="10" fill="rgba(137,180,250,0.12)" stroke="#89b4fa" stroke-width="2"/>
+  <text x="310" y="113" text-anchor="middle" fill="#89b4fa" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold">Transformer</text>
+
+  <!-- Input: Robot State (left) -->
+  <rect x="50" y="90" width="100" height="34" rx="8" ry="8" fill="rgba(166,227,161,0.15)" stroke="#a6e3a1" stroke-width="1.5"/>
+  <text x="100" y="112" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold">Robot State</text>
+  <line x1="150" y1="107" x2="235" y2="107" stroke="#585b70" stroke-width="1.8" marker-end="url(#aGray)"/>
+
+  <!-- Output: pred a₁ (dimmed, crossed out) -->
+  <text x="450" y="88" fill="#585b70" fill-opacity="0.5" font-family="Arial, Helvetica, sans-serif" font-size="13">pred a₁</text>
+  <line x1="380" y1="90" x2="430" y2="85" stroke="#585b70" stroke-width="1.2" stroke-opacity="0.4" marker-end="url(#aGray)"/>
+  <!-- Cross out -->
+  <line x1="438" y1="75" x2="492" y2="95" stroke="#f38ba8" stroke-width="2"/>
+  <line x1="438" y1="95" x2="492" y2="75" stroke="#f38ba8" stroke-width="2"/>
+  <text x="470" y="70" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="10">ignored</text>
+
+  <!-- Expert a₁* (highlighted, fed back) -->
+  <rect x="440" y="110" width="110" height="34" rx="8" ry="8" fill="rgba(166,227,161,0.15)" stroke="#a6e3a1" stroke-width="2"/>
+  <text x="495" y="132" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold">expert a₁*</text>
+
+  <!-- Curved feedback: expert a₁* back to transformer -->
+  <path d="M495,144 C495,175 370,175 340,144" fill="none" stroke="#a6e3a1" stroke-width="2" marker-end="url(#aGreen)"/>
+  <text x="420" y="182" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="10">feed back expert a₁*</text>
+
+  <!-- Output: pred a₂ (using expert a₁*) -->
+  <text x="660" y="118" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold">pred a₂</text>
+  <line x1="550" y1="127" x2="638" y2="118" stroke="#f9e2af" stroke-width="1.8" marker-end="url(#aYellow)"/>
+  <text x="660" y="135" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="10">uses expert a₁*</text>
+
+  <!-- ========== DIVIDER ========== -->
+  <line x1="40" y1="210" x2="760" y2="210" stroke="#585b70" stroke-width="1.2"/>
+
+  <!-- ========== BOTTOM: INFERENCE ========== -->
+  <text x="400" y="238" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">Inference: use own predictions</text>
+
+  <!-- Transformer box -->
+  <rect x="240" y="275" width="140" height="65" rx="10" ry="10" fill="rgba(137,180,250,0.12)" stroke="#89b4fa" stroke-width="2"/>
+  <text x="310" y="313" text-anchor="middle" fill="#89b4fa" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold">Transformer</text>
+
+  <!-- Input: Robot State (left) -->
+  <rect x="50" y="290" width="100" height="34" rx="8" ry="8" fill="rgba(166,227,161,0.15)" stroke="#a6e3a1" stroke-width="1.5"/>
+  <text x="100" y="312" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold">Robot State</text>
+  <line x1="150" y1="307" x2="235" y2="307" stroke="#585b70" stroke-width="1.8" marker-end="url(#aGray)"/>
+
+  <!-- Output: pred a₁ (highlighted — this IS used) -->
+  <rect x="440" y="270" width="100" height="34" rx="8" ry="8" fill="rgba(249,226,175,0.15)" stroke="#f9e2af" stroke-width="2"/>
+  <text x="490" y="292" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold">pred a₁</text>
+  <line x1="380" y1="292" x2="435" y2="287" stroke="#f9e2af" stroke-width="1.8" marker-end="url(#aYellow)"/>
+  <text x="490" y="265" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="10">used!</text>
+
+  <!-- Curved feedback: own pred a₁ back to transformer -->
+  <path d="M490,304 C490,365 370,365 340,344" fill="none" stroke="#f9e2af" stroke-width="2" marker-end="url(#aYellow)"/>
+  <text x="420" y="380" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="10">feed back own pred a₁</text>
+
+  <!-- Output: pred a₂ -->
+  <text x="660" y="318" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold">pred a₂</text>
+  <line x1="550" y1="320" x2="638" y2="318" stroke="#f9e2af" stroke-width="1.8" marker-end="url(#aYellow)"/>
+  <text x="660" y="335" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="10">uses own a₁</text>
+
+  <!-- Bottom caption -->
+  <text x="400" y="410" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="12">Training feeds expert data as input; inference must use its own predictions</text>
+</svg>

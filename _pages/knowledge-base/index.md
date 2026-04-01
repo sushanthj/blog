@@ -7,6 +7,8 @@ permalink: /knowledge-base/
 sections:
   - title: Concepts
     category: knowledge-base-concepts
+  - title: Reinforcement Learning Theory
+    category: knowledge-base-reinforcement-learning-theory
   - title: Paper Reviews
     category: knowledge-base-paper-reviews
 ---

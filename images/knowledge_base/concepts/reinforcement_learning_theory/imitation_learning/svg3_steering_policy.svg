@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="350" viewBox="0 0 800 350">
+  <rect width="800" height="350" fill="#1e1e2e"/>
+
+  <!-- Car State box -->
+  <rect x="20" y="105" width="170" height="90" rx="12" ry="12" fill="none" stroke="#89b4fa" stroke-width="2"/>
+  <text x="105" y="143" text-anchor="middle" fill="#cdd6f4" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold">Car State</text>
+  <text x="105" y="172" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="12">(speed, position, heading)</text>
+
+  <!-- Arrow to NN -->
+  <line x1="195" y1="150" x2="248" y2="150" stroke="#585b70" stroke-width="2"/>
+  <polygon points="248,145 258,150 248,155" fill="#585b70"/>
+
+  <!-- Connections: Input to Hidden -->
+  <g stroke="#585b70" stroke-width="0.8" opacity="0.4">
+    <line x1="295" y1="90" x2="385" y2="50"/>
+    <line x1="295" y1="90" x2="385" y2="100"/>
+    <line x1="295" y1="90" x2="385" y2="150"/>
+    <line x1="295" y1="90" x2="385" y2="200"/>
+    <line x1="295" y1="90" x2="385" y2="250"/>
+    <line x1="295" y1="150" x2="385" y2="50"/>
+    <line x1="295" y1="150" x2="385" y2="100"/>
+    <line x1="295" y1="150" x2="385" y2="150"/>
+    <line x1="295" y1="150" x2="385" y2="200"/>
+    <line x1="295" y1="150" x2="385" y2="250"/>
+    <line x1="295" y1="210" x2="385" y2="50"/>
+    <line x1="295" y1="210" x2="385" y2="100"/>
+    <line x1="295" y1="210" x2="385" y2="150"/>
+    <line x1="295" y1="210" x2="385" y2="200"/>
+    <line x1="295" y1="210" x2="385" y2="250"/>
+  </g>
+
+  <!-- Connections: Hidden to Output -->
+  <g stroke="#585b70" stroke-width="0.7" opacity="0.4">
+    <line x1="415" y1="50" x2="505" y2="120"/>
+    <line x1="415" y1="50" x2="505" y2="180"/>
+    <line x1="415" y1="100" x2="505" y2="120"/>
+    <line x1="415" y1="100" x2="505" y2="180"/>
+    <line x1="415" y1="150" x2="505" y2="120"/>
+    <line x1="415" y1="150" x2="505" y2="180"/>
+    <line x1="415" y1="200" x2="505" y2="120"/>
+    <line x1="415" y1="200" x2="505" y2="180"/>
+    <line x1="415" y1="250" x2="505" y2="120"/>
+    <line x1="415" y1="250" x2="505" y2="180"/>
+  </g>
+
+  <!-- Input layer (3 nodes) x=280 -->
+  <circle cx="280" cy="90" r="15" fill="rgba(137,180,250,0.2)" stroke="#89b4fa" stroke-width="2"/>
+  <circle cx="280" cy="150" r="15" fill="rgba(137,180,250,0.2)" stroke="#89b4fa" stroke-width="2"/>
+  <circle cx="280" cy="210" r="15" fill="rgba(137,180,250,0.2)" stroke="#89b4fa" stroke-width="2"/>
+
+  <!-- Hidden layer (5 nodes) x=400 -->
+  <circle cx="400" cy="50" r="15" fill="rgba(88,91,112,0.3)" stroke="#585b70" stroke-width="2"/>
+  <circle cx="400" cy="100" r="15" fill="rgba(88,91,112,0.3)" stroke="#585b70" stroke-width="2"/>
+  <circle cx="400" cy="150" r="15" fill="rgba(88,91,112,0.3)" stroke="#585b70" stroke-width="2"/>
+  <circle cx="400" cy="200" r="15" fill="rgba(88,91,112,0.3)" stroke="#585b70" stroke-width="2"/>
+  <circle cx="400" cy="250" r="15" fill="rgba(88,91,112,0.3)" stroke="#585b70" stroke-width="2"/>
+
+  <!-- Output layer (2 nodes) x=520 -->
+  <circle cx="520" cy="120" r="15" fill="rgba(166,227,161,0.2)" stroke="#a6e3a1" stroke-width="2"/>
+  <circle cx="520" cy="180" r="15" fill="rgba(166,227,161,0.2)" stroke="#a6e3a1" stroke-width="2"/>
+
+  <!-- NN Label -->
+  <text x="400" y="300" text-anchor="middle" fill="#cdd6f4" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">Policy &#x03C0;&#x03B8;</text>
+
+  <!-- Arrow from NN to gauge -->
+  <line x1="540" y1="150" x2="593" y2="150" stroke="#585b70" stroke-width="2"/>
+  <polygon points="593,145 603,150 593,155" fill="#585b70"/>
+
+  <!-- Semicircular Gauge: center at (680, 220), radius 80 -->
+  <!-- Arc from (600,220) to (760,220) sweeping through top -->
+  <path d="M 600,220 A 80,80 0 0 1 760,220" fill="none" stroke="#a6adc8" stroke-width="2.5"/>
+
+  <!-- Tick at -45 deg from vertical (math angle 135): cos(135)=-0.707, sin(135)=0.707 -->
+  <!-- Inner r=72: (680-50.9, 220-50.9) = (629.1, 169.1) -->
+  <!-- Outer r=88: (680-62.2, 220-62.2) = (617.8, 157.8) -->
+  <line x1="629.1" y1="169.1" x2="617.8" y2="157.8" stroke="#a6adc8" stroke-width="2"/>
+  <text x="607" y="150" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="12">-45&#xb0;</text>
+
+  <!-- Tick at 0 deg (straight up, math angle 90) -->
+  <line x1="680" y1="148" x2="680" y2="132" stroke="#a6adc8" stroke-width="2"/>
+  <text x="680" y="124" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="12">0&#xb0;</text>
+
+  <!-- Tick at +45 deg from vertical (math angle 45): cos(45)=0.707, sin(45)=0.707 -->
+  <line x1="730.9" y1="169.1" x2="742.2" y2="157.8" stroke="#a6adc8" stroke-width="2"/>
+  <text x="753" y="150" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="12">+45&#xb0;</text>
+
+  <!-- Center dot -->
+  <circle cx="680" cy="220" r="4" fill="#a6adc8"/>
+
+  <!-- Needle at +25 deg from center (math angle 65): cos(65)=0.4226, sin(65)=0.9063 -->
+  <!-- End at r=70: (680+29.6, 220-63.4) = (709.6, 156.6) -->
+  <line x1="680" y1="220" x2="709.6" y2="156.6" stroke="#f38ba8" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Theta label near needle tip -->
+  <text x="722" y="152" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold">&#x03B8;</text>
+
+  <!-- Steering Angle label -->
+  <text x="680" y="260" text-anchor="middle" fill="#cdd6f4" font-family="Arial, Helvetica, sans-serif" font-size="15">Steering Angle</text>
+</svg>
