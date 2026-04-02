@@ -1,6 +1,6 @@
 ---
-title: Using Neural Nets for RL
-subtitle: Using neural networks to predict actions
+title: Crafting Neural Nets for RL
+subtitle: RL Intro and Imitation Learning
 featured_image: /images/knowledge_base/concepts/reinforcement_learning_theory/imitation_learning/svg1_neural_net_policy.svg
 categories: knowledge-base-reinforcement-learning-theory
 permalink: /knowledge-base/reinforcement-learning-theory/basics_1/
