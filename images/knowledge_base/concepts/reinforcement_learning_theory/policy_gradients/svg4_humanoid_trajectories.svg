@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#1e1e2e"/>
+
+  <!-- Title -->
+  <text x="400" y="28" text-anchor="middle" fill="#cdd6f4" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">5 Sampled Trajectories: Learning to Walk</text>
+  <text x="400" y="48" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="12">r(s, a) = forward velocity</text>
+
+  <!-- Stick figure (center-left) -->
+  <g transform="translate(130, 175)">
+    <!-- Head -->
+    <circle cx="0" cy="-40" r="11" fill="none" stroke="#cdd6f4" stroke-width="2"/>
+    <!-- Body -->
+    <line x1="0" y1="-29" x2="0" y2="8" stroke="#cdd6f4" stroke-width="2"/>
+    <!-- Arms -->
+    <line x1="-16" y1="-16" x2="16" y2="-16" stroke="#cdd6f4" stroke-width="2"/>
+    <!-- Left leg -->
+    <line x1="0" y1="8" x2="-12" y2="35" stroke="#cdd6f4" stroke-width="2"/>
+    <!-- Right leg -->
+    <line x1="0" y1="8" x2="12" y2="35" stroke="#cdd6f4" stroke-width="2"/>
+  </g>
+
+  <!-- Ground line -->
+  <line x1="90" y1="215" x2="580" y2="215" stroke="#585b70" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="555" y="230" text-anchor="end" fill="#585b70" font-family="Arial, Helvetica, sans-serif" font-size="10">forward &#x2192;</text>
+
+  <!-- ===== TRAJECTORY 1: Falls backwards (Negative) ===== -->
+  <path d="M150,170 C148,175 140,190 132,210" fill="none" stroke="#f38ba8" stroke-width="2.5" opacity="0.7"/>
+  <text x="120" y="235" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold">&#x2717;</text>
+  <text x="120" y="253" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="10">Falls back</text>
+  <text x="120" y="266" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="bold">R &lt; 0</text>
+
+  <!-- ===== TRAJECTORY 5: Back then fwd (Negative) ===== -->
+  <path d="M150,175 C120,185 105,200 100,210" fill="none" stroke="#f38ba8" stroke-width="2" opacity="0.5"/>
+  <text x="88" y="235" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="14">&#x2717;</text>
+  <text x="88" y="253" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="10">Back&#x2192;fwd</text>
+  <text x="88" y="266" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="bold">R &lt; 0</text>
+
+  <!-- ===== TRAJECTORY 3: Stands still (Zero) ===== -->
+  <path d="M150,165 C155,163 158,164 160,165" fill="none" stroke="#f9e2af" stroke-width="2" opacity="0.6"/>
+  <text x="175" y="158" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="10">Stands still (R = 0)</text>
+
+  <!-- ===== TRAJECTORY 4: Step fwd, falls back (Negative) ===== -->
+  <path d="M150,168 C220,150 280,155 300,180 C315,200 305,210 295,215" fill="none" stroke="#f38ba8" stroke-width="2" opacity="0.6"/>
+  <text x="300" y="235" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="14">&#x2717;</text>
+  <text x="300" y="253" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="10">Step fwd, falls</text>
+  <text x="300" y="266" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="bold">R &lt; 0</text>
+
+  <!-- ===== TRAJECTORY 2: Falls forward (Positive — "best") ===== -->
+  <path d="M150,162 C250,135 380,140 450,170 C480,185 500,205 510,215" fill="none" stroke="#a6e3a1" stroke-width="3" opacity="0.9"/>
+  <text x="515" y="235" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold">&#x2713;</text>
+  <text x="515" y="253" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="10">Falls forward</text>
+  <text x="515" y="266" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="bold">R &gt; 0 (best!)</text>
+
+  <!-- Gradient interpretation box -->
+  <rect x="470" y="78" width="295" height="80" rx="10" ry="10" fill="rgba(166,227,161,0.08)" stroke="#a6e3a1" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <text x="618" y="102" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold">Gradient says:</text>
+  <text x="618" y="124" text-anchor="middle" fill="#cdd6f4" font-family="Arial, Helvetica, sans-serif" font-size="12">"Do more falling forward"</text>
+  <text x="618" y="148" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="11">...learns to faceplant, not walk</text>
+
+  <!-- Bottom captions -->
+  <text x="400" y="310" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="12">With few samples, the gradient is noisy and can lead to strange local optima</text>
+  <text x="400" y="330" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="11">This is the high-variance problem of policy gradients</text>
+</svg>

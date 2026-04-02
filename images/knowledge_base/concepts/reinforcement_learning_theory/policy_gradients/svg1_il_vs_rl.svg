@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="440" viewBox="0 0 800 440">
+  <rect width="800" height="440" fill="#1e1e2e"/>
+
+  <defs>
+    <marker id="aGray" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#585b70"/>
+    </marker>
+    <marker id="aBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#89b4fa"/>
+    </marker>
+  </defs>
+
+  <!-- ========== TOP: SHARED TRAINING LOOP ========== -->
+  <text x="400" y="28" text-anchor="middle" fill="#cdd6f4" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">The Shared Training Loop</text>
+  <text x="400" y="48" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="12">Both imitation learning and policy gradients follow the same structure</text>
+
+  <!-- Step 1: Collect data -->
+  <rect x="60" y="72" width="175" height="50" rx="10" ry="10" fill="rgba(249,226,175,0.12)" stroke="#f9e2af" stroke-width="2"/>
+  <text x="147" y="93" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold">1. Collect</text>
+  <text x="147" y="110" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold">trajectories</text>
+
+  <!-- Arrow -->
+  <line x1="235" y1="97" x2="295" y2="97" stroke="#585b70" stroke-width="2" marker-end="url(#aGray)"/>
+
+  <!-- Step 2: Compute gradient -->
+  <rect x="300" y="72" width="200" height="50" rx="10" ry="10" fill="rgba(137,180,250,0.12)" stroke="#89b4fa" stroke-width="2"/>
+  <text x="400" y="93" text-anchor="middle" fill="#89b4fa" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold">2. Compute gradient</text>
+  <text x="400" y="110" text-anchor="middle" fill="#89b4fa" font-family="Arial, Helvetica, sans-serif" font-size="13">&#x2207; log &#x03C0;&#x03B8;(a|s)</text>
+
+  <!-- Arrow -->
+  <line x1="500" y1="97" x2="555" y2="97" stroke="#585b70" stroke-width="2" marker-end="url(#aGray)"/>
+
+  <!-- Step 3: Update -->
+  <rect x="560" y="72" width="180" height="50" rx="10" ry="10" fill="rgba(166,227,161,0.12)" stroke="#a6e3a1" stroke-width="2"/>
+  <text x="650" y="93" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold">3. Update &#x03B8;</text>
+  <text x="650" y="110" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="13">&#x03B8; &#x2190; &#x03B8; + &#x03B1;&#x2207;J</text>
+
+  <!-- Repeat arrow: curved from Step 3 back to Step 1 -->
+  <path d="M650,122 C650,155 147,155 147,122" fill="none" stroke="#585b70" stroke-width="1.8" marker-end="url(#aGray)"/>
+  <text x="400" y="152" text-anchor="middle" fill="#585b70" font-family="Arial, Helvetica, sans-serif" font-size="11">repeat</text>
+
+  <!-- ========== DIVIDER ========== -->
+  <text x="400" y="188" text-anchor="middle" fill="#cdd6f4" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold">What changes between IL and Policy Gradients?</text>
+
+  <!-- ========== BOTTOM LEFT: IMITATION LEARNING ========== -->
+  <rect x="30" y="210" width="355" height="210" rx="12" ry="12" fill="rgba(137,180,250,0.05)" stroke="#585b70" stroke-width="1"/>
+  <text x="207" y="236" text-anchor="middle" fill="#89b4fa" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">Imitation Learning</text>
+
+  <!-- Difference 1: Data -->
+  <text x="55" y="268" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold">Data:</text>
+  <text x="100" y="268" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="12">Expert demonstrations</text>
+
+  <!-- Difference 2: Gradient -->
+  <text x="55" y="298" fill="#89b4fa" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold">Gradient:</text>
+  <text x="120" y="298" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="12">&#x2207; log &#x03C0;(a|s)</text>
+  <text x="253" y="298" fill="#cdd6f4" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold">&#xD7; 1</text>
+
+  <!-- Visual: equal arrows -->
+  <g opacity="0.8">
+    <text x="55" y="328" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="11">All actions weighted equally:</text>
+    <line x1="55" y1="342" x2="145" y2="342" stroke="#a6e3a1" stroke-width="3"/>
+    <polygon points="145,338 155,342 145,346" fill="#a6e3a1"/>
+    <text x="165" y="346" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="10">a₁</text>
+    <line x1="55" y1="362" x2="145" y2="362" stroke="#a6e3a1" stroke-width="3"/>
+    <polygon points="145,358 155,362 145,366" fill="#a6e3a1"/>
+    <text x="165" y="366" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="10">a₂</text>
+    <line x1="55" y1="382" x2="145" y2="382" stroke="#a6e3a1" stroke-width="3"/>
+    <polygon points="145,378 155,382 145,386" fill="#a6e3a1"/>
+    <text x="165" y="386" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="10">a₃</text>
+  </g>
+  <text x="210" y="365" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="11">same length</text>
+  <text x="210" y="380" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="11">= same weight</text>
+
+  <!-- ========== BOTTOM RIGHT: POLICY GRADIENTS ========== -->
+  <rect x="415" y="210" width="355" height="210" rx="12" ry="12" fill="rgba(166,227,161,0.05)" stroke="#585b70" stroke-width="1"/>
+  <text x="592" y="236" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">Policy Gradients</text>
+
+  <!-- Difference 1: Data -->
+  <text x="440" y="268" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold">Data:</text>
+  <text x="485" y="268" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="12">Agent's own experience</text>
+
+  <!-- Difference 2: Gradient -->
+  <text x="440" y="298" fill="#89b4fa" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold">Gradient:</text>
+  <text x="505" y="298" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="12">&#x2207; log &#x03C0;(a|s)</text>
+  <text x="638" y="298" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold">&#xD7; R(&#x03C4;)</text>
+
+  <!-- Visual: reward-weighted arrows -->
+  <g opacity="0.8">
+    <text x="440" y="328" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="11">Actions weighted by reward:</text>
+    <line x1="440" y1="342" x2="580" y2="342" stroke="#a6e3a1" stroke-width="4.5"/>
+    <polygon points="580,337 592,342 580,347" fill="#a6e3a1"/>
+    <text x="600" y="346" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="10">a₁ (R=+8)</text>
+
+    <line x1="440" y1="362" x2="495" y2="362" stroke="#f9e2af" stroke-width="2"/>
+    <polygon points="495,358 505,362 495,366" fill="#f9e2af"/>
+    <text x="513" y="366" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="10">a₂ (R=+1)</text>
+
+    <line x1="440" y1="382" x2="530" y2="382" stroke="#f38ba8" stroke-width="3"/>
+    <polygon points="530,378 540,382 530,386" fill="#f38ba8"/>
+    <text x="548" y="386" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="10">a₃ (R=&#x2013;3)</text>
+  </g>
+
+  <!-- Bottom caption -->
+  <text x="400" y="432" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="12">Same loop, two differences: where the data comes from and how the gradient is weighted</text>
+</svg>

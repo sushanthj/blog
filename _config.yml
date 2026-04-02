@@ -53,6 +53,7 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+  math_engine: mathjax
   toc_levels: 1..6
   auto_ids: true
   heading_anchors: true

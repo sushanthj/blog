@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="380" viewBox="0 0 800 380">
+  <rect width="800" height="380" fill="#1e1e2e"/>
+
+  <!-- ========== LEFT: IMITATION LEARNING ========== -->
+  <text x="200" y="30" text-anchor="middle" fill="#89b4fa" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">Imitation Learning</text>
+  <text x="200" y="50" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="12">Copy all expert actions equally</text>
+
+  <!-- 5 trajectory boxes with equal green arrows -->
+  <g>
+    <rect x="55" y="72" width="130" height="32" rx="8" ry="8" fill="rgba(166,227,161,0.1)" stroke="#585b70" stroke-width="1.2"/>
+    <text x="120" y="93" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="11">a₁ (expert)</text>
+    <line x1="185" y1="88" x2="300" y2="88" stroke="#a6e3a1" stroke-width="3"/>
+    <polygon points="300,84 310,88 300,92" fill="#a6e3a1"/>
+
+    <rect x="55" y="118" width="130" height="32" rx="8" ry="8" fill="rgba(166,227,161,0.1)" stroke="#585b70" stroke-width="1.2"/>
+    <text x="120" y="139" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="11">a₂ (expert)</text>
+    <line x1="185" y1="134" x2="300" y2="134" stroke="#a6e3a1" stroke-width="3"/>
+    <polygon points="300,130 310,134 300,138" fill="#a6e3a1"/>
+
+    <rect x="55" y="164" width="130" height="32" rx="8" ry="8" fill="rgba(166,227,161,0.1)" stroke="#585b70" stroke-width="1.2"/>
+    <text x="120" y="185" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="11">a₃ (expert)</text>
+    <line x1="185" y1="180" x2="300" y2="180" stroke="#a6e3a1" stroke-width="3"/>
+    <polygon points="300,176 310,180 300,184" fill="#a6e3a1"/>
+
+    <rect x="55" y="210" width="130" height="32" rx="8" ry="8" fill="rgba(166,227,161,0.1)" stroke="#585b70" stroke-width="1.2"/>
+    <text x="120" y="231" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="11">a₄ (expert)</text>
+    <line x1="185" y1="226" x2="300" y2="226" stroke="#a6e3a1" stroke-width="3"/>
+    <polygon points="300,222 310,226 300,230" fill="#a6e3a1"/>
+
+    <rect x="55" y="256" width="130" height="32" rx="8" ry="8" fill="rgba(166,227,161,0.1)" stroke="#585b70" stroke-width="1.2"/>
+    <text x="120" y="277" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="11">a₅ (expert)</text>
+    <line x1="185" y1="272" x2="300" y2="272" stroke="#a6e3a1" stroke-width="3"/>
+    <polygon points="300,268 310,272 300,276" fill="#a6e3a1"/>
+  </g>
+
+  <text x="325" y="185" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold">equal</text>
+  <text x="325" y="198" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold">weight</text>
+
+  <!-- Gradient formula -->
+  <text x="200" y="320" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="12">&#x2207; log &#x03C0;(a|s)</text>
+  <text x="200" y="340" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="11">All arrows same length</text>
+
+  <!-- ========== DIVIDER ========== -->
+  <line x1="400" y1="20" x2="400" y2="360" stroke="#585b70" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- ========== RIGHT: REINFORCE ========== -->
+  <text x="600" y="30" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">REINFORCE</text>
+  <text x="600" y="50" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="12">Weight actions by reward</text>
+
+  <!-- Trajectory 1: HIGH reward — big green arrow -->
+  <rect x="435" y="72" width="130" height="32" rx="8" ry="8" fill="rgba(166,227,161,0.12)" stroke="#a6e3a1" stroke-width="1.2"/>
+  <text x="500" y="93" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="11">&#x03C4;₁  R = +8.2</text>
+  <line x1="565" y1="88" x2="730" y2="88" stroke="#a6e3a1" stroke-width="5"/>
+  <polygon points="730,82 742,88 730,94" fill="#a6e3a1"/>
+
+  <!-- Trajectory 2: MEDIUM reward — medium green arrow -->
+  <rect x="435" y="118" width="130" height="32" rx="8" ry="8" fill="rgba(166,227,161,0.08)" stroke="#a6e3a1" stroke-width="1"/>
+  <text x="500" y="139" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="11">&#x03C4;₂  R = +3.1</text>
+  <line x1="565" y1="134" x2="660" y2="134" stroke="#a6e3a1" stroke-width="3"/>
+  <polygon points="660,130 670,134 660,138" fill="#a6e3a1"/>
+
+  <!-- Trajectory 3: SMALL positive — tiny yellow arrow -->
+  <rect x="435" y="164" width="130" height="32" rx="8" ry="8" fill="rgba(249,226,175,0.08)" stroke="#f9e2af" stroke-width="1"/>
+  <text x="500" y="185" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="11">&#x03C4;₃  R = +0.5</text>
+  <line x1="565" y1="180" x2="605" y2="180" stroke="#f9e2af" stroke-width="2"/>
+  <polygon points="605,176 615,180 605,184" fill="#f9e2af"/>
+
+  <!-- Trajectory 4: NEGATIVE — medium red arrow -->
+  <rect x="435" y="210" width="130" height="32" rx="8" ry="8" fill="rgba(243,139,168,0.08)" stroke="#f38ba8" stroke-width="1"/>
+  <text x="500" y="231" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="11">&#x03C4;₄  R = &#x2013;2.4</text>
+  <line x1="565" y1="226" x2="660" y2="226" stroke="#f38ba8" stroke-width="3"/>
+  <polygon points="660,222 670,226 660,230" fill="#f38ba8"/>
+  <text x="678" y="230" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="9">push away</text>
+
+  <!-- Trajectory 5: VERY NEGATIVE — big red arrow -->
+  <rect x="435" y="256" width="130" height="32" rx="8" ry="8" fill="rgba(243,139,168,0.12)" stroke="#f38ba8" stroke-width="1.2"/>
+  <text x="500" y="277" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="11">&#x03C4;₅  R = &#x2013;6.7</text>
+  <line x1="565" y1="272" x2="720" y2="272" stroke="#f38ba8" stroke-width="5"/>
+  <polygon points="720,266 732,272 720,278" fill="#f38ba8"/>
+  <text x="740" y="276" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="9">push</text>
+  <text x="740" y="286" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="9">away</text>
+
+  <!-- Gradient formula -->
+  <text x="600" y="320" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="12">&#x2207; log &#x03C0;(a|s) &#xB7; R(&#x03C4;)</text>
+  <text x="600" y="340" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="11">Arrow length &#x221D; reward magnitude</text>
+</svg>

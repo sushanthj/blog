@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#1e1e2e"/>
+
+  <!-- Title -->
+  <text x="400" y="28" text-anchor="middle" fill="#cdd6f4" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold">The Baseline: Better Than Average vs Worse Than Average</text>
+
+  <!-- ========== LEFT: WITHOUT BASELINE ========== -->
+  <text x="200" y="60" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold">Without Baseline</text>
+  <text x="200" y="78" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="11">All rewards &#x2265; 0, everything pushed up</text>
+
+  <!-- Bar chart: probability changes -->
+  <!-- Axes -->
+  <line x1="60" y1="310" x2="340" y2="310" stroke="#585b70" stroke-width="1.5"/>
+  <line x1="60" y1="100" x2="60" y2="310" stroke="#585b70" stroke-width="1.5"/>
+
+  <!-- Y-axis label -->
+  <text x="28" y="205" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="10" transform="rotate(-90 28 205)">&#x0394; probability</text>
+
+  <!-- 4 bars — all positive (all go UP without baseline) -->
+  <!-- Bar 1: Doesn't touch jacket (r=0) — zero height -->
+  <rect x="78" y="305" width="48" height="5" rx="2" ry="2" fill="#585b70" opacity="0.5"/>
+  <text x="102" y="328" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="9">nothing</text>
+  <text x="102" y="340" text-anchor="middle" fill="#585b70" font-family="Arial, Helvetica, sans-serif" font-size="9">r=0</text>
+
+  <!-- Bar 2: Folds sleeves only (r=0.5) — small up -->
+  <rect x="143" y="245" width="48" height="65" rx="2" ry="2" fill="#a6e3a1" opacity="0.5"/>
+  <text x="167" y="328" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="9">sleeves</text>
+  <text x="167" y="340" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="9">r=0.5</text>
+
+  <!-- Bar 3: Flattens (r=0) — zero height -->
+  <rect x="208" y="305" width="48" height="5" rx="2" ry="2" fill="#585b70" opacity="0.5"/>
+  <text x="232" y="328" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="9">flatten</text>
+  <text x="232" y="340" text-anchor="middle" fill="#585b70" font-family="Arial, Helvetica, sans-serif" font-size="9">r=0</text>
+
+  <!-- Bar 4: Folds jacket (r=1.0) — big up -->
+  <rect x="273" y="180" width="48" height="130" rx="2" ry="2" fill="#a6e3a1" opacity="0.7"/>
+  <text x="297" y="328" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="9">fold</text>
+  <text x="297" y="340" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="bold">r=1.0</text>
+
+  <!-- All up arrows -->
+  <text x="102" y="295" text-anchor="middle" fill="#585b70" font-family="Arial, Helvetica, sans-serif" font-size="14">&#x2191;</text>
+  <text x="167" y="238" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="14">&#x2191;</text>
+  <text x="232" y="295" text-anchor="middle" fill="#585b70" font-family="Arial, Helvetica, sans-serif" font-size="14">&#x2191;</text>
+  <text x="297" y="172" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold">&#x2191;</text>
+
+  <!-- Problem annotation -->
+  <text x="200" y="365" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="11">Problem: pushes up everything,</text>
+  <text x="200" y="380" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="11">including "do nothing" trajectories</text>
+
+  <!-- ========== DIVIDER ========== -->
+  <line x1="400" y1="55" x2="400" y2="420" stroke="#585b70" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- ========== RIGHT: WITH BASELINE ========== -->
+  <text x="600" y="60" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold">With Baseline (b = avg reward)</text>
+  <text x="600" y="78" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="11">Better than average &#x2191;, worse than average &#x2193;</text>
+
+  <!-- Bar chart: probability changes — centered around zero -->
+  <!-- Axes -->
+  <line x1="460" y1="310" x2="740" y2="310" stroke="#585b70" stroke-width="1.5"/>
+  <line x1="460" y1="100" x2="460" y2="310" stroke="#585b70" stroke-width="1.5"/>
+
+  <!-- Zero line (baseline = avg ≈ 0.375) -->
+  <line x1="460" y1="220" x2="740" y2="220" stroke="#f9e2af" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="750" y="224" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="10">b = 0.375</text>
+
+  <!-- Y-axis label -->
+  <text x="435" y="205" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="10" transform="rotate(-90 435 205)">&#x0394; probability</text>
+
+  <!-- Bar 1: r=0, below baseline → push DOWN -->
+  <rect x="478" y="220" width="48" height="50" rx="2" ry="2" fill="#f38ba8" opacity="0.5"/>
+  <text x="502" y="328" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="9">nothing</text>
+  <text x="502" y="340" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="9">r&#x2013;b &lt; 0</text>
+  <text x="502" y="285" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold">&#x2193;</text>
+
+  <!-- Bar 2: r=0.5, above baseline → push UP -->
+  <rect x="543" y="200" width="48" height="20" rx="2" ry="2" fill="#a6e3a1" opacity="0.5"/>
+  <text x="567" y="328" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="9">sleeves</text>
+  <text x="567" y="340" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="9">r&#x2013;b &gt; 0</text>
+  <text x="567" y="195" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="14">&#x2191;</text>
+
+  <!-- Bar 3: r=0, below baseline → push DOWN -->
+  <rect x="608" y="220" width="48" height="50" rx="2" ry="2" fill="#f38ba8" opacity="0.5"/>
+  <text x="632" y="328" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="9">flatten</text>
+  <text x="632" y="340" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="9">r&#x2013;b &lt; 0</text>
+  <text x="632" y="285" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold">&#x2193;</text>
+
+  <!-- Bar 4: r=1.0, well above baseline → push UP a lot -->
+  <rect x="673" y="140" width="48" height="80" rx="2" ry="2" fill="#a6e3a1" opacity="0.7"/>
+  <text x="697" y="328" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="9">fold</text>
+  <text x="697" y="340" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="bold">r&#x2013;b &#x226B; 0</text>
+  <text x="697" y="133" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold">&#x2191;</text>
+
+  <!-- Benefit annotation -->
+  <text x="600" y="365" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="11">Actively pushes away from</text>
+  <text x="600" y="380" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="11">below-average actions</text>
+
+  <!-- Bottom caption -->
+  <text x="400" y="420" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="12">Subtracting a baseline reduces variance without introducing bias</text>
+  <text x="400" y="438" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="11">E[&#x2207; log p(&#x03C4;) &#xB7; b] = 0 (baseline vanishes in expectation)</text>
+</svg>
