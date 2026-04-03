@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <rect width="800" height="420" fill="#1e1e2e"/>
+
+  <!-- ========== LEFT SIDE: Gaussian Policy Network ========== -->
+
+  <!-- Neural Network box -->
+  <rect x="30" y="120" width="130" height="100" rx="12" ry="12" fill="rgba(137,180,250,0.12)" stroke="#89b4fa" stroke-width="2"/>
+  <text x="95" y="163" text-anchor="middle" fill="#89b4fa" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">Neural</text>
+  <text x="95" y="183" text-anchor="middle" fill="#89b4fa" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold">Network</text>
+
+  <!-- Robot State input -->
+  <rect x="40" y="275" width="110" height="40" rx="8" ry="8" fill="rgba(166,227,161,0.15)" stroke="#a6e3a1" stroke-width="1.5"/>
+  <text x="95" y="300" text-anchor="middle" fill="#a6e3a1" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold">Robot State</text>
+
+  <!-- Arrow: State → NN -->
+  <line x1="95" y1="275" x2="95" y2="225" stroke="#585b70" stroke-width="1.8"/>
+  <polygon points="90,227 95,220 100,227" fill="#585b70"/>
+
+  <!-- Arrow: NN → params -->
+  <line x1="160" y1="170" x2="210" y2="170" stroke="#585b70" stroke-width="1.8"/>
+  <polygon points="208,165 218,170 208,175" fill="#585b70"/>
+
+  <!-- Gaussian Parameters -->
+  <text x="248" y="155" text-anchor="middle" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold">μ</text>
+  <text x="248" y="195" text-anchor="middle" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold">σ</text>
+
+  <!-- Brace -->
+  <path d="M225,135 C220,135 218,137 218,142 L218,160 C218,165 216,167 212,167 C216,167 218,169 218,174 L218,192 C218,197 220,199 225,199" fill="none" stroke="#585b70" stroke-width="1.5"/>
+  <text x="203" y="170" text-anchor="middle" fill="#585b70" font-family="Arial, Helvetica, sans-serif" font-size="10">Gaussian</text>
+  <text x="203" y="182" text-anchor="middle" fill="#585b70" font-family="Arial, Helvetica, sans-serif" font-size="10">Params</text>
+
+  <!-- Legend row at bottom-left -->
+  <circle cx="40" cy="345" r="4" fill="#f9e2af"/>
+  <text x="50" y="349" fill="#f9e2af" font-family="Arial, Helvetica, sans-serif" font-size="11">μ = mean</text>
+  <circle cx="140" cy="345" r="4" fill="#f38ba8"/>
+  <text x="150" y="349" fill="#f38ba8" font-family="Arial, Helvetica, sans-serif" font-size="11">σ = std dev</text>
+
+  <!-- "Only 2 params" callout -->
+  <text x="145" y="375" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="11" font-style="italic">Only 2 parameters</text>
+
+  <!-- ========== DIVIDER ========== -->
+  <line x1="310" y1="50" x2="310" y2="370" stroke="#585b70" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- ========== RIGHT SIDE: Distribution Fitting ========== -->
+  <text x="560" y="40" text-anchor="middle" fill="#cdd6f4" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold">Single Gaussian vs Bimodal Data</text>
+
+  <!-- Axes -->
+  <!-- X-axis: angle, from -30 to +30. Plot area: x=360..760, y=75..330 -->
+  <line x1="360" y1="310" x2="760" y2="310" stroke="#585b70" stroke-width="1.5"/>
+  <!-- Y-axis -->
+  <line x1="360" y1="310" x2="360" y2="75" stroke="#585b70" stroke-width="1.5"/>
+
+  <!-- X ticks -->
+  <line x1="360" y1="310" x2="360" y2="316" stroke="#585b70" stroke-width="1"/>
+  <text x="360" y="328" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7f849c">-30&#xB0;</text>
+  <line x1="427" y1="310" x2="427" y2="316" stroke="#585b70" stroke-width="1"/>
+  <text x="427" y="328" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7f849c">-20&#xB0;</text>
+  <line x1="493" y1="310" x2="493" y2="316" stroke="#585b70" stroke-width="1"/>
+  <text x="493" y="328" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7f849c">-10&#xB0;</text>
+  <line x1="560" y1="310" x2="560" y2="316" stroke="#585b70" stroke-width="1"/>
+  <text x="560" y="328" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7f849c">0&#xB0;</text>
+  <line x1="627" y1="310" x2="627" y2="316" stroke="#585b70" stroke-width="1"/>
+  <text x="627" y="328" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7f849c">10&#xB0;</text>
+  <line x1="693" y1="310" x2="693" y2="316" stroke="#585b70" stroke-width="1"/>
+  <text x="693" y="328" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7f849c">20&#xB0;</text>
+  <line x1="760" y1="310" x2="760" y2="316" stroke="#585b70" stroke-width="1"/>
+  <text x="760" y="328" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7f849c">30&#xB0;</text>
+
+  <text x="560" y="355" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#cdd6f4">Steering Angle</text>
+
+  <!-- Bimodal expert distribution (blue filled) -->
+  <!-- Same curve as svg5: peaks at -15 (x=460) and +15 (x=660), sigma=5 -->
+  <path d="M360,308 L380,307 L400,303 L415,295 L427,282 L440,260 L448,240 L455,215 L458,195 L460,175 L462,155 L464,140 L466,125 L468,115 L470,108 L472,103 L474,100 L476,103 L478,108 L480,115 L482,125 L484,140 L486,155 L490,180 L495,205 L500,230 L510,265 L520,285 L530,298 L540,305 L550,308 L560,308 L570,305 L580,298 L590,285 L600,265 L605,240 L610,215 L615,195 L618,180 L620,165 L622,150 L624,138 L626,125 L628,115 L630,108 L632,103 L634,100 L636,103 L638,108 L640,115 L642,125 L644,138 L646,150 L650,175 L655,205 L660,235 L670,268 L680,290 L693,303 L710,307 L730,308 L760,308" fill="none" stroke="#89b4fa" stroke-width="2.5"/>
+  <path d="M360,308 L380,307 L400,303 L415,295 L427,282 L440,260 L448,240 L455,215 L458,195 L460,175 L462,155 L464,140 L466,125 L468,115 L470,108 L472,103 L474,100 L476,103 L478,108 L480,115 L482,125 L484,140 L486,155 L490,180 L495,205 L500,230 L510,265 L520,285 L530,298 L540,305 L550,308 L560,308 L570,305 L580,298 L590,285 L600,265 L605,240 L610,215 L615,195 L618,180 L620,165 L622,150 L624,138 L626,125 L628,115 L630,108 L632,103 L634,100 L636,103 L638,108 L640,115 L642,125 L644,138 L646,150 L650,175 L655,205 L660,235 L670,268 L680,290 L693,303 L710,307 L730,308 L760,308 L760,310 L360,310 Z" fill="#89b4fa" fill-opacity="0.12"/>
+
+  <!-- Single Gaussian fit (dashed red, centered at 0 with wide sigma~15) -->
+  <!-- mu=0 (x=560), sigma=15deg. Peak height lower than bimodal peaks -->
+  <!-- Gaussian: peak at ~y=175, at x=560 (0 degrees), spreading wide -->
+  <path d="M360,305 L380,300 L400,292 L415,281 L427,268 L440,252 L450,238 L460,224 L470,211 L480,200 L490,191 L500,184 L510,179 L520,176 L530,174 L540,173 L550,173 L555,173 L560,173 L565,173 L570,173 L580,174 L590,176 L600,179 L610,184 L620,191 L630,200 L640,211 L650,224 L660,238 L670,252 L680,268 L693,281 L710,300 L730,305 L760,308" fill="none" stroke="#f38ba8" stroke-width="2.5" stroke-dasharray="8,5"/>
+  <path d="M360,305 L380,300 L400,292 L415,281 L427,268 L440,252 L450,238 L460,224 L470,211 L480,200 L490,191 L500,184 L510,179 L520,176 L530,174 L540,173 L550,173 L555,173 L560,173 L565,173 L570,173 L580,174 L590,176 L600,179 L610,184 L620,191 L630,200 L640,211 L650,224 L660,238 L670,252 L680,268 L693,281 L710,300 L730,305 L760,308 L760,310 L360,310 Z" fill="#f38ba8" fill-opacity="0.06"/>
+
+  <!-- X mark at the peak of Gaussian (0 degrees) showing it's between the modes -->
+  <text x="560" y="162" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#f38ba8" font-weight="bold">&#x2717;</text>
+  <text x="560" y="150" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#f38ba8">Peak between modes</text>
+
+  <!-- Arrows pointing to where the actual modes are -->
+  <!-- Left mode arrow -->
+  <line x1="474" y1="82" x2="474" y2="95" stroke="#a6e3a1" stroke-width="1.5"/>
+  <polygon points="470,93 474,100 478,93" fill="#a6e3a1"/>
+  <text x="474" y="78" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#a6e3a1">Actual mode</text>
+
+  <!-- Right mode arrow -->
+  <line x1="634" y1="82" x2="634" y2="95" stroke="#a6e3a1" stroke-width="1.5"/>
+  <polygon points="630,93 634,100 638,93" fill="#a6e3a1"/>
+  <text x="634" y="78" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#a6e3a1">Actual mode</text>
+
+  <!-- Legend -->
+  <line x1="370" y1="68" x2="385" y2="68" stroke="#89b4fa" stroke-width="2.5"/>
+  <text x="390" y="72" font-family="sans-serif" font-size="10" fill="#7f849c">Expert data (bimodal)</text>
+  <line x1="490" y1="68" x2="510" y2="68" stroke="#f38ba8" stroke-width="2.5" stroke-dasharray="4,3"/>
+  <text x="515" y="72" font-family="sans-serif" font-size="10" fill="#7f849c">Gaussian fit</text>
+
+  <!-- Caption -->
+  <text x="400" y="400" text-anchor="middle" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="13">Outputs only μ and σ — a single bell curve that collapses between the two modes</text>
+</svg>

@@ -3,12 +3,20 @@ layout: default
 dark_theme: true
 ---
 
-<script>
-MathJax = {
-  tex: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] }
-};
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  /* Mobile: shrink display math to fit screen */
+  @media (max-width: 768px) {
+    mjx-container[jax="CHTML"][display="true"] {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+      font-size: 80% !important;
+    }
+    mjx-container[jax="CHTML"]:not([display="true"]) {
+      font-size: 85% !important;
+    }
+  }
+</style>
 
 <div class="kb">
 

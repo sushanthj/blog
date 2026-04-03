@@ -341,6 +341,11 @@
 			$(this).wrapAll('<div class="table-wrap"></div>');
 		});
 
+		// Re-typeset MathJax after AJAX page load
+		if (window.MathJax && window.MathJax.typesetPromise) {
+			MathJax.typesetPromise();
+		}
+
 	}
 
 	// Run functions on load

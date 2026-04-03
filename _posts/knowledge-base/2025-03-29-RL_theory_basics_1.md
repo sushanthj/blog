@@ -66,6 +66,8 @@ Beyond mean-averaging, deterministic policies have a compounding error problem
 
 What if instead of predicting a single value, the model outputs the **parameters of a Gaussian distribution** --- a mean $\mu$ and variance $\sigma^2$?
 
+![Gaussian policy](/images/knowledge_base/concepts/reinforcement_learning_theory/imitation_learning/svg4b_gaussian_policy.svg)
+
 - The expert data distribution for our steering example was **bimodal** (some drivers go left, some go right)
 - A single Gaussian can only capture one mode
 - If we train with L2 loss (which is equivalent to fitting the mean of a Gaussian), we again predict the average --- right between the two modes.
@@ -93,6 +95,12 @@ Here we rely on discretizing the action space into small enough 'bins' such that
 Each bin is again a probability (multi-class classification). More bins = more expressiveness, just like **larger vocabulary size in LLMs**.
 
 ## Training Stochastic Policies with Maximum Likelihood
+
+What does it actually mean to "match the expert"? The model outputs a probability distribution over actions. When the expert acts, we check: **did our distribution put high probability where the expert acted?** If yes, the loss is low. If not, the loss is high, and training shifts the distribution toward expert actions.
+
+<video width="100%" autoplay loop muted playsinline>
+  <source src="/images/knowledge_base/concepts/reinforcement_learning_theory/imitation_learning/video_il_log_prob.mp4" type="video/mp4">
+</video>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 2em 0;">
   <iframe src="https://drive.google.com/file/d/1MrgMteqzWWI-8XARpLUze6HmgaQhyHsO/preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>

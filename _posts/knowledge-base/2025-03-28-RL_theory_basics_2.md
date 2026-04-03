@@ -59,7 +59,14 @@ $$\nabla_\theta J(\theta) = \int p_\theta(\tau) \, \nabla_\theta \log p_\theta(\
 
 This is the key move --- we've turned a gradient-of-an-expectation into an expectation-of-a-gradient, which means we can **estimate it with samples**.
 
-![IL gradient vs policy gradient](/images/knowledge_base/concepts/reinforcement_learning_theory/policy_gradients/svg6_gradient_comparison.svg)
+Notice how similar this is to the imitation learning gradient. The only difference is the reward weight:
+
+| | Gradient |
+|:--|:---------|
+| **Imitation Learning** | $\nabla_\theta J \approx \sum \nabla_\theta \log \pi_\theta(\mathbf{a} \mid \mathbf{s}) \times \mathbf{1}$ |
+| **Policy Gradient** | $\nabla_\theta J \approx \sum \nabla_\theta \log \pi_\theta(\mathbf{a} \mid \mathbf{s}) \times \mathbf{r(\tau)}$ |
+
+Same log-probability gradient underneath --- just multiply by reward.
 
 ## Eliminating the Dynamics
 
@@ -90,6 +97,16 @@ The full algorithm:
 > 1. Sample $\lbrace\tau^i\rbrace$ from $\pi_\theta(\mathbf{a}_t \mid \mathbf{s}_t)$
 > 2. Compute $\nabla_\theta J(\theta)$ using the trajectories
 > 3. $\theta \leftarrow \theta + \alpha \nabla_\theta J(\theta)$
+
+But wait --- in imitation learning, we checked whether our distribution put high probability where the **expert** acted. Without an expert, what do we compare against?
+
+**Nothing.** The agent samples from its own distribution, takes the action, and observes a reward. The log-probability computation is identical --- the only difference is whose action we evaluate, and what we do with the gradient:
+
+<video width="100%" autoplay loop muted playsinline>
+  <source src="/images/knowledge_base/concepts/reinforcement_learning_theory/policy_gradients/video_pg_reward_weight.mp4" type="video/mp4">
+</video>
+
+The agent asks "what probability did I assign to the action I just took?" --- same cross-entropy as IL. But instead of always pushing that probability up (as IL does for expert actions), the reward decides: positive reward pushes it up, negative reward pushes it down.
 
 ## What Does This Actually Mean?
 
