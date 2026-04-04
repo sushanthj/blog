@@ -5,10 +5,10 @@ subtitle: Projects, paper reviews, and CV/ML concepts which I like to summarize 
 featured_image: /images/social.jpg
 permalink: /knowledge-base/
 sections:
-  - title: Concepts
-    category: knowledge-base-concepts
   - title: Reinforcement Learning Theory
     category: knowledge-base-reinforcement-learning-theory
+  - title: Miscellaneous Concepts
+    category: knowledge-base-concepts
   - title: Paper Reviews
     category: knowledge-base-paper-reviews
 ---
