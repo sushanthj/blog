@@ -7,8 +7,8 @@ permalink: /knowledge-base/
 sections:
   - title: Reinforcement Learning Theory
     category: knowledge-base-reinforcement-learning-theory
-  - title: Miscellaneous Concepts
-    category: knowledge-base-concepts
   - title: Paper Reviews
     category: knowledge-base-paper-reviews
+  - title: Miscellaneous Concepts
+    category: knowledge-base-concepts
 ---
