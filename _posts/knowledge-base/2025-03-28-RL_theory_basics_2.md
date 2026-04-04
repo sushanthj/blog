@@ -122,6 +122,34 @@ Compare the REINFORCE gradient to the imitation learning gradient:
 
 REINFORCE is just imitation learning on your own data, where you "imitate yourself more" when things go well and "imitate yourself less" when things go badly. **Do more of the good stuff, less of the bad stuff.**
 
+Here's the full training loop in PyTorch. We'll keep building on this code throughout the post:
+
+```python
+# ---- Vanilla REINFORCE ----
+for epoch in range(num_epochs):
+    # 1. collect N trajectories, each T timesteps long
+    states, actions, rewards = collect_trajectories(env, policy, N, T)
+    # states: (N, T, state_dim), actions: (N, T), rewards: (N, T)
+
+    # 2. total reward per trajectory
+    total_rewards = rewards.sum(dim=1)  # (N,)
+
+    # 3. log probs for every (s, a) pair
+    dist = policy(states)                                     # batched forward pass
+    log_probs = dist.log_prob(actions)                        # (N, T)
+
+    # 4. weight each timestep by TOTAL trajectory reward
+    weights = total_rewards[:, None].expand_as(log_probs)     # (N, T)
+
+    # 5. policy gradient loss
+    loss = -(log_probs * weights).mean()
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+```
+
+Every action in a trajectory gets the same weight --- the total reward of that trajectory. Good trajectory? Push all its actions up. Bad trajectory? Push them all down.
+
 ---
 
 # The Variance Problem
@@ -158,7 +186,47 @@ $$\nabla_\theta J(\theta) \approx \frac{1}{N} \sum_{i=1}^{N} \sum_{t=1}^{T} \nab
 
 Notice the inner sum now starts at $t' = t$ instead of $t' = 1$. This is still an unbiased estimator, but with significantly lower variance.
 
-Going back to the walking example --- trajectory $\tau^5$ ("large step backwards then small step forwards") had a negative total reward. With vanilla REINFORCE, the gradient would push *against* the final small-step-forward action, even though that action was actually good. With reward-to-go, the forward step only sees the rewards *it caused*, and gets properly reinforced.
+<video width="100%" autoplay loop muted playsinline>
+  <source src="/images/knowledge_base/concepts/reinforcement_learning_theory/policy_gradients/video_pg_rtg_comparison.mp4" type="video/mp4">
+</video>
+
+
+In code, the reward-to-go is a reverse cumulative sum. Let's build it step by step:
+
+```python
+def compute_rewards_to_go(rewards):
+    """
+    rewards come from the environment (simulator) after each action.
+    Shape: (N, T) — N trajectories, each T timesteps long.
+
+    We want rtg[i, t] = sum of rewards[i, t:] (future rewards from t onward).
+    """
+    # example rewards single batch (single trajectory): [1, 0, 3, 2]
+
+    # step 1: reverse the time axis
+    reversed_rewards = torch.flip(rewards, dims=[1])
+    # [2, 3, 0, 1]
+
+    # step 2: cumulative sum along time
+    reversed_cumsum = torch.cumsum(reversed_rewards, dim=1)
+    # [2, 5, 5, 6]
+
+    # step 3: flip back to original order
+    rtg = torch.flip(reversed_cumsum, dims=[1])
+    # [6, 5, 5, 2]  ← reward-to-go!
+    #  t=0: 1+0+3+2=6  (sees everything)
+    #  t=3:       2=2   (only the last reward)
+
+    return rtg
+```
+
+The training loop changes by one line:
+
+```python
+    # 4. weight each timestep by FUTURE rewards only (not total)
+    weights = compute_rewards_to_go(rewards)                  # (N, T)
+```
+
 
 ---
 
@@ -190,19 +258,53 @@ $$\mathbb{E}\left[\nabla_\theta \log p_\theta(\tau) \cdot b\right] = b \int \nab
 
 The baseline contributes zero in expectation, so the estimator remains unbiased while reducing variance.
 
+Combining reward-to-go with a baseline gives us the **advantage** --- "how much better was this action than the average action at this timestep?":
+
+$$\hat{A}_{i,t} = \underbrace{\sum_{t'=t}^{T} r(\mathbf{s}_{i,t'}, \mathbf{a}_{i,t'})}_{\text{reward-to-go}} - \underbrace{b_t}_{\text{baseline}}$$
+
+In our training loop, step 4 becomes:
+
+```python
+    # 4. advantages = reward-to-go minus baseline
+    rtg = compute_rewards_to_go(rewards)                      # (N, T)
+    baseline = rtg.mean(dim=0)                                # (T,) — average across batch
+    advantages = (rtg - baseline).detach()                    # (N, T)
+    weights = advantages
+```
+
 ---
 
-# Implementing Policy Gradients in Practice
+# Why `loss.mean()` : The 'Surrogate Objective'
 
-## The Surrogate Objective
+Look back at our training loop. We've been writing:
 
-Computing $N \times T$ individual backward passes is expensive. Instead, we define a **surrogate objective** whose gradient matches our policy gradient:
+```python
+    # 5. policy gradient loss
+    loss = -(log_probs * weights).mean()
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+```
 
-$$\tilde{J}(\theta) = \frac{1}{N} \sum_{i=1}^{N} \left( \sum_{t=1}^{T} \log \pi_\theta(\mathbf{a}_{i,t} | \mathbf{s}_{i,t}) \right) \left( \left( \sum_{t'=t}^{T} r(\mathbf{s}_{i,t'}, \mathbf{a}_{i,t'}) \right) - b \right)$$
+Why can't we just call `.backward()` on `-(log_probs * advantages)` directly? That tensor has shape `(N, T)` --- it's not a scalar. PyTorch's autograd can only backpropagate from a **scalar**. You need to reduce the tensor to a single number first, and `.mean()` or `.sum()` both work. The difference is just a constant factor of $\frac{1}{N \cdot T}$, which the learning rate absorbs anyway. `.mean()` is conventional because it makes the loss scale independent of batch size.
 
-This is just a **weighted maximum likelihood** objective. For discrete actions, $\log \pi_\theta$ is a cross-entropy loss; for continuous actions with a Gaussian policy, it's a squared error. The "weight" $\hat{A}_{i,t} = \text{reward-to-go} - b$ is treated as a constant (detached from the computation graph).
+The deeper question: the policy gradient formula says "for each (state, action) pair, compute $\nabla_\theta \log \pi_\theta(a \mid s)$ and scale by the advantage." Read literally, that's a separate backward pass per sample:
 
-One call to `.backward()` in PyTorch gives you the policy gradient. No custom gradient code needed.
+```python
+# literal reading: one backward pass per (s,a) pair — N*T backward passes!
+for i in range(N):
+    for t in range(T):
+        log_prob = policy(states[i,t]).log_prob(actions[i,t])
+        log_prob.backward()
+        for p in policy.parameters():
+            p.grad *= advantages[i,t]
+```
+
+But autograd can differentiate through `.mean()` (or `.sum()`) in one pass. Since the advantages are constants (`.detach()`), the gradient distributes over the sum:
+
+$$\nabla_\theta \left[\sum_{i,t} \log \pi_\theta(\mathbf{a}_{i,t} | \mathbf{s}_{i,t}) \cdot \hat{A}_{i,t}\right] = \sum_{i,t} \hat{A}_{i,t} \cdot \nabla_\theta \log \pi_\theta(\mathbf{a}_{i,t} | \mathbf{s}_{i,t})$$
+
+That's exactly the policy gradient. One `.backward()`, done. The loss *value* itself is meaningless --- it doesn't tell you how good the policy is. Only its gradient matters.
 
 ---
 
@@ -212,49 +314,106 @@ One call to `.backward()` in PyTorch gives you the policy gradient. No custom gr
 
 Vanilla policy gradient is **on-policy**: after every gradient step, we change $\theta$, which invalidates all our collected data. We have to throw it away and collect fresh trajectories. This is extremely wasteful.
 
+![On-policy data problem](/images/knowledge_base/concepts/reinforcement_learning_theory/policy_gradients/svg7_data_staleness.svg)
+
 ## Importance Sampling
 
-What if we could reuse data from a *previous* policy $\pi_{\theta_\text{old}}$? Importance sampling lets us correct for the mismatch:
+What if we could reuse data from a *previous* policy $\pi_{\theta_\text{old}}$? The data was sampled from the old policy, but we want to estimate what the gradient would look like under the *new* policy. Importance sampling says: you can do this by reweighting each sample.
 
-$$\mathbb{E}_{x \sim p(x)}[f(x)] = \mathbb{E}_{x \sim q(x)}\left[\frac{p(x)}{q(x)} f(x)\right]$$
+The intuition: suppose the old policy took action $a$ with probability 0.3, and the new policy would take that same action with probability 0.6. Then under the new policy, this action is *twice as likely* --- so we should count it twice as much. The weight is just the ratio:
 
-Applied to trajectories, the ratio $\frac{p_\theta(\tau)}{\bar{p}(\tau)}$ simplifies nicely because the dynamics cancel:
+$$\text{weight} = \frac{\pi_{\theta_\text{new}}(a \mid s)}{\pi_{\theta_\text{old}}(a \mid s)} = \frac{0.6}{0.3} = 2.0$$
 
-$$\frac{p_\theta(\tau)}{\bar{p}(\tau)} = \frac{\prod_{t=1}^{T} \pi_\theta(\mathbf{a}_t | \mathbf{s}_t)}{\prod_{t=1}^{T} \bar{\pi}(\mathbf{a}_t | \mathbf{s}_t)}$$
+If the new policy assigns *less* probability to an action than the old one did, the ratio is less than 1 and that sample counts less. This rebalances old samples to look as if they came from the new policy.
 
-## The Practical "Hitch"
+![Importance weights rebalance](/images/knowledge_base/concepts/reinforcement_learning_theory/policy_gradients/svg8_importance_weights.svg)
 
-The problem: this product of ratios over $T$ timesteps can **explode or vanish** for long horizons. One ratio slightly above 1.0 compounded over hundreds of steps becomes enormous.
+In code, the key idea: collect one batch, then take **multiple gradient steps** on it. The ratio corrects for the fact that the policy changes between steps. Here's our training loop updated:
 
-The practical solution: approximate using per-timestep ratios instead:
+```python
+# ---- Off-policy: reuse old data with importance sampling ----
+for epoch in range(num_epochs):
+    states, actions, rewards = collect_trajectories(env, policy, N, T)
 
-$$\nabla_{\theta'} J(\theta') \approx \frac{1}{N} \sum_{i=1}^{N} \sum_{t=1}^{T} \frac{\pi_{\theta'}(\mathbf{a}_{i,t} | \mathbf{s}_{i,t})}{\pi_\theta(\mathbf{a}_{i,t} | \mathbf{s}_{i,t})} \nabla_{\theta'} \log \pi_{\theta'}(\mathbf{a}_{i,t} | \mathbf{s}_{i,t}) \left( \left( \sum_{t'=t}^{T} r(\mathbf{s}_{i,t'}, \mathbf{a}_{i,t'}) \right) - b \right)$$
+    rtg = compute_rewards_to_go(rewards)
+    advantages = (rtg - rtg.mean(dim=0)).detach()
 
-This is an approximation (we're ignoring changes in the state distribution), but it's much more stable. It lets us take **multiple gradient steps** on the same batch of data.
+    # snapshot the log probs BEFORE we start updating
+    old_log_probs = policy(states).log_prob(actions).detach()  # (N, T)
+
+    for k in range(K):  # K gradient steps on the SAME data
+        new_log_probs = policy(states).log_prob(actions)       # (N, T)
+        ratios = (new_log_probs - old_log_probs).exp()         # π_new / π_old
+
+        loss = -(ratios * advantages).mean()
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+```
+
+The outer loop (`for epoch`) collects fresh data. The inner loop (`for k in range(K)`) squeezes multiple gradient steps out of that same data. Without importance sampling we could only do `K=1` --- one step, then throw the data away. Now we get $K$ steps per collection, which is $K\times$ more sample-efficient.
+
+The ratio `π_new(a|s) / π_old(a|s)` stays close to 1.0 in the first few inner steps, then drifts as the policy changes. This is what makes the reuse valid --- and also what limits it.
+
+## Why Per-Timestep Ratios, Not Trajectory Ratios?
+
+You might wonder: shouldn't the importance weight correct the *entire trajectory* probability? The trajectory ratio is a *product* of per-step ratios:
+
+$$\frac{p_{\theta'}(\tau)}{p_\theta(\tau)} = \prod_{t=1}^{T} \frac{\pi_{\theta'}(\mathbf{a}_t | \mathbf{s}_t)}{\pi_\theta(\mathbf{a}_t | \mathbf{s}_t)}$$
+
+Each individual ratio is close to 1.0 --- but the product compounds:
+
+```python
+# each per-step ratio is close to 1.0...
+ratios_per_step = [1.08, 1.12, 0.95, 1.10, 1.06, 1.15, 1.03, ...]
+
+# ...but the product explodes
+import math
+math.prod([1.08] * 50)   # 1.08^50 = 46.9 — one sample dominates!
+math.prod([0.95] * 50)   # 0.95^50 = 0.077 — this sample vanishes
+```
+
+Our code above already avoids this --- it uses **per-timestep ratios**, not the trajectory product. Each ratio stays bounded near 1.0. This is an approximation (we're ignoring changes in the state distribution), but it's far more stable in practice.
 
 ## Constraining the Policy Update
 
-If $\pi_{\theta'}$ drifts too far from $\pi_\theta$, the importance sampling correction becomes unreliable. A common safeguard: constrain the KL divergence between the new and old policies:
+Even with per-timestep ratios, if $\pi_{\theta'}$ drifts too far from $\pi_\theta$ over those $K$ inner steps, the importance weights become unreliable. A common safeguard: stop updating if the KL divergence between the new and old policies exceeds a threshold:
 
 $$\mathbb{E}_{\mathbf{s} \sim \pi_\theta} \left[ D_{KL}(\pi_{\theta'}(\cdot | \mathbf{s}) \| \pi_\theta(\cdot | \mathbf{s})) \right] \leq \delta$$
 
-This idea leads directly to algorithms like TRPO and PPO --- but that's a story for another post.
+This is just two extra lines in the inner loop:
+
+```python
+# ---- Off-policy with KL early stopping ----
+for epoch in range(num_epochs):
+    states, actions, rewards = collect_trajectories(env, policy, N, T)
+
+    rtg = compute_rewards_to_go(rewards)
+    advantages = (rtg - rtg.mean(dim=0)).detach()
+    old_log_probs = policy(states).log_prob(actions).detach()
+
+    for k in range(K):
+        new_log_probs = policy(states).log_prob(actions)
+        ratios = (new_log_probs - old_log_probs).exp()
+
+        # has the policy drifted too far from the data-collection policy?
+        kl = (old_log_probs.exp() * (old_log_probs - new_log_probs)).mean()
+        if kl > delta:
+            break  # stop — importance weights are unreliable
+
+        loss = -(ratios * advantages).mean()
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+```
+
+The full training loop is still one block of code --- the KL check is a guardrail on the inner loop we already had. This idea leads directly to algorithms like TRPO and PPO --- but that's a story for another post.
 
 ---
 
 # Summary
 
-| Concept | What It Does |
-|:--------|:-------------|
-| **Log-derivative trick** | Converts gradient-of-expectation to expectation-of-gradient |
-| **REINFORCE** | Estimates policy gradient using sampled trajectories |
-| **Reward-to-go** | Only weights actions by *future* rewards (causality) |
-| **Baseline** | Centers rewards around average, reducing variance without bias |
-| **Surrogate objective** | Enables efficient implementation via autograd |
-| **Importance sampling** | Reuses old data for multiple gradient steps (off-policy) |
-| **KL constraint** | Prevents policy from drifting too far between updates |
-
-The core intuition: **do more of the good stuff, less of the bad stuff.** Policy gradients are noisy, high-variance, and sensitive to reward scale --- but with causality tricks, baselines, and large batches, they form the backbone of modern RL. They're how robots learn to walk and how LLMs get aligned via RLHF.
+The core intuition: **do more of the good stuff, less of the bad stuff.** Policy gradients are noisy, high-variance, and sensitive to reward scale --- but with causality tricks, baselines, and large batches, they work!
 
 ---
 

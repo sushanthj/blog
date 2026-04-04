@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="330" viewBox="0 0 750 330">
+  <rect width="750" height="330" fill="#1e1e2e"/>
+
+  <!-- Two distributions -->
+  <!-- Old policy (orange) - bell curve centered at -0.3 -->
+  <g transform="translate(375,130)">
+    <!-- Axes -->
+    <line x1="-300" y1="100" x2="300" y2="100" stroke="#585b70" stroke-width="1"/>
+    <text x="0" y="125" text-anchor="middle" fill="#7f849c" font-family="Arial, Helvetica, sans-serif" font-size="11">action</text>
+
+    <!-- Old policy curve (orange, centered left) -->
+    <path d="M-280,100 C-280,100 -200,95 -150,70 C-100,45 -60,5 -25,-20 C10,-45 20,-45 40,-30 C60,-15 100,50 130,75 C160,95 200,100 280,100" fill="none" stroke="#fab387" stroke-width="2.5"/>
+    <path d="M-280,100 C-280,100 -200,95 -150,70 C-100,45 -60,5 -25,-20 C10,-45 20,-45 40,-30 C60,-15 100,50 130,75 C160,95 200,100 280,100 L280,100 L-280,100 Z" fill="#fab387" fill-opacity="0.08"/>
+
+    <!-- New policy curve (blue, centered right) -->
+    <path d="M-280,100 C-280,100 -150,98 -80,85 C-10,72 40,30 80,-5 C120,-40 130,-40 150,-25 C170,-10 200,55 230,80 C260,96 280,100 280,100" fill="none" stroke="#89b4fa" stroke-width="2.5"/>
+    <path d="M-280,100 C-280,100 -150,98 -80,85 C-10,72 40,30 80,-5 C120,-40 130,-40 150,-25 C170,-10 200,55 230,80 C260,96 280,100 280,100 L280,100 L-280,100 Z" fill="#89b4fa" fill-opacity="0.08"/>
+
+    <!-- Labels -->
+    <text x="-140" y="-10" fill="#fab387" font-family="monospace" font-size="12">&#x3C0;&#x3B8; (old)</text>
+    <text x="140" y="-25" fill="#89b4fa" font-family="monospace" font-size="12">&#x3C0;&#x3B8;' (new)</text>
+
+    <!-- Sample dots from old policy -->
+    <circle cx="-120" cy="100" r="4" fill="#f9e2af"/>
+    <circle cx="-60" cy="100" r="4" fill="#f9e2af"/>
+    <circle cx="-30" cy="100" r="4" fill="#f9e2af"/>
+    <circle cx="0" cy="100" r="4" fill="#f9e2af"/>
+    <circle cx="20" cy="100" r="4" fill="#f9e2af"/>
+    <circle cx="50" cy="100" r="4" fill="#f9e2af"/>
+    <circle cx="130" cy="100" r="4" fill="#f9e2af"/>
+
+    <!-- Weight arrows -->
+    <!-- Far left: old >> new, ratio < 1, downweight -->
+    <line x1="-120" y1="95" x2="-120" y2="85" stroke="#f38ba8" stroke-width="2"/>
+    <text x="-120" y="80" text-anchor="middle" fill="#f38ba8" font-family="monospace" font-size="9">0.3x</text>
+
+    <line x1="-60" y1="95" x2="-60" y2="80" stroke="#f38ba8" stroke-width="2"/>
+    <text x="-60" y="75" text-anchor="middle" fill="#f38ba8" font-family="monospace" font-size="9">0.6x</text>
+
+    <line x1="-30" y1="95" x2="-30" y2="78" stroke="#a6adc8" stroke-width="2"/>
+    <text x="-30" y="73" text-anchor="middle" fill="#a6adc8" font-family="monospace" font-size="9">0.9x</text>
+
+    <line x1="0" y1="95" x2="0" y2="75" stroke="#a6adc8" stroke-width="2"/>
+    <text x="0" y="70" text-anchor="middle" fill="#a6adc8" font-family="monospace" font-size="9">1.1x</text>
+
+    <line x1="20" y1="95" x2="20" y2="70" stroke="#a6e3a1" stroke-width="2"/>
+    <text x="20" y="65" text-anchor="middle" fill="#a6e3a1" font-family="monospace" font-size="9">1.5x</text>
+
+    <line x1="50" y1="95" x2="50" y2="60" stroke="#a6e3a1" stroke-width="2"/>
+    <text x="50" y="55" text-anchor="middle" fill="#a6e3a1" font-family="monospace" font-size="9">2.3x</text>
+
+    <line x1="130" y1="95" x2="130" y2="55" stroke="#a6e3a1" stroke-width="2"/>
+    <text x="130" y="50" text-anchor="middle" fill="#a6e3a1" font-family="monospace" font-size="9">3.8x</text>
+  </g>
+
+  <!-- Bottom explanation -->
+  <rect x="50" y="265" width="650" height="50" rx="6" ry="6" fill="rgba(137,180,250,0.05)" stroke="#313244" stroke-width="1"/>
+
+  <text x="80" y="285" fill="#a6e3a1" font-family="monospace" font-size="11">ratio &gt; 1</text>
+  <text x="175" y="285" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="11">= new policy wants this action MORE &#x2192; upweight</text>
+
+  <text x="80" y="305" fill="#f38ba8" font-family="monospace" font-size="11">ratio &lt; 1</text>
+  <text x="175" y="305" fill="#a6adc8" font-family="Arial, Helvetica, sans-serif" font-size="11">= new policy wants this action LESS &#x2192; downweight</text>
+</svg>
