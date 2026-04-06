@@ -176,7 +176,7 @@ This is the core issue: **policy gradients are noisy and high-variance.** With l
 
 ---
 
-# Variance Reduction I: Reward-to-Go (Causality)
+## Variance Reduction I: Reward-to-Go (Causality)
 
 The vanilla gradient weights action $\mathbf{a}_t$ by the *total* trajectory reward --- including rewards from timesteps *before* $t$. But an action at $t=100$ can't possibly affect the reward at $t=10$. This violates causality and adds pure noise.
 
@@ -230,9 +230,9 @@ The training loop changes by one line:
 
 ---
 
-# Variance Reduction II: Baselines
+## Variance Reduction II: Baselines
 
-## The All-Positive Reward Problem
+### The All-Positive Reward Problem
 
 ![Baseline example](/images/knowledge_base/concepts/reinforcement_learning_theory/policy_gradients/svg5_baseline.svg)
 
@@ -242,7 +242,7 @@ $$r(\mathbf{s}, \mathbf{a}) = \begin{cases} 1.0 & \text{neatly folded} \\ 0.5 & 
 
 If all sampled trajectories get reward $\geq 0$, the gradient will increase the likelihood of **everything** --- even the "do nothing" trajectories. It will just push up the good actions slightly more than the bad ones. This is slow and wasteful.
 
-## Subtracting a Baseline
+### Subtracting a Baseline
 
 We subtract a baseline $b$ from the reward:
 
@@ -274,7 +274,9 @@ In our training loop, step 4 becomes:
 
 ---
 
-# Why `loss.mean()` : The 'Surrogate Objective'
+## The 'Surrogate Objective'
+
+These are just fancy words. The concept is straightforward!
 
 Look back at our training loop. We've been writing:
 
@@ -308,9 +310,7 @@ That's exactly the policy gradient. One `.backward()`, done. The loss *value* it
 
 ---
 
-# Off-Policy Policy Gradients
-
-## The Data Efficiency Problem
+# Off-Policy Policy Gradients - The Data Efficiency Problem
 
 Vanilla policy gradient is **on-policy**: after every gradient step, we change $\theta$, which invalidates all our collected data. We have to throw it away and collect fresh trajectories. This is extremely wasteful.
 
@@ -374,40 +374,6 @@ math.prod([0.95] * 50)   # 0.95^50 = 0.077 — this sample vanishes
 ```
 
 Our code above already avoids this --- it uses **per-timestep ratios**, not the trajectory product. Each ratio stays bounded near 1.0. This is an approximation (we're ignoring changes in the state distribution), but it's far more stable in practice.
-
-## Constraining the Policy Update
-
-Even with per-timestep ratios, if $\pi_{\theta'}$ drifts too far from $\pi_\theta$ over those $K$ inner steps, the importance weights become unreliable. A common safeguard: stop updating if the KL divergence between the new and old policies exceeds a threshold:
-
-$$\mathbb{E}_{\mathbf{s} \sim \pi_\theta} \left[ D_{KL}(\pi_{\theta'}(\cdot | \mathbf{s}) \| \pi_\theta(\cdot | \mathbf{s})) \right] \leq \delta$$
-
-This is just two extra lines in the inner loop:
-
-```python
-# ---- Off-policy with KL early stopping ----
-for epoch in range(num_epochs):
-    states, actions, rewards = collect_trajectories(env, policy, N, T)
-
-    rtg = compute_rewards_to_go(rewards)
-    advantages = (rtg - rtg.mean(dim=0)).detach()
-    old_log_probs = policy(states).log_prob(actions).detach()
-
-    for k in range(K):
-        new_log_probs = policy(states).log_prob(actions)
-        ratios = (new_log_probs - old_log_probs).exp()
-
-        # has the policy drifted too far from the data-collection policy?
-        kl = (old_log_probs.exp() * (old_log_probs - new_log_probs)).mean()
-        if kl > delta:
-            break  # stop — importance weights are unreliable
-
-        loss = -(ratios * advantages).mean()
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
-```
-
-The full training loop is still one block of code --- the KL check is a guardrail on the inner loop we already had. This idea leads directly to algorithms like TRPO and PPO --- but that's a story for another post.
 
 ---
 
