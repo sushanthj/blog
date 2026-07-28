@@ -1,0 +1,7 @@
+<svg viewBox="0 0 90 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Depth map on an even grid">
+  <rect x="10" y="7" width="70" height="16" fill="#3b6fb5" opacity="0.55"/>
+  <rect x="10" y="23" width="70" height="18" fill="#6c9eff" opacity="0.45"/>
+  <rect x="10" y="41" width="70" height="16" fill="#bfd4ff" opacity="0.35"/>
+  <rect x="9" y="6" width="72" height="52" fill="none" stroke="#7ddba0" stroke-width="1.4"/>
+  <path d="M27,6 L27,58 M45,6 L45,58 M63,6 L63,58 M9,23 L81,23 M9,41 L81,41" fill="none" stroke="#7ddba0" stroke-width="0.9" opacity="0.4"/>
+</svg>

@@ -1,0 +1,29 @@
+name: blog
+
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        RUBY_VERSION: ${RUBY_VERSION:-3.1}
+    # Run as the invoking host user so _site/ isn't created root-owned on the host.
+    # The Makefile exports these; the defaults cover a direct `docker compose` call.
+    user: "${DOCKER_UID:-1000}:${DOCKER_GID:-1000}"
+    environment:
+      # That user has no /etc/passwd entry, so give bundler a writable HOME.
+      HOME: /tmp
+    # Linux-only. On macOS/Windows, swap for:  ports: ["${PORT:-4100}:${PORT:-4100}"]
+    # and add --host 0.0.0.0 to the command below.
+    network_mode: host
+    volumes:
+      - ..:/app
+      # Named volume so installed gems survive rebuilds and aren't shadowed by the bind mount.
+      - bundle:/usr/local/bundle
+    command:
+      - sh
+      - -c
+      - bundle exec jekyll serve --config ${JEKYLL_CONFIG:-_config.yml} --port ${PORT:-4100} ${JEKYLL_FLAGS:-}
+
+volumes:
+  bundle:

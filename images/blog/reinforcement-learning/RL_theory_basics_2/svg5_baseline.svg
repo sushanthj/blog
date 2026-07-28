@@ -1,0 +1,55 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Without a baseline every non-negative reward pushes probabilities up; subtracting the average pushes below-average actions down" font-family="Muli, sans-serif">
+  <rect x="0" y="0" width="800" height="450" fill="#0f1117"/>
+  <text x="400" y="28" text-anchor="middle" fill="#e0e0e6" font-size="15" font-weight="600">The baseline — relative rather than absolute reward</text>
+  <text x="200" y="60" text-anchor="middle" fill="#e0e0e6" font-size="13" font-weight="600">Without baseline</text>
+  <text x="200" y="78" text-anchor="middle" fill="#8b8fa3" font-size="11">all rewards ≥ 0: every action is pushed up</text>
+  <line x1="60.0" y1="310.0" x2="60.0" y2="100.0" stroke="#8b8fa3" stroke-width="1.4"/>
+  <line x1="60.0" y1="310.0" x2="340.0" y2="310.0" stroke="#8b8fa3" stroke-width="1.4"/>
+  <rect x="78" y="306" width="48" height="4" fill="#565b6e" rx="2" opacity="0.4"/>
+  <text x="102" y="298" text-anchor="middle" fill="#565b6e" font-size="13">↑</text>
+  <text x="102" y="328" text-anchor="middle" fill="#8b8fa3" font-size="9.5">no-op</text>
+  <text x="102" y="341" text-anchor="middle" fill="#8b8fa3" font-size="9.5">r = 0</text>
+  <rect x="143" y="245.0" width="48" height="65.0" fill="#7ddba0" rx="2" opacity="0.5"/>
+  <text x="167" y="237.0" text-anchor="middle" fill="#7ddba0" font-size="13">↑</text>
+  <text x="167" y="328" text-anchor="middle" fill="#8b8fa3" font-size="9.5">sleeves</text>
+  <text x="167" y="341" text-anchor="middle" fill="#8b8fa3" font-size="9.5">r = 0.5</text>
+  <rect x="208" y="306" width="48" height="4" fill="#565b6e" rx="2" opacity="0.4"/>
+  <text x="232" y="298" text-anchor="middle" fill="#565b6e" font-size="13">↑</text>
+  <text x="232" y="328" text-anchor="middle" fill="#8b8fa3" font-size="9.5">flatten</text>
+  <text x="232" y="341" text-anchor="middle" fill="#8b8fa3" font-size="9.5">r = 0</text>
+  <rect x="273" y="180.0" width="48" height="130.0" fill="#7ddba0" rx="2" opacity="0.5"/>
+  <text x="297" y="172.0" text-anchor="middle" fill="#7ddba0" font-size="13">↑</text>
+  <text x="297" y="328" text-anchor="middle" fill="#8b8fa3" font-size="9.5">fold</text>
+  <text x="297" y="341" text-anchor="middle" fill="#8b8fa3" font-size="9.5">r = 1</text>
+  <text x="28" y="205" text-anchor="middle" fill="#8b8fa3" font-size="10" transform="rotate(-90 28 205)">Δ probability</text>
+  <text x="200" y="368" text-anchor="middle" fill="#8b8fa3" font-size="11">every trajectory is reinforced,</text>
+  <text x="200" y="383" text-anchor="middle" fill="#f38ba8" font-size="11">including the no-op ones</text>
+  <line x1="400.0" y1="55.0" x2="400.0" y2="420.0" stroke="#565b6e" stroke-width="1" stroke-dasharray="6 4"/>
+  <text x="600" y="60" text-anchor="middle" fill="#e0e0e6" font-size="13" font-weight="600">With baseline  (b = average reward)</text>
+  <text x="600" y="78" text-anchor="middle" fill="#8b8fa3" font-size="11">better than average up, worse than average down</text>
+  <line x1="460.0" y1="310.0" x2="460.0" y2="100.0" stroke="#8b8fa3" stroke-width="1.4"/>
+  <line x1="460.0" y1="310.0" x2="740.0" y2="310.0" stroke="#8b8fa3" stroke-width="1.4"/>
+  <line x1="460.0" y1="220.0" x2="740.0" y2="220.0" stroke="#e6c07b" stroke-width="1.4" stroke-dasharray="6 3"/>
+  <text x="746" y="224" text-anchor="start" fill="#e6c07b" font-size="10">b = 0.375</text>
+  <rect x="478" y="220" width="48" height="48.0" fill="#f38ba8" rx="2" opacity="0.45"/>
+  <text x="502" y="283.0" text-anchor="middle" fill="#f38ba8" font-size="13">↓</text>
+  <text x="502" y="328" text-anchor="middle" fill="#8b8fa3" font-size="9.5">no-op</text>
+  <text x="502" y="341" text-anchor="middle" fill="#8b8fa3" font-size="9.5">r − b &lt; 0</text>
+  <rect x="543" y="204.0" width="48" height="16.0" fill="#7ddba0" rx="2" opacity="0.45"/>
+  <text x="567" y="197.0" text-anchor="middle" fill="#7ddba0" font-size="13">↑</text>
+  <text x="567" y="328" text-anchor="middle" fill="#8b8fa3" font-size="9.5">sleeves</text>
+  <text x="567" y="341" text-anchor="middle" fill="#8b8fa3" font-size="9.5">r − b &gt; 0</text>
+  <rect x="608" y="220" width="48" height="48.0" fill="#f38ba8" rx="2" opacity="0.45"/>
+  <text x="632" y="283.0" text-anchor="middle" fill="#f38ba8" font-size="13">↓</text>
+  <text x="632" y="328" text-anchor="middle" fill="#8b8fa3" font-size="9.5">flatten</text>
+  <text x="632" y="341" text-anchor="middle" fill="#8b8fa3" font-size="9.5">r − b &lt; 0</text>
+  <rect x="673" y="140.0" width="48" height="80.0" fill="#7ddba0" rx="2" opacity="0.45"/>
+  <text x="697" y="133.0" text-anchor="middle" fill="#7ddba0" font-size="13">↑</text>
+  <text x="697" y="328" text-anchor="middle" fill="#8b8fa3" font-size="9.5">fold</text>
+  <text x="697" y="341" text-anchor="middle" fill="#8b8fa3" font-size="9.5">r − b &gt; 0</text>
+  <text x="428" y="205" text-anchor="middle" fill="#8b8fa3" font-size="10" transform="rotate(-90 428 205)">Δ probability</text>
+  <text x="600" y="368" text-anchor="middle" fill="#8b8fa3" font-size="11">below-average actions are now</text>
+  <text x="600" y="383" text-anchor="middle" fill="#7ddba0" font-size="11">actively suppressed</text>
+  <text x="400" y="418" text-anchor="middle" fill="#8b8fa3" font-size="12">Subtracting a baseline reduces variance without introducing bias:</text>
+  <text x="400" y="436" text-anchor="middle" fill="#565b6e" font-size="11">E[∇ log p(τ) · b] = 0 — the baseline vanishes in expectation</text>
+</svg>

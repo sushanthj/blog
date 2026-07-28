@@ -1,0 +1,56 @@
+<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Imitation learning weights every action equally; REINFORCE scales the update by reward and reverses it for negative returns" font-family="Muli, sans-serif">
+  <rect x="0" y="0" width="800" height="380" fill="#0f1117"/>
+  <text x="200" y="30" text-anchor="middle" fill="#e0e0e6" font-size="14" font-weight="600">Imitation learning</text>
+  <text x="200" y="50" text-anchor="middle" fill="#8b8fa3" font-size="11.5">every expert action, equal weight</text>
+  <rect x="55" y="72" width="130" height="32" fill="#1a1d27" rx="6" stroke="#2a2d3a" stroke-width="1.5"/>
+  <text x="120" y="93" text-anchor="middle" fill="#8b8fa3" font-size="11">a₁ (expert)</text>
+  <line x1="185.0" y1="88.0" x2="303.0" y2="88.0" stroke="#7ddba0" stroke-width="2"/>
+  <polygon points="301.0,84.4 310.0,88.0 301.0,91.6" fill="#7ddba0"/>
+  <rect x="55" y="118" width="130" height="32" fill="#1a1d27" rx="6" stroke="#2a2d3a" stroke-width="1.5"/>
+  <text x="120" y="139" text-anchor="middle" fill="#8b8fa3" font-size="11">a₂ (expert)</text>
+  <line x1="185.0" y1="134.0" x2="303.0" y2="134.0" stroke="#7ddba0" stroke-width="2"/>
+  <polygon points="301.0,130.4 310.0,134.0 301.0,137.6" fill="#7ddba0"/>
+  <rect x="55" y="164" width="130" height="32" fill="#1a1d27" rx="6" stroke="#2a2d3a" stroke-width="1.5"/>
+  <text x="120" y="185" text-anchor="middle" fill="#8b8fa3" font-size="11">a₃ (expert)</text>
+  <line x1="185.0" y1="180.0" x2="303.0" y2="180.0" stroke="#7ddba0" stroke-width="2"/>
+  <polygon points="301.0,176.4 310.0,180.0 301.0,183.6" fill="#7ddba0"/>
+  <rect x="55" y="210" width="130" height="32" fill="#1a1d27" rx="6" stroke="#2a2d3a" stroke-width="1.5"/>
+  <text x="120" y="231" text-anchor="middle" fill="#8b8fa3" font-size="11">a₄ (expert)</text>
+  <line x1="185.0" y1="226.0" x2="303.0" y2="226.0" stroke="#7ddba0" stroke-width="2"/>
+  <polygon points="301.0,222.4 310.0,226.0 301.0,229.6" fill="#7ddba0"/>
+  <rect x="55" y="256" width="130" height="32" fill="#1a1d27" rx="6" stroke="#2a2d3a" stroke-width="1.5"/>
+  <text x="120" y="277" text-anchor="middle" fill="#8b8fa3" font-size="11">a₅ (expert)</text>
+  <line x1="185.0" y1="272.0" x2="303.0" y2="272.0" stroke="#7ddba0" stroke-width="2"/>
+  <polygon points="301.0,268.4 310.0,272.0 301.0,275.6" fill="#7ddba0"/>
+  <text x="325" y="185" text-anchor="start" fill="#8b8fa3" font-size="10.5">equal</text>
+  <text x="325" y="198" text-anchor="start" fill="#8b8fa3" font-size="10.5">weight</text>
+  <text x="200" y="320" text-anchor="middle" fill="#e0e0e6" font-size="12">∇ log π(a | s)</text>
+  <text x="200" y="340" text-anchor="middle" fill="#8b8fa3" font-size="10.5">all update vectors have the same length</text>
+  <line x1="400.0" y1="20.0" x2="400.0" y2="360.0" stroke="#565b6e" stroke-width="1" stroke-dasharray="6 4"/>
+  <text x="600" y="30" text-anchor="middle" fill="#e0e0e6" font-size="14" font-weight="600">REINFORCE</text>
+  <text x="600" y="50" text-anchor="middle" fill="#8b8fa3" font-size="11.5">weight each trajectory by its return</text>
+  <rect x="435" y="72" width="130" height="32" fill="#1a1d27" rx="6" stroke="#2a2d3a" stroke-width="1.5"/>
+  <text x="500" y="93" text-anchor="middle" fill="#e0e0e6" font-size="11">τ₁   R = +8.2</text>
+  <line x1="565.0" y1="88.0" x2="723.0" y2="88.0" stroke="#7ddba0" stroke-width="3.5"/>
+  <polygon points="721.0,84.4 730.0,88.0 721.0,91.6" fill="#7ddba0"/>
+  <rect x="435" y="118" width="130" height="32" fill="#1a1d27" rx="6" stroke="#2a2d3a" stroke-width="1.5"/>
+  <text x="500" y="139" text-anchor="middle" fill="#e0e0e6" font-size="11">τ₂   R = +3.1</text>
+  <line x1="565.0" y1="134.0" x2="653.0" y2="134.0" stroke="#7ddba0" stroke-width="2.5"/>
+  <polygon points="651.0,130.4 660.0,134.0 651.0,137.6" fill="#7ddba0"/>
+  <rect x="435" y="164" width="130" height="32" fill="#1a1d27" rx="6" stroke="#2a2d3a" stroke-width="1.5"/>
+  <text x="500" y="185" text-anchor="middle" fill="#e0e0e6" font-size="11">τ₃   R = +0.5</text>
+  <line x1="565.0" y1="180.0" x2="598.0" y2="180.0" stroke="#7ddba0" stroke-width="1.6"/>
+  <polygon points="596.0,176.4 605.0,180.0 596.0,183.6" fill="#7ddba0"/>
+  <rect x="435" y="210" width="130" height="32" fill="#1a1d27" rx="6" stroke="#2a2d3a" stroke-width="1.5"/>
+  <text x="500" y="231" text-anchor="middle" fill="#e0e0e6" font-size="11">τ₄   R = −2.4</text>
+  <line x1="565.0" y1="226.0" x2="653.0" y2="226.0" stroke="#f38ba8" stroke-width="2.5"/>
+  <polygon points="651.0,222.4 660.0,226.0 651.0,229.6" fill="#f38ba8"/>
+  <text x="670" y="230" text-anchor="start" fill="#8b8fa3" font-size="9" font-style="italic">reversed</text>
+  <rect x="435" y="256" width="130" height="32" fill="#1a1d27" rx="6" stroke="#2a2d3a" stroke-width="1.5"/>
+  <text x="500" y="277" text-anchor="middle" fill="#e0e0e6" font-size="11">τ₅   R = −6.7</text>
+  <line x1="565.0" y1="272.0" x2="713.0" y2="272.0" stroke="#f38ba8" stroke-width="3.5"/>
+  <polygon points="711.0,268.4 720.0,272.0 711.0,275.6" fill="#f38ba8"/>
+  <text x="730" y="276" text-anchor="start" fill="#8b8fa3" font-size="9" font-style="italic">reversed</text>
+  <text x="600" y="320" text-anchor="middle" fill="#e0e0e6" font-size="12">∇ log π(a | s) · R(τ)</text>
+  <text x="600" y="340" text-anchor="middle" fill="#8b8fa3" font-size="10.5">update length proportional to |R|; sign follows the return</text>
+</svg>

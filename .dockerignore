@@ -1,0 +1,8 @@
+_site/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+.git/
+.github/
+.claude/
+node_modules/

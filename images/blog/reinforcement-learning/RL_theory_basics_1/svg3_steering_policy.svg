@@ -1,0 +1,57 @@
+<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A continuous policy: car state in, steering angle out" font-family="Muli, sans-serif">
+  <rect x="0" y="0" width="800" height="350" fill="#0f1117"/>
+  <rect x="20" y="105" width="170" height="90" fill="#1a1d27" rx="8" stroke="#2a2d3a" stroke-width="1.5"/>
+  <text x="105" y="140" text-anchor="middle" fill="#e0e0e6" font-size="14" font-weight="600">Car state</text>
+  <text x="105" y="168" text-anchor="middle" fill="#8b8fa3" font-size="11">(speed, position, heading)</text>
+  <line x1="280.0" y1="90.0" x2="400.0" y2="50.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="90.0" x2="400.0" y2="100.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="90.0" x2="400.0" y2="150.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="90.0" x2="400.0" y2="200.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="90.0" x2="400.0" y2="250.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="150.0" x2="400.0" y2="50.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="150.0" x2="400.0" y2="100.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="150.0" x2="400.0" y2="150.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="150.0" x2="400.0" y2="200.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="150.0" x2="400.0" y2="250.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="210.0" x2="400.0" y2="50.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="210.0" x2="400.0" y2="100.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="210.0" x2="400.0" y2="150.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="210.0" x2="400.0" y2="200.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="210.0" x2="400.0" y2="250.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="50.0" x2="520.0" y2="120.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="50.0" x2="520.0" y2="180.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="100.0" x2="520.0" y2="120.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="100.0" x2="520.0" y2="180.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="150.0" x2="520.0" y2="120.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="150.0" x2="520.0" y2="180.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="200.0" x2="520.0" y2="120.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="200.0" x2="520.0" y2="180.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="250.0" x2="520.0" y2="120.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="250.0" x2="520.0" y2="180.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <circle cx="280.0" cy="90.0" r="14" fill="#141721" stroke="#6c9eff" stroke-width="1.5"/>
+  <circle cx="280.0" cy="150.0" r="14" fill="#141721" stroke="#6c9eff" stroke-width="1.5"/>
+  <circle cx="280.0" cy="210.0" r="14" fill="#141721" stroke="#6c9eff" stroke-width="1.5"/>
+  <circle cx="400.0" cy="50.0" r="14" fill="#141721" stroke="#8b8fa3" stroke-width="1.5"/>
+  <circle cx="400.0" cy="100.0" r="14" fill="#141721" stroke="#8b8fa3" stroke-width="1.5"/>
+  <circle cx="400.0" cy="150.0" r="14" fill="#141721" stroke="#8b8fa3" stroke-width="1.5"/>
+  <circle cx="400.0" cy="200.0" r="14" fill="#141721" stroke="#8b8fa3" stroke-width="1.5"/>
+  <circle cx="400.0" cy="250.0" r="14" fill="#141721" stroke="#8b8fa3" stroke-width="1.5"/>
+  <circle cx="520.0" cy="120.0" r="14" fill="#141721" stroke="#7ddba0" stroke-width="1.5"/>
+  <circle cx="520.0" cy="180.0" r="14" fill="#141721" stroke="#7ddba0" stroke-width="1.5"/>
+  <text x="400" y="298" text-anchor="middle" fill="#e0e0e6" font-size="14" font-weight="600">Policy π<tspan font-size="10" dy="3">θ</tspan></text>
+  <line x1="195.0" y1="150.0" x2="257.0" y2="150.0" stroke="#8b8fa3" stroke-width="1.4"/>
+  <polygon points="255.0,146.4 264.0,150.0 255.0,153.6" fill="#8b8fa3"/>
+  <line x1="536.0" y1="150.0" x2="589.0" y2="150.0" stroke="#8b8fa3" stroke-width="1.4"/>
+  <polygon points="587.0,146.4 596.0,150.0 587.0,153.6" fill="#8b8fa3"/>
+  <path d="M 600,220 A 80,80 0 0 1 760,220" fill="none" stroke="#8b8fa3" stroke-width="2"/>
+  <line x1="629.1" y1="169.1" x2="619.2" y2="159.2" stroke="#8b8fa3" stroke-width="1.5"/>
+  <text x="607" y="150" text-anchor="middle" fill="#8b8fa3" font-size="11">−45°</text>
+  <line x1="680.0" y1="148.0" x2="680.0" y2="134.0" stroke="#8b8fa3" stroke-width="1.5"/>
+  <text x="680" y="124" text-anchor="middle" fill="#8b8fa3" font-size="11">0°</text>
+  <line x1="730.9" y1="169.1" x2="740.8" y2="159.2" stroke="#8b8fa3" stroke-width="1.5"/>
+  <text x="753" y="150" text-anchor="middle" fill="#8b8fa3" font-size="11">+45°</text>
+  <circle cx="680.0" cy="220.0" r="3.5" fill="#8b8fa3"/>
+  <line x1="680.0" y1="220.0" x2="709.6" y2="156.6" stroke="#6c9eff" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="724" y="154" text-anchor="middle" fill="#e0e0e6" font-size="16" font-style="italic">θ</text>
+  <text x="680" y="258" text-anchor="middle" fill="#8b8fa3" font-size="12">Steering angle</text>
+</svg>

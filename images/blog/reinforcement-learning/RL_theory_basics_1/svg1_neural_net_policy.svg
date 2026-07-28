@@ -1,0 +1,48 @@
+<svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A neural network policy: robot state in, action out" font-family="Muli, sans-serif">
+  <rect x="0" y="0" width="800" height="350" fill="#0f1117"/>
+  <rect x="30" y="115" width="145" height="80" fill="#1a1d27" rx="8" stroke="#2a2d3a" stroke-width="1.5"/>
+  <text x="102" y="150" text-anchor="middle" fill="#e0e0e6" font-size="14" font-weight="600">Robot state</text>
+  <text x="102" y="175" text-anchor="middle" fill="#8b8fa3" font-size="12">(x, y, z)</text>
+  <line x1="280.0" y1="95.0" x2="400.0" y2="55.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="95.0" x2="400.0" y2="105.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="95.0" x2="400.0" y2="155.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="95.0" x2="400.0" y2="205.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="95.0" x2="400.0" y2="255.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="155.0" x2="400.0" y2="55.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="155.0" x2="400.0" y2="105.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="155.0" x2="400.0" y2="155.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="155.0" x2="400.0" y2="205.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="155.0" x2="400.0" y2="255.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="215.0" x2="400.0" y2="55.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="215.0" x2="400.0" y2="105.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="215.0" x2="400.0" y2="155.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="215.0" x2="400.0" y2="205.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="280.0" y1="215.0" x2="400.0" y2="255.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="55.0" x2="520.0" y2="125.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="55.0" x2="520.0" y2="185.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="105.0" x2="520.0" y2="125.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="105.0" x2="520.0" y2="185.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="155.0" x2="520.0" y2="125.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="155.0" x2="520.0" y2="185.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="205.0" x2="520.0" y2="125.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="205.0" x2="520.0" y2="185.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="255.0" x2="520.0" y2="125.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <line x1="400.0" y1="255.0" x2="520.0" y2="185.0" stroke="#565b6e" stroke-width="0.7" opacity="0.3"/>
+  <circle cx="280.0" cy="95.0" r="14" fill="#141721" stroke="#6c9eff" stroke-width="1.5"/>
+  <circle cx="280.0" cy="155.0" r="14" fill="#141721" stroke="#6c9eff" stroke-width="1.5"/>
+  <circle cx="280.0" cy="215.0" r="14" fill="#141721" stroke="#6c9eff" stroke-width="1.5"/>
+  <circle cx="400.0" cy="55.0" r="14" fill="#141721" stroke="#8b8fa3" stroke-width="1.5"/>
+  <circle cx="400.0" cy="105.0" r="14" fill="#141721" stroke="#8b8fa3" stroke-width="1.5"/>
+  <circle cx="400.0" cy="155.0" r="14" fill="#141721" stroke="#8b8fa3" stroke-width="1.5"/>
+  <circle cx="400.0" cy="205.0" r="14" fill="#141721" stroke="#8b8fa3" stroke-width="1.5"/>
+  <circle cx="400.0" cy="255.0" r="14" fill="#141721" stroke="#8b8fa3" stroke-width="1.5"/>
+  <circle cx="520.0" cy="125.0" r="14" fill="#141721" stroke="#7ddba0" stroke-width="1.5"/>
+  <circle cx="520.0" cy="185.0" r="14" fill="#141721" stroke="#7ddba0" stroke-width="1.5"/>
+  <text x="400" y="308" text-anchor="middle" fill="#e0e0e6" font-size="14" font-weight="600">Policy π<tspan font-size="10" dy="3">θ</tspan></text>
+  <line x1="180.0" y1="155.0" x2="257.0" y2="155.0" stroke="#8b8fa3" stroke-width="1.4"/>
+  <polygon points="255.0,151.4 264.0,155.0 255.0,158.6" fill="#8b8fa3"/>
+  <line x1="536.0" y1="155.0" x2="629.0" y2="155.0" stroke="#8b8fa3" stroke-width="1.4"/>
+  <polygon points="627.0,151.4 636.0,155.0 627.0,158.6" fill="#8b8fa3"/>
+  <rect x="638" y="120" width="130" height="70" fill="#1a1d27" rx="8" stroke="#2a2d3a" stroke-width="1.5"/>
+  <text x="703" y="160" text-anchor="middle" fill="#e0e0e6" font-size="14" font-weight="600">Action</text>
+</svg>

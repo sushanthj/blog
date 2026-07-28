@@ -1,0 +1,40 @@
+---
+layout: default
+dark_theme: true
+---
+
+<style>
+  /* Mobile: shrink display math to fit screen */
+  @media (max-width: 768px) {
+    mjx-container[jax="CHTML"][display="true"] {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+      font-size: 80% !important;
+    }
+    mjx-container[jax="CHTML"]:not([display="true"]) {
+      font-size: 85% !important;
+    }
+  }
+</style>
+
+<div class="kb">
+
+	<section class="kb-post-hero">
+		<div class="kb-wrap">
+			<a class="kb-back" href="/blog/">&larr; Back to Knowledge Base</a>
+			<h1 class="kb-post-hero__title">{{ page.title }}</h1>
+			<p class="kb-post-hero__subtitle">{{ page.subtitle }}</p>
+			<div class="kb-post-hero__meta">
+				<span>{{ page.date | date: "%b %d, %Y" }}</span>
+			</div>
+		</div>
+	</section>
+
+	<section class="kb-post-content">
+		<div class="kb-wrap">
+			{{ page.content }}
+		</div>
+	</section>
+
+</div>

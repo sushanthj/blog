@@ -1,0 +1,41 @@
+---
+layout: default
+dark_theme: true
+---
+
+<div class="kb">
+
+	<section class="kb-hero">
+		<div class="kb-wrap">
+			<h1 class="kb-hero__title">{{ page.title }}</h1>
+			<p class="kb-hero__subtitle">{{ page.subtitle }}</p>
+		</div>
+	</section>
+
+	{% for section in page.sections %}
+	{% assign section_posts = site.posts | where_exp: "post", "post.categories contains section.category" %}
+	{% if section_posts.size > 0 %}
+	<section class="kb-section">
+		<div class="kb-wrap">
+			<h2 class="kb-section__heading">{{ section.title }}</h2>
+			<div class="kb-grid">
+				{% for post in section_posts %}
+				<a class="kb-card" href="{{ post.url | relative_url }}">
+					<div class="kb-card__image">
+						<img src="{{ post.featured_image | relative_url }}" alt="{{ post.title }}">
+					</div>
+					<div class="kb-card__body">
+						<span class="kb-card__category">{{ section.title }}</span>
+						<h3 class="kb-card__title">{{ post.title }}</h3>
+						<p class="kb-card__subtitle">{{ post.subtitle }}</p>
+						<span class="kb-card__date">{{ post.date | date: "%b %d, %Y" }}</span>
+					</div>
+				</a>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+	{% endif %}
+	{% endfor %}
+
+</div>

@@ -1,0 +1,11 @@
+<svg viewBox="0 0 90 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Warped fisheye grid">
+  <g fill="none" stroke="#f38ba8" stroke-width="1.4" opacity="0.95">
+    <path d="M15,8 Q45,2 75,8 Q83,32 75,56 Q45,62 15,56 Q7,32 15,8 Z"/>
+    <path d="M30,5.5 Q26,32 30,58.5"/>
+    <path d="M45,4 L45,60"/>
+    <path d="M60,5.5 Q64,32 60,58.5"/>
+    <path d="M11,20 Q45,15 79,20"/>
+    <path d="M9,32 L81,32"/>
+    <path d="M11,44 Q45,49 79,44"/>
+  </g>
+</svg>
