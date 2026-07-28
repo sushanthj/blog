@@ -47,7 +47,9 @@ are still copied to the site.
 - **Ruby version**: pinned once in `.ruby-version`; read by CI and passed to the `Dockerfile` as the `RUBY_VERSION` build arg
 - **Docker**: `docker/` holds the `Dockerfile` and compose file; build context is the repo root. `network_mode: host` is Linux-only — see the comment in the compose file for the macOS/Windows form
 - **Root files are load-bearing**: `CNAME`, `_config.yml`, `index.md`, `404.html`, `Makefile`, `README.md`, `Gemfile*`, `.ruby-version` must stay at the root — don't tidy them into folders
-- **CI**: `.github/workflows/pages.yml` builds with `jekyll build` on every push (no Docker involved)
+- **CI/deploy**: `.github/workflows/pages.yml` builds with `jekyll build` on every push (no
+  Docker involved) — staging config on branches, production config on `main`, which then
+  deploys to GitHub Pages via `actions/deploy-pages` (Pages source must be "GitHub Actions")
 - **Layouts**: `_layouts/` (default, page, post) with partials in `_includes/`
 - **Diagrams**: flowcharts in posts are authored as ` ```mermaid ` fences, rendered
   client-side by `_includes/mermaid.html` (kb-dark themed) and re-rendered after AJAX
