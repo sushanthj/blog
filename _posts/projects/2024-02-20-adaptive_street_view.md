@@ -10,6 +10,8 @@ We explore the application of Neural Radiance Fields to generate novel street vi
 
 [🐙 Github Link](https://github.com/sushanthj/adaptive-street-view)
 
+![](/images/projects/adaptive_street_view/architecture.png)
+
 | **Left View**   |  **Front View**                         |**Right View**                         |
 |:------------------------|:------------------------------------|:------------------------------------|
 | <video width="100%" autoplay loop muted playsinline><source src="/images/projects/adaptive_street_view/combined_seq_left.mp4" type="video/mp4"></video> | <video width="100%" autoplay loop muted playsinline><source src="/images/projects/adaptive_street_view/combined_seq_front.mp4" type="video/mp4"></video> | <video width="100%" autoplay loop muted playsinline><source src="/images/projects/adaptive_street_view/combined_seq_right.mp4" type="video/mp4"></video> |
