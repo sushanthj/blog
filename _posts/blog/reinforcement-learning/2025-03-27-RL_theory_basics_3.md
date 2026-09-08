@@ -1,7 +1,7 @@
 ---
 title: Actor-Critic Methods
 subtitle: Learning what's good, then doing more of it
-featured_image: /images/blog/reinforcement-learning/RL_theory_basics_3/cover_actor_critic.png
+featured_image: /images/blog/reinforcement-learning/RL_theory_basics_3/thumbnail.gif
 categories: blog-reinforcement-learning
 permalink: /blog/reinforcement-learning/basics_3/
 ---

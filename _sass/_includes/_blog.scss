@@ -372,6 +372,12 @@ $kb-accent-soft: rgba(108, 158, 255, 0.12);
 		margin: 2em 0;
 		overflow-x: auto;
 
+		// Mermaid sizes each SVG itself with an inline `max-width: <natural>px; width: 100%`
+		// (useMaxWidth), which is exactly right: natural size, shrunk only if wider than the
+		// column. Do not override that with !important: it stretches narrow diagrams to the
+		// column and their labels balloon. Diagrams are authored narrow enough to fit
+		// (vertical layouts, 14px labels; see CLAUDE.md).
+
 		// hide raw diagram text until Mermaid replaces it with an SVG
 		&:not([data-processed]) {
 			visibility: hidden;

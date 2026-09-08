@@ -1,7 +1,7 @@
 ---
 title: VAEs to Latent Diffusion
 subtitle: A different ELBO with the same Jensen trick, then merging it with the VAE
-featured_image: /images/blog/generative-models/VAEs_to_Latent_Diffusion/cover_vae_vs_diffusion.png
+featured_image: /images/blog/generative-models/VAEs_to_Latent_Diffusion/thumbnail.gif
 categories: blog-generative-models
 permalink: /blog/generative-models/vaes_to_latent_diffusion/
 ---

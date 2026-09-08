@@ -1,7 +1,7 @@
 ---
 title: Policy Gradients
 subtitle: Learning by trial and error
-featured_image: /images/blog/reinforcement-learning/RL_theory_basics_2/cover_il_vs_pg.png
+featured_image: /images/blog/reinforcement-learning/RL_theory_basics_2/thumbnail.gif
 categories: blog-reinforcement-learning
 permalink: /blog/reinforcement-learning/basics_2/
 ---

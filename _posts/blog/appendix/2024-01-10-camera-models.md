@@ -1,7 +1,7 @@
 ---
 title: Camera Models
 subtitle: Forward and inverse projection, distortion models
-featured_image: /images/blog/appendix/camera-models/projection.png
+featured_image: /images/blog/appendix/camera-models/thumbnail.gif
 categories: blog-appendix
 permalink: /blog/computer-vision/camera-model/
 ---

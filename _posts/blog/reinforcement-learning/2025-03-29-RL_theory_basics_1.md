@@ -1,7 +1,7 @@
 ---
 title: Crafting Neural Nets for RL
 subtitle: RL Intro and Imitation Learning
-featured_image: /images/blog/reinforcement-learning/RL_theory_basics_1/svg1_neural_net_policy.svg
+featured_image: /images/blog/reinforcement-learning/RL_theory_basics_1/thumbnail.gif
 categories: blog-reinforcement-learning
 permalink: /blog/reinforcement-learning/basics_1/
 ---

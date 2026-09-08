@@ -1,7 +1,7 @@
 ---
 title: The Reparameterization Trick
 subtitle: Putting a stochastic latent variable inside a neural network
-featured_image: /images/blog/generative-models/Reparameterization_Trick/cover_ae_vs_vae.png
+featured_image: /images/blog/generative-models/Reparameterization_Trick/thumbnail.gif
 categories: blog-generative-models
 permalink: /blog/generative-models/reparameterization_trick/
 ---
